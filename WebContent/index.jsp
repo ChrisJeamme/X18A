@@ -3,15 +3,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>RazDocs</title>
 </head>
 <body>
-	<h1>Bienvenue sur RazDocs</h1>
-	<hr />
-	<div class="block">
-		<p>Salut</p>
-	</div>
+	<!-- Header contient la barre du haut avec titre, bouttons connexion etc. -->
+	<header>
+		<h1>RazDocs</h1>
+		<div id="bloc_connexion">
+			<a class="boutton" href="#">Connexion</a>
+			<a class="boutton" href="#">Inscription</a>
+		</div>
+	</header>
+	
+	 <!-- Nav contient les liens vers toutes les pages (Chat, board etc.) -->
+	<nav>
+		<p>Ici les boutons de navigations</p>
+	</nav>
+	
+	<!-- Section est la grosse partie centrale de la page qui contient tout contenu -->
+	<section> 
+		
+		Corps sexy de la page
+		
+		<!-- Article est un bloc qui peut servir à différentes choses -->
+		<article> 
+			<p>Un article</p>
+			<a class="boutton" href="#">
+			Un boutton
+			</a>
+		</article>
+		
+		Bla bla bla mes boules
+
+	</section>
+	
+	
+	
+	<!-- Footer, le pied de page -->
+	<footer> 
+	
+	</footer>
 </body>
 </html>
