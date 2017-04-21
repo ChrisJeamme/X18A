@@ -15,14 +15,16 @@ public class Serveur
 		String ligne = "";
 		String retourne;
 		boolean fermeture = false;
+		boolean connexion = false;
 		
 		while(!fermeture)	//Boucles des connexions
 		{
 			//Attente de connexion
 			Socket s = server.accept();
+			connexion = true;
 			System.out.println("(Server) Nouvelle connexion");
 			
-			while(true) //Boucle sur cette connexion
+			while(connexion) //Boucle sur cette connexion
 			{
 				try
 				{
@@ -30,7 +32,8 @@ public class Serveur
 					PrintWriter out = new PrintWriter(s.getOutputStream());
 					ligne = in.readLine();
 				
-					while(ligne != null && !ligne.equals("fin")) //On lit toutes les lignes
+					
+					while(ligne != null && !ligne.equals("finServeur") && !ligne.equals("finConnexion")) //On lit toutes les lignes
 					{
 						retourne = "Bien reçu";
 						System.out.print("(Server) Reçu: "+ligne);
@@ -42,10 +45,15 @@ public class Serveur
 					
 					if(ligne != null)
 					{
-						if(ligne.equals("fin")) //Si on a reçu la commande pour fermer la connexion
+						if(ligne.equals("finConnexion")) //Si la connexion a été fermé
 						{
-							System.out.println("(Server) Fermeture de la connexion");
-							out.println("Fermeture de la connexion");
+							System.out.println("Fermeture de la socket");
+							s.close();
+							connexion = false;
+						}
+						if(ligne.equals("finServeur")) //Si on a reçu la commande pour fermer le serveur
+						{
+							out.println("Fermeture du serveur");
 							out.flush();
 							s.close();
 							fermeture = true;
@@ -58,6 +66,8 @@ public class Serveur
 				}
 			}
 		}
+		System.out.println("(Server) Fermeture du serveur");
 		server.close();
+		
 	}
 }

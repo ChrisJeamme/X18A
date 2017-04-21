@@ -9,6 +9,7 @@ public class testConnexion
     	Client client = new Client(18458);
     	client.etablirConnexion();
     	client.envoyerMessage("test");
-    	client.fermetureConnexion();
+    	//client.fermetureConnexion();
+    	client.fermetureServeur();
     }
 }

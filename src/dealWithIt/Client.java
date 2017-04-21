@@ -47,6 +47,7 @@ public class Client
     {
     	try
 		{
+    		envoyerMessage("finConnexion");
 			socket.close();
 			System.out.println("(Client) Connexion fermée");
 		}
@@ -63,8 +64,8 @@ public class Client
     	{
     		try
             {
-                System.out.print("(Client) Envoi : " + message);
-                writer.print(message);
+                System.out.println("(Client) Envoi : " + message);
+                writer.print(message+"\n");
                 writer.flush();
                 String reponse;
                 while((reponse = reader.readLine()) != null)
@@ -86,5 +87,10 @@ public class Client
     			e.printStackTrace();
     		}
     	}
+    }
+    
+    public void fermetureServeur()
+    {
+    	envoyerMessage("finServeur");
     }
 }
