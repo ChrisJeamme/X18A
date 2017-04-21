@@ -1,4 +1,4 @@
-package RazDocs;
+package dealWithIt;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
