@@ -1,4 +1,4 @@
-package xml;
+package chat;
 
 public class Message
 {

@@ -1,5 +1,7 @@
 package xml;
 
+import chat.Chat;
+
 public class Test
 {
 

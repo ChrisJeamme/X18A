@@ -1,4 +1,4 @@
-package xml;
+package chat;
 
 import java.util.ArrayList;
 
