@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT chat (message*)>
+<!ATTLIST chat
+	evenementId CDATA #REQUIRED
+>
+<!ELEMENT message (date,auteur,texte)>
+<!ATTLIST message
+	id CDATA #REQUIRED
+>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT auteur (#PCDATA)>
+<!ELEMENT texte (#PCDATA)>

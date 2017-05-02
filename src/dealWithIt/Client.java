@@ -37,11 +37,12 @@ public class Client
     public void fermetureConnexion()
     {
     	try
-		{
-    		envoyerMessage("finConnexion");
+    	{
+	    	System.out.println("(Client) Envoi demande fin connexion");
+	    	envoyerMessageSansAffichage("finConnexion");
 			socket.close();
 			System.out.println("(Client) Connexion fermée");
-		}
+    	}
     	catch (IOException e)
 		{
 			System.err.println("Erreur: Impossible de fermet la socket");
@@ -63,11 +64,11 @@ public class Client
     	            PrintWriter writer = new PrintWriter(out);
     				
     				System.out.println("(Client) Envoi : " + message);
-                    writer.print(message+"\n");
+                    writer.print(message+"\nover\n");
                     writer.flush();
                     String reponse;
                     
-                    while((reponse = reader.readLine()) != null)
+                    while(!(reponse = reader.readLine()).equals("over") && reponse != null)
                     {
                    		System.out.println("(Client) Recu : " + reponse);
                     }
@@ -88,10 +89,48 @@ public class Client
      
     		}
        	}
+    	envoyerMessageSansAffichage("over");
+    }
+
+    public void envoyerMessageSansAffichage(String message)
+    {
+    	if(socket != null)
+    	{
+    		if(!socket.isClosed())
+    		{
+    			try
+    			{
+    	            InputStream in = socket.getInputStream();
+    	            OutputStream out = socket.getOutputStream();
+    	            BufferedReader reader = new BufferedReader (new InputStreamReader(in));
+    	            PrintWriter writer = new PrintWriter(out);
+    				
+                    writer.print(message+"\nover\n");
+                    writer.flush();
+                    String reponse;
+                    
+                    while(!(reponse = reader.readLine()).equals("over") && reponse != null){}
+                }
+                catch(ConnectException e)
+                {
+                	System.err.println("Erreur de connexion au serveur");
+                }
+                catch (UnknownHostException e)
+        		{
+        			e.printStackTrace();
+        		}
+                catch (IOException e)
+        		{
+        			e.printStackTrace();
+        		}
+     
+    		}
+       	}
     }
     
     public void fermetureServeur()
     {
-    	envoyerMessage("finServeur");
+    	System.out.println("(Client) Envoi demande fin serveur");
+    	envoyerMessageSansAffichage("finServer");
     }
 }

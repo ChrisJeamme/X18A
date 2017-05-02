@@ -8,7 +8,7 @@ public class testConnexion
     {
     	Client client = new Client(18458);
     	client.etablirConnexion();
-    	client.envoyerMessage("test");
+    	client.envoyerMessage("<a><b></b></a>");
     	client.fermetureConnexion();
     	//client.fermetureServeur();
     }
