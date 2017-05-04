@@ -1,7 +1,5 @@
 package donnees;
 
-import java.util.List;
-
 public class Utilisateur 
 {
 	private int id;
@@ -10,8 +8,12 @@ public class Utilisateur
 	private String email;
 	private String pseudo;
 	
+	public Utilisateur()
+	{}
+	
 	public Utilisateur(int id, String nom, String prenom, String email, String pseudo)
 	{
+		this();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
@@ -67,6 +69,13 @@ public class Utilisateur
 	public void setPseudo(String pseudo)
 	{
 		this.pseudo = pseudo;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Utilisateur [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", pseudo="
+				+ pseudo + "]";
 	}
 	
 	

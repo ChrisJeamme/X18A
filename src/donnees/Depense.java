@@ -9,9 +9,12 @@ public class Depense
 	private int montant;
 	private Evenement event; 
 	
+	public Depense()
+	{}
 	
 	public Depense(Utilisateur user, Evenement event, int montant) //On crée la dépense
 	{
+		this();
 		this.user = user;
 		this.event = event;
 		this.montant = montant;
@@ -20,6 +23,7 @@ public class Depense
 	
 	public Depense(Utilisateur user, Evenement event, int montant, Date date) //on récupère une dépense existante
 	{
+		this();
 		this.user = user;
 		this.event = event;
 		this.montant = montant;

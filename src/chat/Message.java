@@ -8,9 +8,7 @@ public class Message
 	int id;
 
 	public Message()
-	{
-		
-	}
+	{}
 	
 	public Message(String texte, String date, String auteur)
 	{
