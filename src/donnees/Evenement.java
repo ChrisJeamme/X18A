@@ -3,13 +3,16 @@ package donnees;
 public class Evenement 
 {
 	private int id;
-	private String nomEvement;
+	private String nomEvenement;
 	private int budget;
+	
+	public Evenement()
+	{}
 	
 	public Evenement(int id, String nomEvenement, int budget)
 	{
 		this.id = id;
-		this.nomEvement = nomEvenement;
+		this.nomEvenement = nomEvenement;
 		this.budget = budget;
 	}
 
@@ -23,14 +26,14 @@ public class Evenement
 		this.id = id;
 	}
 
-	public String getNomEvement() 
+	public String getNomEvenement() 
 	{
-		return nomEvement;
+		return nomEvenement;
 	}
 
-	public void setNomEvement(String nomEvement)
+	public void setNomEvenement(String nomEvement)
 	{
-		this.nomEvement = nomEvement;
+		this.nomEvenement = nomEvement;
 	}
 
 	public int getBudget() 
