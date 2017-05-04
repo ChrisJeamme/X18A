@@ -10,5 +10,7 @@ public class GestionServeur
 		serveur.initialiser();
 		String reception = serveur.attente();
 		System.out.println(reception);
+		
+				
 	}
 }
