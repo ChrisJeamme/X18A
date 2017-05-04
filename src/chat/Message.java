@@ -5,7 +5,8 @@ public class Message
 	String texte;
 	String date;
 	String auteur;
-	int id;
+	int idUtilisateur;
+	int idEvenement;
 
 	public Message()
 	{}
@@ -48,19 +49,35 @@ public class Message
 		this.auteur = auteur;
 	}
 
-	public int getId()
+	public int getIdUtilisateur()
 	{
-		return id;
+		return idUtilisateur;
 	}
 
-	public void setId(String string)
+	public void setIdUtilisateur(String string)
 	{
-		this.id = Integer.valueOf(string);
+		this.idUtilisateur = Integer.valueOf(string);
+	}
+
+	public int getIdEvenement()
+	{
+		return idEvenement;
+	}
+
+	public void setIdUtilisateur(int idUtilisateur)
+	{
+		this.idUtilisateur = idUtilisateur;
+	}
+
+	public void setIdEvenement(int idEvenement)
+	{
+		this.idEvenement = idEvenement;
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Message [texte=" + texte + ", date=" + date + ", auteur=" + auteur + ", id=" + id + "]";
+		return "Message [texte=" + texte + ", date=" + date + ", auteur=" + auteur + ", idUtilisateur=" + idUtilisateur
+				+ ", idEvenement=" + idEvenement + "]";
 	}
 }

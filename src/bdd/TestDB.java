@@ -6,7 +6,8 @@ public class TestDB
 	{
 		BDD c = new BDD();	
 		
-		System.out.println(InteractionBDD.recupUtilisateurs(c));
+		//System.out.println(InteractionBDD.recupUtilisateurs(c));
+		//System.out.println(InteractionBDD.recupMessages(c));
 		
 		//ResultSet r = c.reqSQL("SELECT * FROM utilisateurs",BDD.TypesRequete.LECTURE);
 		
