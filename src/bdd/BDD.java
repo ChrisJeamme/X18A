@@ -10,6 +10,11 @@ import com.mysql.jdbc.ResultSetMetaData;
 
 public class BDD
 {
+	public enum TypesRequete
+	{
+		MODIFICATION, LECTURE
+	}
+	
 	Connection c;
 	Statement st;
 	
@@ -41,7 +46,6 @@ public class BDD
 		{
 			e.printStackTrace();
 		}
-		
 	}
 	
 	public void disconnect()
@@ -107,11 +111,11 @@ public class BDD
 		}
 	}
 	
-	public ResultSet reqSQL(String query, char type)
+	public ResultSet reqSQL(String query, TypesRequete type)
 	{
 		switch(type)
 		{
-			case 's':
+			case LECTURE:
 				try
 				{
 					return st.executeQuery(query);
@@ -123,7 +127,7 @@ public class BDD
 					disconnect();
 					System.exit(-1);
 				}
-			case 'm':
+			case MODIFICATION:
 				try
 				{
 					st.executeUpdate(query);
@@ -140,57 +144,5 @@ public class BDD
 				System.out.println("Erreur type");
 				return null;
 		}
-	}
-
-	/**
-	 * 	
-	 * @return Le nombre d'utilisateur dans la BDD
-	 */
-	public int nombreUtilisateur()
-	{
-		ResultSet r = reqSQL("SELECT COUNT(userID) FROM utilisateur;",'s');
-		try
-		{
-			r.next();
-			return r.getInt(1);
-		}
-		catch (SQLException e)
-		{
-			System.err.println("Erreur lors de la récupération du nombre d'utilisateurs");
-			e.printStackTrace();
-		}
-		disconnect();
-		System.exit(-1);
-		return 0;
-	}
-	
-	public void inscriptionRandom(int nombre)
-	{
-		int nombreUtilisateur = nombreUtilisateur();
-		for(int i=(1+nombreUtilisateur); i<=(1+nombreUtilisateur+nombre); i++)
-		{
-			genererMembre(i);
-		}
-	}
-	
-	public void genererMembre(int nombre)
-	{	
-		String nom = genererNom();
-		System.out.println("Nouveau membre: "+nom);
-		
-		reqSQL("INSERT INTO utilisateur VALUES("+nombre+",'"+nom+"','"+genererNom()+"','"+nom+"@mail.com',1234);", 'm');
-	}
-
-	private String genererNom()
-	{
-		int longueur = (int) (((Math.random()*10)%7)+3);
-		char[] nom = new char[longueur];
-		
-		for(int i=0; i<longueur; i++)
-		{
-			nom[i] = (char)( ((Math.random()*150)%26)+97);
-		}
-		
-		return String.copyValueOf(nom);
 	}
 }

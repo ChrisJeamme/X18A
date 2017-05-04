@@ -2,7 +2,7 @@ package bdd;
 
 import java.sql.*;
 
-public class MysqlCon
+public class ExempleRequeteResultats
 {
 
 	public static void main(String args[]) throws Exception, SQLException
