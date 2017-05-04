@@ -1,7 +1,10 @@
 package bdd;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+
+import com.mysql.jdbc.ResultSetMetaData;
 
 import bdd.BDD.TypesRequete;
 import chat.Message;
@@ -24,13 +27,48 @@ public class InteractionBDD
 	
 	public static ArrayList<Utilisateur> recupUtilisateurs(BDD bdd)
 	{
+		//Initialisation de la Liste à remplir
 		ArrayList<Utilisateur> listeUsers = new ArrayList<>();
 		
+		//Lancement de la requete
 		ResultSet r = bdd.reqSQL("SELECT * FROM utilisateurs",TypesRequete.LECTURE);
+	
+		//Traitement des résultats
+		ResultSetMetaData meta = null;
 		
-		//Parcourir les résultats en ajoutant à listeUsers à chaque fois:
-		//listeUsers.add(new Utilisateur(id, nom, prenom, email, pseudo));
-		//Pour voir comment parcourir, voir: BDD.afficherRes(ResultSet r)
+		try
+		{
+			meta = (ResultSetMetaData) r.getMetaData();
+			
+			while(r.next())
+			{
+				Utilisateur user = new Utilisateur();
+				
+				for(int i=1; i<=(meta.getColumnCount()); i++)
+				{
+					if(meta.getColumnLabel(i).compareTo("idUtilisateur") == 0)
+						user.setId(r.getInt(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("nom") == 0)
+						user.setNom(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("prenom") == 0)
+						user.setPrenom(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("email") == 0)
+						user.setEmail(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("pseudo") == 0)
+						user.setPseudo(r.getString(meta.getColumnName(i)));
+				}
+				
+				System.out.println("Ajout d'un nouvel utilisateur: "+user);
+				listeUsers.add(user);
+			}
+		}
+		catch (SQLException e)
+		{
+			System.err.println("Problème SQL");
+			e.printStackTrace();
+			bdd.disconnect();
+			System.exit(-1);
+		}
 		
 		return listeUsers;
 	}
