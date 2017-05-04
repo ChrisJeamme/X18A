@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.mysql.jdbc.ResultSetMetaData;
 
 import bdd.BDD.TypesRequete;
+import chat.Chat;
 import chat.Message;
 import donnees.Depense;
 import donnees.Evenement;
@@ -58,7 +59,7 @@ public class InteractionBDD
 						user.setPseudo(r.getString(meta.getColumnName(i)));
 				}
 				
-				System.out.println("Ajout d'un nouvel utilisateur: "+user);
+				//System.out.println("Ajout d'un nouvel utilisateur: "+user);
 				listeUsers.add(user);
 			}
 		}
@@ -73,9 +74,49 @@ public class InteractionBDD
 		return listeUsers;
 	}
 	
-	public static Message recupMessages(BDD bdd)
+	public static Chat recupMessages(BDD bdd)
 	{
-		return null;
+		//Initialisation de la Liste à remplir
+		Chat chat= new Chat();
 		
+		//Lancement de la requete
+		ResultSet r = bdd.reqSQL("SELECT poste_message.idUtilisateur,idEvenement,date,message FROM poste_message, utilisateurs WHERE utilisateurs.idUtilisateur=poste_message.idUtilisateur",TypesRequete.LECTURE);
+	
+		//Traitement des résultats
+		ResultSetMetaData meta = null;
+		
+		try
+		{
+			meta = (ResultSetMetaData) r.getMetaData();
+			
+			while(r.next())
+			{
+				Message message = new Message();
+				
+				for(int i=1; i<=(meta.getColumnCount()); i++)
+				{
+					if(meta.getColumnLabel(i).compareTo("idUtilisateur") == 0)
+						message.setIdUtilisateur(r.getInt(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("idEvenement") == 0)
+						message.setIdEvenement(r.getInt(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("date") == 0)
+						message.setDate(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("message") == 0)
+						message.setTexte(r.getString(meta.getColumnName(i)));
+				}
+				
+				System.out.println("Ajout d'un nouveeau message: "+message);
+				chat.ajouterMessage(message);
+			}
+		}
+		catch (SQLException e)
+		{
+			System.err.println("Problème SQL");
+			e.printStackTrace();
+			bdd.disconnect();
+			System.exit(-1);
+		}
+		
+		return chat;
 	}
 }
