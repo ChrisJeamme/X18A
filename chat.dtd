@@ -5,7 +5,8 @@
 >
 <!ELEMENT message (date,auteur,texte)>
 <!ATTLIST message
-	id CDATA #REQUIRED
+	idUtilisateur CDATA #REQUIRED
+	idEvenement CDATA #REQUIRED
 >
 <!ELEMENT date (#PCDATA)>
 <!ELEMENT auteur (#PCDATA)>

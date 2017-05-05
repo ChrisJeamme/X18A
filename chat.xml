@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE chat SYSTEM "chat.dtd">
 <chat evenementId="1">
-    <message id="1">
+    <message idUtilisateur="1" idEvenement="1">
     <date>2017</date>
     <auteur>Chris</auteur>
     <texte>Salut</texte>
     </message>
-    <message id="2">
+    <message idUtilisateur="2" idEvenement="1">
     <date>2018</date>
     <auteur>Jacquie</auteur>
     <texte>Salut</texte>
