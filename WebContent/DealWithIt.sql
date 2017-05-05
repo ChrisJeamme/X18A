@@ -38,6 +38,7 @@ CREATE TABLE `depense` (
 
 LOCK TABLES `depense` WRITE;
 /*!40000 ALTER TABLE `depense` DISABLE KEYS */;
+INSERT INTO `depense` VALUES (1,1,'2017-05-05',50);
 /*!40000 ALTER TABLE `depense` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +55,7 @@ CREATE TABLE `evenements` (
   `budget` double NOT NULL,
   PRIMARY KEY (`idEvenement`),
   UNIQUE KEY `idEvenement` (`idEvenement`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +64,7 @@ CREATE TABLE `evenements` (
 
 LOCK TABLES `evenements` WRITE;
 /*!40000 ALTER TABLE `evenements` DISABLE KEYS */;
-INSERT INTO `evenements` VALUES (1,'Development',1200);
+INSERT INTO `evenements` VALUES (1,'Development',1200),(2,'Anniversaire de Jacquie',200);
 /*!40000 ALTER TABLE `evenements` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,18 +89,18 @@ CREATE TABLE `participe` (
 
 LOCK TABLES `participe` WRITE;
 /*!40000 ALTER TABLE `participe` DISABLE KEYS */;
-INSERT INTO `participe` VALUES (1,1),(2,1),(3,1),(4,1),(5,1);
+INSERT INTO `participe` VALUES (1,1),(2,1),(3,1),(4,1),(5,1),(1,2);
 /*!40000 ALTER TABLE `participe` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `poste_messsage`
+-- Table structure for table `poste_message`
 --
 
-DROP TABLE IF EXISTS `poste_messsage`;
+DROP TABLE IF EXISTS `poste_message`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `poste_messsage` (
+CREATE TABLE `poste_message` (
   `idUtilisateur` int(11) NOT NULL,
   `idEvenement` int(11) NOT NULL,
   `date` date NOT NULL,
@@ -110,12 +111,13 @@ CREATE TABLE `poste_messsage` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `poste_messsage`
+-- Dumping data for table `poste_message`
 --
 
-LOCK TABLES `poste_messsage` WRITE;
-/*!40000 ALTER TABLE `poste_messsage` DISABLE KEYS */;
-/*!40000 ALTER TABLE `poste_messsage` ENABLE KEYS */;
+LOCK TABLES `poste_message` WRITE;
+/*!40000 ALTER TABLE `poste_message` DISABLE KEYS */;
+INSERT INTO `poste_message` VALUES (1,1,'2017-05-05','Salut');
+/*!40000 ALTER TABLE `poste_message` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -157,4 +159,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-05  0:05:44
+-- Dump completed on 2017-05-05  4:20:24
