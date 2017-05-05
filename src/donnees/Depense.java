@@ -1,51 +1,45 @@
 package donnees;
 
-import java.util.Date;
-
 public class Depense 
 {
-	private Utilisateur user;
-	private Date date;
+	private int idUtilisateur;
+	private java.sql.Date date;                   //java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().getTime());
 	private int montant;
-	private Evenement event; 
+	private int idEvent; 
 	
 	public Depense()
 	{}
 	
-	public Depense(Utilisateur user, Evenement event, int montant) //On crée la dépense
+	public Depense(int user, int event, int montant, String date)
 	{
 		this();
-		this.user = user;
-		this.event = event;
+		this.idUtilisateur = user;
+		this.idEvent = event;
 		this.montant = montant;
-		this.date = new Date();
-	}
-	
-	public Depense(Utilisateur user, Evenement event, int montant, Date date) //on récupère une dépense existante
-	{
-		this();
-		this.user = user;
-		this.event = event;
-		this.montant = montant;
-		this.date = date;
+		this.date = java.sql.Date.valueOf(date);
 	}
 
-	public Utilisateur getUser() 
+	public int getIdUtilisateur() 
 	{
-		return user;
+		return idUtilisateur;
 	}
 
-	public void setUser(Utilisateur user) 
+	public void setIdUtilisateur(int user) 
 	{
-		this.user = user;
+		this.idUtilisateur = user;
 	}
 
-	public Date getDate() 
+	public java.sql.Date getDate() 
 	{
 		return date;
 	}
 
-	public void setDate(Date date)
+	public void setDate(String date)
+	{
+		this.date = java.sql.Date.valueOf(date);
+	}
+	
+	public void setDate(java.sql.Date date)
 	{
 		this.date = date;
 	}
@@ -60,14 +54,14 @@ public class Depense
 		this.montant = montant;
 	}
 
-	public Evenement getEvent() 
+	public int getIdEvenement() 
 	{
-		return event;
+		return idEvent;
 	}
 
-	public void setEvent(Evenement event)
+	public void setIdEvenement(int event)
 	{
-		this.event = event;
+		this.idEvent = event;
 	}
 	
 	

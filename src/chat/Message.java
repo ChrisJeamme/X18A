@@ -3,7 +3,7 @@ package chat;
 public class Message
 {
 	String texte;
-	String date;
+	java.sql.Date date;
 	String auteur;
 	int idUtilisateur;
 	int idEvenement;
@@ -11,7 +11,7 @@ public class Message
 	public Message()
 	{}
 	
-	public Message(String texte, String date, String auteur)
+	public Message(String texte, java.sql.Date date, String auteur)
 	{
 		this();
 		this.texte = texte;
@@ -24,7 +24,7 @@ public class Message
 		return texte;
 	}
 
-	public String getDate()
+	public java.sql.Date getDate()
 	{
 		return date;
 	}
@@ -39,7 +39,17 @@ public class Message
 		this.texte = message;
 	}
 
+	public void setDate()
+	{
+		date = new java.sql.Date(new java.util.Date().getTime());
+	}
+	
 	public void setDate(String date)
+	{
+		this.date = java.sql.Date.valueOf(date);
+	}
+	
+	public void setDate(java.sql.Date date)
 	{
 		this.date = date;
 	}
@@ -54,9 +64,9 @@ public class Message
 		return idUtilisateur;
 	}
 
-	public void setIdUtilisateur(String string)
+	public void setIdUtilisateur(String idUtilisateur)
 	{
-		this.idUtilisateur = Integer.valueOf(string);
+		this.idUtilisateur = Integer.valueOf(idUtilisateur);
 	}
 
 	public int getIdEvenement()
@@ -69,6 +79,11 @@ public class Message
 		this.idUtilisateur = idUtilisateur;
 	}
 
+	public void setIdEvenement(String idEvenement)
+	{
+		this.idEvenement = Integer.valueOf(idEvenement);
+	}
+	
 	public void setIdEvenement(int idEvenement)
 	{
 		this.idEvenement = idEvenement;
