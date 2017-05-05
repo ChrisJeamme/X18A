@@ -35,7 +35,8 @@ public class MySAXHandlerChat extends DefaultHandler
 		{
 			System.out.println("Nouveau message");
 			chat.ajouterMessage(new Message());
-			chat.getDernierMessage().setId(attributes.getValue(0));
+			chat.getDernierMessage().setIdUtilisateur(attributes.getValue(0));
+			chat.getDernierMessage().setIdEvenement(attributes.getValue(1));
 			dernierARemplir = "message";
 		}
 		if(qName=="date")
