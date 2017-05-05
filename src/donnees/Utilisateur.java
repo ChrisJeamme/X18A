@@ -7,11 +7,12 @@ public class Utilisateur
 	private String prenom;
 	private String email;
 	private String pseudo;
+	private String motDePasse;
 	
 	public Utilisateur()
 	{}
 	
-	public Utilisateur(int id, String nom, String prenom, String email, String pseudo)
+	public Utilisateur(int id, String nom, String prenom, String email, String pseudo, String mdp)
 	{
 		this();
 		this.id = id;
@@ -19,6 +20,7 @@ public class Utilisateur
 		this.prenom = prenom;
 		this.email = email;
 		this.pseudo = pseudo;
+		this.motDePasse = mdp;
 	}
 
 	public int getId()
@@ -71,10 +73,20 @@ public class Utilisateur
 		this.pseudo = pseudo;
 	}
 
+	public String getMotDePasse()
+	{
+		return motDePasse;
+	}	
+	
+	public void setMotDePasse(String mdp)
+	{
+		motDePasse = mdp;
+	}	
+	
 	@Override
 	public String toString()
 	{
 		return "Utilisateur [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", pseudo="
-				+ pseudo + "]";
-	}	
+				+ pseudo + " (Mot de passe pas affiché)]";
+	}
 }
