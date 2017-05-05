@@ -11,7 +11,7 @@ public class Utilisateur
 	public Utilisateur()
 	{}
 	
-	public Utilisateur(int id, String nom, String prenom, String email, String pseudo)
+	public Utilisateur(int id, String prenom, String nom, String email, String pseudo)
 	{
 		this();
 		this.id = id;
