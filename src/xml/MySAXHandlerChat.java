@@ -5,8 +5,8 @@ import java.util.Date;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
-import chat.Chat;
-import chat.Message;
+import donnees.Chat;
+import donnees.Message;
 
 public class MySAXHandlerChat extends DefaultHandler
 {	

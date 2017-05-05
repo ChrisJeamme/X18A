@@ -45,6 +45,10 @@ public class Evenement
 	{
 		this.budget = budget;
 	}
-	
-	
+
+	@Override
+	public String toString()
+	{
+		return "Evenement [id=" + id + ", nomEvenement=" + nomEvenement + ", budget=" + budget + "]";
+	}
 }

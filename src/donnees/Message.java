@@ -1,4 +1,4 @@
-package chat;
+package donnees;
 
 public class Message
 {

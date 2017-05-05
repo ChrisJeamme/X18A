@@ -63,6 +63,11 @@ public class Depense
 	{
 		this.idEvent = event;
 	}
-	
-	
+
+	@Override
+	public String toString()
+	{
+		return "Depense [idUtilisateur=" + idUtilisateur + ", date=" + date + ", montant=" + montant + ", idEvent="
+				+ idEvent + "]";
+	}
 }

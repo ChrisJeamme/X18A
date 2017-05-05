@@ -1,6 +1,6 @@
 package xml;
 
-import chat.Chat;
+import donnees.Chat;
 
 public class Test
 {
