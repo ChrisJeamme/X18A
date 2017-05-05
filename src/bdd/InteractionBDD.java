@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import com.mysql.jdbc.ResultSetMetaData;
 
 import bdd.BDD.TypesRequete;
-import chat.Chat;
-import chat.Message;
+import donnees.Chat;
 import donnees.Depense;
 import donnees.Evenement;
+import donnees.Message;
 import donnees.Utilisateur;
 
 public class InteractionBDD
@@ -46,7 +46,7 @@ public class InteractionBDD
 						depense.setMontant(r.getInt(meta.getColumnName(i)));
 				}
 				
-				System.out.println("Ajout d'une nouvelle dépense: "+depense);
+				//System.out.println("Ajout d'une nouvelle dépense: "+depense);
 				listeDepense.add(depense);
 			}
 		}
@@ -90,7 +90,7 @@ public class InteractionBDD
 						evenement.setBudget(r.getInt(meta.getColumnName(i)));
 				}
 				
-				System.out.println("Ajout d'un nouvel evenement: "+evenement);
+				//System.out.println("Ajout d'un nouvel evenement: "+evenement);
 				listeEvenements.add(evenement);
 			}
 		}
@@ -184,7 +184,7 @@ public class InteractionBDD
 						message.setTexte(r.getString(meta.getColumnName(i)));
 				}
 				
-				System.out.println("Ajout d'un nouveeau message: "+message);
+				//System.out.println("Ajout d'un nouveeau message: "+message);
 				chat.ajouterMessage(message);
 			}
 		}
@@ -205,7 +205,8 @@ public class InteractionBDD
 		ArrayList<Depense> listeDepense = new ArrayList<>();
 		
 		//Lancement de la requete
-		ResultSet r = bdd.reqSQL("SELECT * FROM depense WHERE idUtilisateur = "+idUtilisateur+";",TypesRequete.LECTURE);
+		ResultSet r = bdd.reqSQL("SELECT * FROM depense "
+							   + "WHERE idUtilisateur = "+idUtilisateur+";",TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -230,7 +231,6 @@ public class InteractionBDD
 						depense.setMontant(r.getInt(meta.getColumnName(i)));
 				}
 				
-				System.out.println("Ajout d'une nouvelle dépense: "+depense);
 				listeDepense.add(depense);
 			}
 		}
@@ -251,8 +251,11 @@ public class InteractionBDD
 		ArrayList<Evenement> listeEvenements = new ArrayList<>();
 		
 		//Lancement de la requete
-		ResultSet r = bdd.reqSQL("SELECT * FROM evenements WHERE idUtilisateur = "+idUtilisateur+";",TypesRequete.LECTURE);
-	
+		ResultSet r = bdd.reqSQL("SELECT evenements.idEvenement,nomEvenement,budget"
+							   + " FROM participe,evenements"
+							   + " WHERE participe.idUtilisateur = "+idUtilisateur+""
+							   + " AND evenements.idEvenement = participe.idEvenement;",TypesRequete.LECTURE);
+		
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
 		
@@ -274,7 +277,7 @@ public class InteractionBDD
 						evenement.setBudget(r.getInt(meta.getColumnName(i)));
 				}
 				
-				System.out.println("Ajout d'un nouvel evenement: "+evenement);
+				//System.out.println("Ajout d'un nouvel evenement: "+evenement);
 				listeEvenements.add(evenement);
 			}
 		}
@@ -295,7 +298,10 @@ public class InteractionBDD
 		ArrayList<Utilisateur> listeUsers = new ArrayList<>();
 		
 		//Lancement de la requete
-		ResultSet r = bdd.reqSQL("SELECT utilisateurs.idUtilisateur,nom,prenom,email,pseudo FROM utilisateurs,participe WHERE utilisateurs.idUtilisateur = participe.idUtilisateur AND idEvenement = "+idEvenement+";",TypesRequete.LECTURE);
+		ResultSet r = bdd.reqSQL("SELECT utilisateurs.idUtilisateur,nom,prenom,email,pseudo"
+							   + " FROM utilisateurs,participe"
+							   + " WHERE utilisateurs.idUtilisateur = participe.idUtilisateur"
+							   + " AND idEvenement = "+idEvenement+";",TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -343,7 +349,10 @@ public class InteractionBDD
 		Chat chat= new Chat();
 		
 		//Lancement de la requete
-		ResultSet r = bdd.reqSQL("SELECT poste_message.idUtilisateur,idEvenement,date,message FROM poste_message, utilisateurs WHERE utilisateurs.idUtilisateur=poste_message.idUtilisateur AND idEvenement="+idEvenement+";",TypesRequete.LECTURE);
+		ResultSet r = bdd.reqSQL("SELECT poste_message.idUtilisateur,idEvenement,date,message"
+							   + " FROM poste_message, utilisateurs"
+							   + " WHERE utilisateurs.idUtilisateur=poste_message.idUtilisateur"
+							   + " AND idEvenement="+idEvenement+";",TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -368,7 +377,6 @@ public class InteractionBDD
 						message.setTexte(r.getString(meta.getColumnName(i)));
 				}
 				
-				System.out.println("Ajout d'un nouveeau message: "+message);
 				chat.ajouterMessage(message);
 			}
 		}
@@ -462,7 +470,6 @@ public class InteractionBDD
 						evenement.setBudget(r.getInt(meta.getColumnName(i)));
 				}
 				
-				System.out.println("Ajout d'un nouvel evenement: "+evenement);
 				listeEvenements.add(evenement);
 			}
 		}
