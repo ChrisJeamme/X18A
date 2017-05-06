@@ -489,11 +489,8 @@ public class InteractionBDD
 
 	//Récupération d'un objet avec son ID
 	
-	public static ArrayList<Utilisateur> recupUtilisateurAvecID(BDD bdd, int idUtilisateur)
+	public static Utilisateur recupUtilisateurAvecID(BDD bdd, int idUtilisateur)
 	{
-		//Initialisation de la Liste à remplir
-		ArrayList<Utilisateur> listeUsers = new ArrayList<>();
-		
 		//Lancement de la requete
 		ResultSet r = bdd.reqSQL("SELECT * FROM utilisateurs WHERE idUtilisateur="+idUtilisateur+";",BDD.TypesRequete.LECTURE);
 	
@@ -524,9 +521,10 @@ public class InteractionBDD
 						user.setMotDePasse(r.getString(meta.getColumnName(i)));
 				}
 				
-				//System.out.println("Ajout d'un nouvel utilisateur: "+user);
-				listeUsers.add(user);
+				return user;
 			}
+			
+			return null;
 		}
 		catch (SQLException e)
 		{
@@ -536,14 +534,11 @@ public class InteractionBDD
 			System.exit(-1);
 		}
 		
-		return listeUsers;
+		return null;
 	}
 
-	public static ArrayList<Evenement> recupEvenementsAvecID(BDD bdd, int idEvenement)
+	public static Evenement recupEvenementsAvecID(BDD bdd, int idEvenement)
 	{
-		//Initialisation de la Liste à remplir
-		ArrayList<Evenement> listeEvenements = new ArrayList<>();
-		
 		//Lancement de la requete
 		ResultSet r = bdd.reqSQL("SELECT * FROM evenements WHERE idEvenement="+idEvenement+";",BDD.TypesRequete.LECTURE);
 	
@@ -568,18 +563,16 @@ public class InteractionBDD
 						evenement.setBudget(r.getInt(meta.getColumnName(i)));
 				}
 				
-				listeEvenements.add(evenement);
+				return evenement;
 			}
 		}
 		catch (SQLException e)
 		{
 			System.err.println("Problème SQL");
 			e.printStackTrace();
-			bdd.disconnect();
-			System.exit(-1);
 		}
 		
-		return listeEvenements;
+		return null;
 	}
 	
 	//Envoi d'objet

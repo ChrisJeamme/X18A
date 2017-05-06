@@ -14,6 +14,7 @@
 		<div id="bloc_connexion">
 			<a class="boutton" href="connexion.jsp">Connexion</a>
 			<a class="boutton" href="inscription.jsp">Inscription</a>
+
 		</div>
 	</header>
 	
@@ -30,8 +31,8 @@
 		<!-- Article est un bloc qui peut servir à différentes choses -->
 		<article> 
 			<p>Un article</p>
-			<a class="boutton" href="#">
-			Un boutton
+			<a class="bouton" href="#">
+			Un bouton
 			</a>
 		</article>
 		
