@@ -11,20 +11,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Mon Compte</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<jsp:useBean id="utilisateur" class="donnees.Utilisateur"></jsp:useBean>
+<jsp:useBean id="tmp" class="donnees.Utilisateur"></jsp:useBean>
+
+	<div id="bloc_connexion">
+		<a class="boutton" href="deconnexion">Déconnexion</a>
+	</div>
 
 <h1>Mon Compte</h1>
-
+<div>
 <ul>
-	<li>Pseudo : <b>${ u.pseudo }</b></li>
-	<li>Prénom : <b>${ u.prenom }</b></li>
-	<li>Nom : <b>${ u.nom }</b></li>
-	<li>email : <b>${ u.email }</b></li>
+	<li>Pseudo : <b>${ utilisateur.pseudo }</b></li>
+	<li>Prénom : <b>${ utilisateur.prenom }</b></li>
+	<li>Nom : <b>${ utilisateur.nom }</b></li>
+	<li>email : <b>${ utilisateur.email }</b></li>
 </ul>
+</div>
 
 
 </body>

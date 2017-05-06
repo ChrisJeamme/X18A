@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import donnees.Utilisateur;
 
@@ -31,8 +32,9 @@ public class CompteController extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-        Utilisateur u = new Utilisateur("Jean", "Culasec", "jean@culasec.fr", "jeancul", "pass");
-		request.setAttribute("u", u);
+		HttpSession session = request.getSession();
+		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
+		request.setAttribute("utilisateur", u);
 		getServletContext().getRequestDispatcher("/compte.jsp").forward(request, response);
 	}
 
