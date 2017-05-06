@@ -15,6 +15,46 @@ import donnees.Utilisateur;
 
 public class InteractionBDD
 {
+	//Vérifications utilisateur
+	
+	public static boolean utilisateurExiste(BDD bdd, String pseudo)
+	{
+		ArrayList<Utilisateur> users = recupUtilisateurs(bdd);
+		
+		for(Utilisateur utilisateur : users)
+		{
+			if(utilisateur.getPseudo().compareTo(pseudo)==0)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean verificationConnexion(BDD bdd, String pseudo, String mdp)
+	{
+		ArrayList<Utilisateur> users = recupUtilisateurs(bdd);
+		
+		for(Utilisateur utilisateur : users)
+		{
+			if(utilisateur.getPseudo().compareTo(pseudo)==0)
+			{
+				if(utilisateur.getMotDePasse().compareTo(mdp)==0)
+					return true;
+				else
+					return false;
+			}
+		}
+		return false;
+	}
+	
+	//Récupération de tous les objets
+	
+	/**
+	 *  Récupère dans une liste toutes les dépenses de la bdd (aucun filtre)
+	 * @param bdd
+	 * @return
+	 */
 	public static ArrayList<Depense> recupDepenses(BDD bdd)
 	{
 		//Initialisation de la Liste à remplir
@@ -61,6 +101,11 @@ public class InteractionBDD
 		return listeDepense;
 }
 	
+	/**
+	 *  Récupère dans une liste tous les évenements de la bdd (aucun filtre)
+	 * @param bdd
+	 * @return
+	 */
 	public static ArrayList<Evenement> recupEvenements(BDD bdd)
 	{
 		//Initialisation de la Liste à remplir
@@ -105,6 +150,11 @@ public class InteractionBDD
 		return listeEvenements;
 	}
 	
+	/**
+	 *  Récupère dans une liste tous les utilisateurs contenu dans la bdd (aucun filtre)
+	 * @param bdd
+	 * @return
+	 */
 	public static ArrayList<Utilisateur> recupUtilisateurs(BDD bdd)
 	{
 		//Initialisation de la Liste à remplir
@@ -136,6 +186,8 @@ public class InteractionBDD
 						user.setEmail(r.getString(meta.getColumnName(i)));
 					if(meta.getColumnLabel(i).compareTo("pseudo") == 0)
 						user.setPseudo(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("motDePasse") == 0)
+						user.setMotDePasse(r.getString(meta.getColumnName(i)));
 				}
 				
 				//System.out.println("Ajout d'un nouvel utilisateur: "+user);
@@ -153,6 +205,11 @@ public class InteractionBDD
 		return listeUsers;
 	}
 	
+	/**
+	 *  Récupère dans un objet Chat tous les messages de la bdd (aucun filtre)
+	 * @param bdd
+	 * @return
+	 */
 	public static Chat recupMessages(BDD bdd)
 	{
 		//Initialisation de la Liste à remplir
@@ -199,6 +256,14 @@ public class InteractionBDD
 		return chat;
 	}
 
+	//Récupération d'objets liés
+	
+	/**
+	 *  Récupère toutes les dépenses d'un utilisateur
+	 * @param bdd
+	 * @param idUtilisateur
+	 * @return Une liste de dépense
+	 */
 	public static ArrayList<Depense> recupDepensesDeUtilisateur(BDD bdd, int idUtilisateur)
 	{
 		//Initialisation de la Liste à remplir
@@ -245,6 +310,12 @@ public class InteractionBDD
 		return listeDepense;
 }
 	
+	/**
+	 *  Récupère tous les évenements d'un utilisateur
+	 * @param bdd
+	 * @param idUtilisateur
+	 * @return Une liste d'évenements
+	 */
 	public static ArrayList<Evenement> recupEvenementsDeUtilisateur(BDD bdd, int idUtilisateur)
 	{
 		//Initialisation de la Liste à remplir
@@ -292,6 +363,12 @@ public class InteractionBDD
 		return listeEvenements;
 	}
 	
+	/**
+	 *  Récupère toutes les utilisateurs d'un évenement
+	 * @param bdd
+	 * @param idEvenement
+	 * @return Une liste d'utilisateurs
+	 */
 	public static ArrayList<Utilisateur> recupUtilisateursDeEvenement(BDD bdd, int idEvenement)
 	{
 		//Initialisation de la Liste à remplir
@@ -326,6 +403,8 @@ public class InteractionBDD
 						user.setEmail(r.getString(meta.getColumnName(i)));
 					if(meta.getColumnLabel(i).compareTo("pseudo") == 0)
 						user.setPseudo(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("motDePasse") == 0)
+						user.setMotDePasse(r.getString(meta.getColumnName(i)));
 				}
 				
 				//System.out.println("Ajout d'un nouvel utilisateur: "+user);
@@ -343,6 +422,12 @@ public class InteractionBDD
 		return listeUsers;
 	}
 
+	/**
+	 *  Récupère tous les messages d'un evenement
+	 * @param bdd
+	 * @param idEvenement
+	 * @return Objet Chat contenant tous les messages de cet evenement
+	 */
 	public static Chat recupMessagesDeEvenement(BDD bdd, int idEvenement)
 	{
 		//Initialisation de la Liste à remplir
@@ -424,6 +509,8 @@ public class InteractionBDD
 						user.setEmail(r.getString(meta.getColumnName(i)));
 					if(meta.getColumnLabel(i).compareTo("pseudo") == 0)
 						user.setPseudo(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("motDePasse") == 0)
+						user.setMotDePasse(r.getString(meta.getColumnName(i)));
 				}
 				
 				//System.out.println("Ajout d'un nouvel utilisateur: "+user);
@@ -482,6 +569,100 @@ public class InteractionBDD
 		}
 		
 		return listeEvenements;
+	}
+	
+	//Envoi d'objet
+	
+	/**
+	 *  Ajout l'objet Depense en argument dans la base de donnée bdd
+	 * @param bdd Base de donnée chargée
+	 * @param depense
+	 */
+	public static void ajoutDepense(BDD bdd, Depense depense)
+	{
+		ajoutDepense(bdd, depense.getIdUtilisateur(), depense.getIdEvenement(), depense.getDate(), depense.getMontant());
+	}
+	
+	/**
+	 *  Ajout l'objet Depense en argument dans la base de donnée bdd
+	 * @param bdd Base de donnée chargée
+	 * @param idUtilisateur
+	 * @param idEvenement
+	 * @param date
+	 * @param montant
+	 */
+	public static void ajoutDepense(BDD bdd, int idUtilisateur, int idEvenement, java.sql.Date date, int montant)
+	{
+		bdd.reqSQL("INSERT INTO depense VALUES('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+montant+"');",TypesRequete.MODIFICATION);
+	}
+	
+	/**
+	 *  Ajout l'objet Evenement en argument dans la base de donnée bdd
+	 * @param bdd Base de donnée chargée
+	 * @param evenement L'objet Evenement à ajouter
+	 */
+	public static void ajoutEvenement(BDD bdd, Evenement evenement)
+	{
+		ajoutEvenement(bdd, evenement.getNomEvenement(), evenement.getBudget());
+	}
+	
+	/**
+	 *  Ajout l'objet Evenement en argument dans la base de donnée bdd
+	 * @param bdd
+	 * @param nom
+	 * @param budget
+	 */
+	public static void ajoutEvenement(BDD bdd, String nom, int budget)
+	{
+		bdd.reqSQL("INSERT INTO evenements VALUES('"+nom+"','"+budget+"');",TypesRequete.MODIFICATION);
+	}
+	
+	/**  
+	 *  Ajout l'objet Utilisateur en argument dans la base de donnée bdd
+	 * @param bdd  Base de donnée chargée
+	 * @param utilisateur
+	 */
+	public static void ajoutUtilisateur(BDD bdd, Utilisateur utilisateur)
+	{
+		ajoutUtilisateur(bdd, utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getEmail(), utilisateur.getPseudo(), utilisateur.getMotDePasse());
+	}
+	
+	/**
+	 *  Ajout l'objet Utilisateur en argument dans la base de donnée bdd
+	 * @param bdd Base de donnée chargée
+	 * @param id
+	 * @param nom
+	 * @param prenom
+	 * @param email
+	 * @param pseudo
+	 * @param motDePasse
+	 */
+	public static void ajoutUtilisateur(BDD bdd, String nom, String prenom, String email, String pseudo, String motDePasse)
+	{
+		bdd.reqSQL("INSERT INTO `utilisateurs` (`nom`, `prenom`, `email`, `pseudo`, `motDePasse`) VALUES ('"+nom+"', '"+prenom+"', '"+email+"', '"+pseudo+"', '"+motDePasse+"');",TypesRequete.MODIFICATION);
+	}
+
+	/**
+	 *  Ajout l'objet Message en argument dans la base de donnée bdd
+	 * @param bdd  Base de donnée chargée
+	 * @param message
+	 */
+	public static void ajoutMessage(BDD bdd, Message message)
+	{
+		ajoutMessage(bdd, message.getIdUtilisateur(), message.getIdEvenement(), message.getDate(), message.getTexte());
+	}
+	
+	/**
+	 *  Ajout l'objet Message en argument dans la base de donnée bdd
+	 * @param bdd  Base de donnée chargée
+	 * @param idUtilisateur
+	 * @param idEvenement
+	 * @param date
+	 * @param message
+	 */
+	public static void ajoutMessage(BDD bdd, int idUtilisateur, int idEvenement, java.sql.Date date, String message)
+	{
+		bdd.reqSQL("INSERT INTO `poste_message` (`idUtilisateur`, `idEvenement`, `date`, `message`) VALUES ('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+message+"');",TypesRequete.MODIFICATION);
 	}
 	
 }

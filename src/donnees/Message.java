@@ -4,19 +4,19 @@ public class Message
 {
 	String texte;
 	java.sql.Date date;
-	String auteur;
 	int idUtilisateur;
 	int idEvenement;
 
 	public Message()
 	{}
 	
-	public Message(String texte, java.sql.Date date, String auteur)
+	public Message(String texte, java.sql.Date date, int idUtilisateur, int idEvenement)
 	{
 		this();
 		this.texte = texte;
 		this.date = date;
-		this.auteur = auteur;
+		this.idUtilisateur = idUtilisateur;
+		this.idEvenement = idEvenement;
 	}
 	
 	public String getTexte()
@@ -27,11 +27,6 @@ public class Message
 	public java.sql.Date getDate()
 	{
 		return date;
-	}
-
-	public String getAuteur()
-	{
-		return auteur;
 	}
 
 	public void setTexte(String message)
@@ -52,11 +47,6 @@ public class Message
 	public void setDate(java.sql.Date date)
 	{
 		this.date = date;
-	}
-
-	public void setAuteur(String auteur)
-	{
-		this.auteur = auteur;
 	}
 
 	public int getIdUtilisateur()
@@ -92,7 +82,7 @@ public class Message
 	@Override
 	public String toString()
 	{
-		return "Message [texte=" + texte + ", date=" + date + ", auteur=" + auteur + ", idUtilisateur=" + idUtilisateur
-				+ ", idEvenement=" + idEvenement + "]";
+		return "Message [texte=" + texte + ", date=" + date + ", idUtilisateur=" + idUtilisateur + ", idEvenement="
+				+ idEvenement + "]";
 	}
 }

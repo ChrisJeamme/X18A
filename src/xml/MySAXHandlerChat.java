@@ -81,7 +81,7 @@ public class MySAXHandlerChat extends DefaultHandler
 			dernierARemplir = "";
 			System.out.println("Remplissage de l'auteur: "+contenu);
 			Message last = chat.getDernierMessage();
-			last.setAuteur(contenu);
+			last.setIdUtilisateur(contenu);
 		}
 		if(dernierARemplir == "texte")
 		{

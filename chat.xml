@@ -3,12 +3,12 @@
 <chat evenementId="1">
     <message idUtilisateur="1" idEvenement="1">
     <date>2017</date>
-    <auteur>Chris</auteur>
+    <auteur>1</auteur>
     <texte>Salut</texte>
     </message>
     <message idUtilisateur="2" idEvenement="1">
     <date>2018</date>
-    <auteur>Jacquie</auteur>
+    <auteur>1</auteur>
     <texte>Salut</texte>
     </message>
 </chat>

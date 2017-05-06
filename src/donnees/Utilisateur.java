@@ -12,10 +12,9 @@ public class Utilisateur
 	public Utilisateur()
 	{}
 	
-	public Utilisateur(int id, String nom, String prenom, String email, String pseudo, String mdp)
+	public Utilisateur(String nom, String prenom, String email, String pseudo, String mdp)
 	{
 		this();
-		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
