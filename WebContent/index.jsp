@@ -12,8 +12,8 @@
 	<header>
 		<h1>RazDocs</h1>
 		<div id="bloc_connexion">
-			<a class="boutton" href="#">Connexion</a>
-			<a class="boutton" href="#">Inscription</a>
+			<a class="bouton" href="#">Connexion</a>
+			<a class="bouton" href="#">Inscription</a>
 		</div>
 	</header>
 	
@@ -30,8 +30,8 @@
 		<!-- Article est un bloc qui peut servir à différentes choses -->
 		<article> 
 			<p>Un article</p>
-			<a class="boutton" href="#">
-			Un boutton
+			<a class="bouton" href="#">
+			Un bouton
 			</a>
 		</article>
 		
