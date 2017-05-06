@@ -523,8 +523,6 @@ public class InteractionBDD
 				
 				return user;
 			}
-			
-			return null;
 		}
 		catch (SQLException e)
 		{
@@ -533,8 +531,8 @@ public class InteractionBDD
 			bdd.disconnect();
 			System.exit(-1);
 		}
-		
-		return listeUsers;
+
+		return null;
 	}
 
 	public static Evenement recupEvenementsAvecID(BDD bdd, int idEvenement)
