@@ -1,26 +1,32 @@
 package interfaceWeb;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import bdd.BDD;
+import bdd.InteractionBDD;
 import donnees.Evenement;
+import donnees.Utilisateur;
 
 /**
  * Servlet implementation class EvenementController
  */
-@WebServlet("/evenement")
-public class EvenementController extends HttpServlet 
+@WebServlet("/mesEvenements")
+public class MesEvenementController extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EvenementController() 
+    public MesEvenementController() 
     {
         super();
 
@@ -31,12 +37,14 @@ public class EvenementController extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-        Evenement e = new Evenement();
-        e.setId(25);
-        e.setNomEvenement("Anniversaire Marie");
-        e.setBudget(159);
-		request.setAttribute("evenement1", e);
-		getServletContext().getRequestDispatcher("/evenement.jsp").forward(request, response);
+		HttpSession session = request.getSession();
+		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
+		BDD db = new BDD();
+		ArrayList<Evenement> listeEvenement = InteractionBDD.recupEvenementsDeUtilisateur(db, u.getId());
+		db.disconnect();
+		request.setAttribute("utilisateur", u);
+		request.setAttribute("evenements", listeEvenement);
+		getServletContext().getRequestDispatcher("/mesEvenements.jsp").forward(request, response);
 	}
 
 	/**

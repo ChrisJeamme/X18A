@@ -14,13 +14,13 @@ import donnees.Utilisateur;
  * Servlet implementation class AccueilConnecte
  */
 @WebServlet("/AccueilConnecte")
-public class AccueilConnecte extends HttpServlet {
+public class AccueilConnecteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AccueilConnecte() {
+    public AccueilConnecteController() {
         super();
         // TODO Auto-generated constructor stub
     }
