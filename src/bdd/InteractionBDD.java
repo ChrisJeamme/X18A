@@ -523,8 +523,6 @@ public class InteractionBDD
 				
 				return user;
 			}
-			
-			return null;
 		}
 		catch (SQLException e)
 		{
@@ -533,7 +531,7 @@ public class InteractionBDD
 			bdd.disconnect();
 			System.exit(-1);
 		}
-		
+
 		return null;
 	}
 
