@@ -31,7 +31,14 @@ public class InteractionBDD
 		return false;
 	}
 	
-	public static boolean verificationConnexion(BDD bdd, String pseudo, String mdp)
+	/**
+	 *  Pour effectuer une connexion
+	 * @param bdd
+	 * @param pseudo
+	 * @param mdp
+	 * @return l'objet Utilisateur si ok, null sinon
+	 */
+	public static Utilisateur verificationConnexion(BDD bdd, String pseudo, String mdp)
 	{
 		ArrayList<Utilisateur> users = recupUtilisateurs(bdd);
 		
@@ -40,12 +47,16 @@ public class InteractionBDD
 			if(utilisateur.getPseudo().compareTo(pseudo)==0)
 			{
 				if(utilisateur.getMotDePasse().compareTo(mdp)==0)
-					return true;
+				{
+					return utilisateur;
+				}
 				else
-					return false;
+				{
+					return null;
+				}
 			}
 		}
-		return false;
+		return null;
 	}
 	
 	//Récupération de tous les objets
@@ -61,7 +72,7 @@ public class InteractionBDD
 		ArrayList<Depense> listeDepense = new ArrayList<>();
 		
 		//Lancement de la requete
-		ResultSet r = bdd.reqSQL("SELECT * FROM depense",TypesRequete.LECTURE);
+		ResultSet r = bdd.reqSQL("SELECT * FROM depense",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -112,7 +123,7 @@ public class InteractionBDD
 		ArrayList<Evenement> listeEvenements = new ArrayList<>();
 		
 		//Lancement de la requete
-		ResultSet r = bdd.reqSQL("SELECT * FROM evenements",TypesRequete.LECTURE);
+		ResultSet r = bdd.reqSQL("SELECT * FROM evenements",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -161,7 +172,7 @@ public class InteractionBDD
 		ArrayList<Utilisateur> listeUsers = new ArrayList<>();
 		
 		//Lancement de la requete
-		ResultSet r = bdd.reqSQL("SELECT * FROM utilisateurs",TypesRequete.LECTURE);
+		ResultSet r = bdd.reqSQL("SELECT * FROM utilisateurs",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -216,7 +227,7 @@ public class InteractionBDD
 		Chat chat= new Chat();
 		
 		//Lancement de la requete
-		ResultSet r = bdd.reqSQL("SELECT * FROM poste_message",TypesRequete.LECTURE);
+		ResultSet r = bdd.reqSQL("SELECT * FROM poste_message",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -271,7 +282,7 @@ public class InteractionBDD
 		
 		//Lancement de la requete
 		ResultSet r = bdd.reqSQL("SELECT * FROM depense "
-							   + "WHERE idUtilisateur = "+idUtilisateur+";",TypesRequete.LECTURE);
+							   + "WHERE idUtilisateur = "+idUtilisateur+";",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -325,7 +336,7 @@ public class InteractionBDD
 		ResultSet r = bdd.reqSQL("SELECT evenements.idEvenement,nomEvenement,budget"
 							   + " FROM participe,evenements"
 							   + " WHERE participe.idUtilisateur = "+idUtilisateur+""
-							   + " AND evenements.idEvenement = participe.idEvenement;",TypesRequete.LECTURE);
+							   + " AND evenements.idEvenement = participe.idEvenement;",BDD.TypesRequete.LECTURE);
 		
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -378,7 +389,7 @@ public class InteractionBDD
 		ResultSet r = bdd.reqSQL("SELECT utilisateurs.idUtilisateur,nom,prenom,email,pseudo"
 							   + " FROM utilisateurs,participe"
 							   + " WHERE utilisateurs.idUtilisateur = participe.idUtilisateur"
-							   + " AND idEvenement = "+idEvenement+";",TypesRequete.LECTURE);
+							   + " AND idEvenement = "+idEvenement+";",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -437,7 +448,7 @@ public class InteractionBDD
 		ResultSet r = bdd.reqSQL("SELECT poste_message.idUtilisateur,idEvenement,date,message"
 							   + " FROM poste_message, utilisateurs"
 							   + " WHERE utilisateurs.idUtilisateur=poste_message.idUtilisateur"
-							   + " AND idEvenement="+idEvenement+";",TypesRequete.LECTURE);
+							   + " AND idEvenement="+idEvenement+";",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -484,7 +495,7 @@ public class InteractionBDD
 		ArrayList<Utilisateur> listeUsers = new ArrayList<>();
 		
 		//Lancement de la requete
-		ResultSet r = bdd.reqSQL("SELECT * FROM utilisateurs WHERE idUtilisateur="+idUtilisateur+";",TypesRequete.LECTURE);
+		ResultSet r = bdd.reqSQL("SELECT * FROM utilisateurs WHERE idUtilisateur="+idUtilisateur+";",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -534,7 +545,7 @@ public class InteractionBDD
 		ArrayList<Evenement> listeEvenements = new ArrayList<>();
 		
 		//Lancement de la requete
-		ResultSet r = bdd.reqSQL("SELECT * FROM evenements WHERE idEvenement="+idEvenement+";",TypesRequete.LECTURE);
+		ResultSet r = bdd.reqSQL("SELECT * FROM evenements WHERE idEvenement="+idEvenement+";",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -593,7 +604,7 @@ public class InteractionBDD
 	 */
 	public static void ajoutDepense(BDD bdd, int idUtilisateur, int idEvenement, java.sql.Date date, int montant)
 	{
-		bdd.reqSQL("INSERT INTO depense VALUES('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+montant+"');",TypesRequete.MODIFICATION);
+		bdd.reqSQL("INSERT INTO depense VALUES('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+montant+"');",BDD.TypesRequete.MODIFICATION);
 	}
 	
 	/**
@@ -614,7 +625,7 @@ public class InteractionBDD
 	 */
 	public static void ajoutEvenement(BDD bdd, String nom, int budget)
 	{
-		bdd.reqSQL("INSERT INTO evenements VALUES('"+nom+"','"+budget+"');",TypesRequete.MODIFICATION);
+		bdd.reqSQL("INSERT INTO evenements VALUES('"+nom+"','"+budget+"');",BDD.TypesRequete.MODIFICATION);
 	}
 	
 	/**  
@@ -639,7 +650,7 @@ public class InteractionBDD
 	 */
 	public static void ajoutUtilisateur(BDD bdd, String nom, String prenom, String email, String pseudo, String motDePasse)
 	{
-		bdd.reqSQL("INSERT INTO `utilisateurs` (`nom`, `prenom`, `email`, `pseudo`, `motDePasse`) VALUES ('"+nom+"', '"+prenom+"', '"+email+"', '"+pseudo+"', '"+motDePasse+"');",TypesRequete.MODIFICATION);
+		bdd.reqSQL("INSERT INTO `utilisateurs` (`nom`, `prenom`, `email`, `pseudo`, `motDePasse`) VALUES ('"+nom+"', '"+prenom+"', '"+email+"', '"+pseudo+"', '"+motDePasse+"');",BDD.TypesRequete.MODIFICATION);
 	}
 
 	/**
@@ -662,7 +673,7 @@ public class InteractionBDD
 	 */
 	public static void ajoutMessage(BDD bdd, int idUtilisateur, int idEvenement, java.sql.Date date, String message)
 	{
-		bdd.reqSQL("INSERT INTO `poste_message` (`idUtilisateur`, `idEvenement`, `date`, `message`) VALUES ('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+message+"');",TypesRequete.MODIFICATION);
+		bdd.reqSQL("INSERT INTO `poste_message` (`idUtilisateur`, `idEvenement`, `date`, `message`) VALUES ('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+message+"');",BDD.TypesRequete.MODIFICATION);
 	}
 	
 }
