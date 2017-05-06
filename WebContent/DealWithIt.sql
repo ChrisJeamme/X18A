@@ -116,7 +116,7 @@ CREATE TABLE `poste_message` (
 
 LOCK TABLES `poste_message` WRITE;
 /*!40000 ALTER TABLE `poste_message` DISABLE KEYS */;
-INSERT INTO `poste_message` VALUES (1,1,'2017-05-05','Salut');
+INSERT INTO `poste_message` VALUES (1,1,'2017-05-05','Salut'),(2,2,'2017-05-05','Wesh');
 /*!40000 ALTER TABLE `poste_message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,7 +137,7 @@ CREATE TABLE `utilisateurs` (
   PRIMARY KEY (`idUtilisateur`),
   UNIQUE KEY `idUtilisateur` (`idUtilisateur`),
   UNIQUE KEY `peudo` (`pseudo`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +146,7 @@ CREATE TABLE `utilisateurs` (
 
 LOCK TABLES `utilisateurs` WRITE;
 /*!40000 ALTER TABLE `utilisateurs` DISABLE KEYS */;
-INSERT INTO `utilisateurs` VALUES (1,'Granjon','Thomas','thomas.granjon2@etu.univ-st-etienne.fr','TGranjon','pass'),(2,'Sofonea','Axel','','asofonea','pass'),(3,'Jeamme','Christopher','christopher@jeamme.fr','cjeamme','pass'),(4,'Bruyère','Dimitri','','dbryuere','pass'),(5,'Siracusa','Rémi','','remi42320b','pass');
+INSERT INTO `utilisateurs` VALUES (1,'Granjon','Thomas','thomas.granjon2@etu.univ-st-etienne.fr','TGranjon','pass'),(2,'Sofonea','Axel','','asofonea','pass'),(3,'Jeamme','Christopher','christopher@jeamme.fr','cjeamme','pass'),(4,'Bruyère','Dimitri','','dbryuere','pass'),(5,'Siracusa','Rémi','','remi42320b','pass'),(6,'Gourdin','Jean-Jacques','Jean-Jacques.Gourdin@rmc.bfmtv.com','Jo Gros Gourdin','FCf(RHçEfz-F(afAD*');
 /*!40000 ALTER TABLE `utilisateurs` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -159,4 +159,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-05  4:20:24
+-- Dump completed on 2017-05-07  0:09:55
