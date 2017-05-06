@@ -17,6 +17,8 @@
 
 <body>
 
+<h1>Mes événements</h1>
+
 <jsp:useBean id="tmp" class="donnees.Evenement"></jsp:useBean>
 
 <c:forEach var="event" items="${  evenements  }">

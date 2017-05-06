@@ -8,6 +8,8 @@ import java.sql.Statement;
 
 import com.mysql.jdbc.ResultSetMetaData;
 
+import donnees.Utilisateur;
+
 public class BDD
 {
 	public enum TypesRequete
@@ -145,4 +147,12 @@ public class BDD
 				return null;
 		}
 	}
+	public Utilisateur verificationConnexion() throws SQLException
+	{
+		if (c.isClosed())
+			return null;
+		else
+		return null;	//retourner utilisateur
+	}
+
 }
