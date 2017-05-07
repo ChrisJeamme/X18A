@@ -41,6 +41,9 @@ public class TestDB
 		
 		System.out.println("Pseudo cjeamme existe? "+InteractionBDD.pseudoExiste(c, "cjeamme"));
 		System.out.println("Pseudo zizi existe? "+InteractionBDD.pseudoExiste(c, "zizi"));
+		
+		System.out.println("Email christopher@jeamme.fr existe? "+InteractionBDD.emailExiste(c, "christopher@jeamme.fr"));
+		System.out.println("Email jacquieetmicheltv3@etu.univ-st-etienne.fr existe? "+InteractionBDD.emailExiste(c, "jacquieetmicheltv3@etu.univ-st-etienne.fr"));
 		System.out.println("Connexion avec cjeamme et pass ok? "+InteractionBDD.verificationConnexion(c, "cjeamme", "pass"));
 		System.out.println("Connexion avec cjeamme et bfazkhbfazf ok? "+InteractionBDD.verificationConnexion(c, "cjeamme", "bfazkhbfazf"));
 
