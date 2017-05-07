@@ -3,11 +3,12 @@
 <!ATTLIST chat
 	evenementId CDATA #REQUIRED
 >
-<!ELEMENT message (date,auteur,texte)>
+<!ELEMENT message (date,auteur,auteurId,texte)>
 <!ATTLIST message
 	idUtilisateur CDATA #REQUIRED
 	idEvenement CDATA #REQUIRED
 >
 <!ELEMENT date (#PCDATA)>
 <!ELEMENT auteur (#PCDATA)>
+<!ELEMENT auteurId (#PCDATA)>
 <!ELEMENT texte (#PCDATA)>

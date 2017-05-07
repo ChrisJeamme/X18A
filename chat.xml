@@ -4,11 +4,13 @@
     <message idUtilisateur="1" idEvenement="1">
     <date>2017</date>
     <auteur>1</auteur>
+    <auteurId>1</auteurId>
     <texte>Salut</texte>
     </message>
     <message idUtilisateur="2" idEvenement="1">
     <date>2018</date>
-    <auteur>1</auteur>
+    <auteur>2</auteur>
+    <auteurId>2</auteurId>
     <texte>Salut</texte>
     </message>
 </chat>
