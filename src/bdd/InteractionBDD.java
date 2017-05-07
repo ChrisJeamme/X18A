@@ -793,7 +793,7 @@ public class InteractionBDD
 	 * @param date
 	 * @param message
 	 */
-	public static void ajoutMessage(BDD bdd, int idUtilisateur, int idEvenement, java.sql.Date date, String message)
+	public static void ajoutMessage(BDD bdd, int idUtilisateur, int idEvenement, String date, String message)
 	{
 		bdd.reqSQL("INSERT INTO `poste_message` (`idUtilisateur`, `idEvenement`, `date`, `message`) VALUES ('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+message+"');",BDD.TypesRequete.MODIFICATION);
 	}

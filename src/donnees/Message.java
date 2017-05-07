@@ -3,14 +3,14 @@ package donnees;
 public class Message
 {
 	String texte;
-	java.sql.Date date;
+	String date;
 	int idUtilisateur;
 	int idEvenement;
 
 	public Message()
 	{}
 	
-	public Message(String texte, java.sql.Date date, int idUtilisateur, int idEvenement)
+	public Message(String texte, String date, int idUtilisateur, int idEvenement)
 	{
 		this();
 		this.texte = texte;
@@ -24,7 +24,7 @@ public class Message
 		return texte;
 	}
 
-	public java.sql.Date getDate()
+	public String getDate()
 	{
 		return date;
 	}
@@ -33,18 +33,8 @@ public class Message
 	{
 		this.texte = message;
 	}
-
-	public void setDate()
-	{
-		date = new java.sql.Date(new java.util.Date().getTime());
-	}
 	
 	public void setDate(String date)
-	{
-		this.date = java.sql.Date.valueOf(date);
-	}
-	
-	public void setDate(java.sql.Date date)
 	{
 		this.date = date;
 	}
