@@ -52,19 +52,22 @@ public class ConnexionController extends HttpServlet
 		BDD db = new BDD();
 
 		String redirection;
+		String message;
 		Utilisateur u = InteractionBDD.verificationConnexion(db, pseudo, motDePasse);
-		if (u != null)
+		if (u != null) //L'utilisateur existe et s'est correctement authentifié
 		{
 			HttpSession session = request.getSession();
+			message = "Bonjour"; 
 			session.setAttribute("utilisateur", u);
 			redirection = "/accueilConnecte.jsp";
 		}
 		else 
 		{
-			request.setAttribute("erreur", "Utilisateur inconnu ou mot de passe incorrect.");
+			message = "Utilisateur inconnu ou mot de passe incorrect.";
 			redirection = "/connexion.jsp";
 		}
 		db.disconnect();
+		request.setAttribute("message", message);
 		getServletContext().getRequestDispatcher(redirection).forward(request, response);
 		
 	}

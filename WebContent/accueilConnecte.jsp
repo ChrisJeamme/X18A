@@ -17,8 +17,10 @@
 		<a class="boutton" href="deconnexion">Déconnexion</a>
 	</div>
 
-Bonjour ${ utilisateur.prenom }
-
+	<div>
+		${ message } ${ utilisateur.prenom } !
+	</div>
+	
 	<div id="bloc_navigation">
 		<a class="boutton" href="mesEvenements">Mes événements</a>
 		<a class="boutton" href="creerEvenement">Créer un évenement</a>
