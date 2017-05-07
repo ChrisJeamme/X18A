@@ -108,6 +108,8 @@ public class InteractionBDD
 						depense.setIdEvenement(r.getInt(meta.getColumnName(i)));
 					if(meta.getColumnLabel(i).compareTo("date") == 0)
 						depense.setDate(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("description") == 0)
+						depense.setDescription(r.getString(meta.getColumnName(i)));
 					if(meta.getColumnLabel(i).compareTo("montant") == 0)
 						depense.setMontant(r.getInt(meta.getColumnName(i)));
 				}
@@ -316,6 +318,8 @@ public class InteractionBDD
 						depense.setIdUtilisateur(r.getInt(meta.getColumnName(i)));
 					if(meta.getColumnLabel(i).compareTo("idEvenement") == 0)
 						depense.setIdEvenement(r.getInt(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("description") == 0)
+						depense.setDescription(r.getString(meta.getColumnName(i)));
 					if(meta.getColumnLabel(i).compareTo("date") == 0)
 						depense.setDate(r.getString(meta.getColumnName(i)));
 					if(meta.getColumnLabel(i).compareTo("montant") == 0)
@@ -368,6 +372,8 @@ public class InteractionBDD
 						depense.setIdUtilisateur(r.getInt(meta.getColumnName(i)));
 					if(meta.getColumnLabel(i).compareTo("idEvenement") == 0)
 						depense.setIdEvenement(r.getInt(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("description") == 0)
+						depense.setDescription(r.getString(meta.getColumnName(i)));
 					if(meta.getColumnLabel(i).compareTo("date") == 0)
 						depense.setDate(r.getString(meta.getColumnName(i)));
 					if(meta.getColumnLabel(i).compareTo("montant") == 0)
@@ -696,7 +702,7 @@ public class InteractionBDD
 	 */
 	public static void ajoutDepense(BDD bdd, Depense depense)
 	{
-		ajoutDepense(bdd, depense.getIdUtilisateur(), depense.getIdEvenement(), depense.getDate(), depense.getMontant());
+		ajoutDepense(bdd, depense.getIdUtilisateur(), depense.getIdEvenement(), depense.getDate(), depense.getMontant(), depense.getDescription());
 	}
 	
 	/**
@@ -707,9 +713,9 @@ public class InteractionBDD
 	 * @param date
 	 * @param montant
 	 */
-	public static void ajoutDepense(BDD bdd, int idUtilisateur, int idEvenement, java.sql.Date date, int montant)
+	public static void ajoutDepense(BDD bdd, int idUtilisateur, int idEvenement, String date, int montant, String description)
 	{
-		bdd.reqSQL("INSERT INTO depense VALUES('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+montant+"');",TypesRequete.MODIFICATION);
+		bdd.reqSQL("INSERT INTO depense VALUES('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+montant+"','"+description+");",TypesRequete.MODIFICATION);
 	}
 	
 	/**

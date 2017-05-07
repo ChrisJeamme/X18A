@@ -3,20 +3,22 @@ package donnees;
 public class Depense 
 {
 	private int idUtilisateur;
-	private java.sql.Date date;                   //java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().getTime());
+	private String date;                   //java.sql.Date sqlDate = new java.sql.Date(new java.util.Date().getTime());
 	private int montant;
 	private int idEvent; 
+	private String description;
 	
 	public Depense()
 	{}
 	
-	public Depense(int user, int event, int montant, String date)
+	public Depense(int user, int event, int montant, String date, String description)
 	{
 		this();
 		this.idUtilisateur = user;
 		this.idEvent = event;
 		this.montant = montant;
-		this.date = java.sql.Date.valueOf(date);
+		this.date = date;
+		this.description = description;
 	}
 
 	public int getIdUtilisateur() 
@@ -29,17 +31,12 @@ public class Depense
 		this.idUtilisateur = user;
 	}
 
-	public java.sql.Date getDate() 
+	public String getDate() 
 	{
 		return date;
 	}
 
 	public void setDate(String date)
-	{
-		this.date = java.sql.Date.valueOf(date);
-	}
-	
-	public void setDate(java.sql.Date date)
 	{
 		this.date = date;
 	}
@@ -62,6 +59,16 @@ public class Depense
 	public void setIdEvenement(int event)
 	{
 		this.idEvent = event;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
 	}
 
 	@Override
