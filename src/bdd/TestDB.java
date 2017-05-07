@@ -53,6 +53,8 @@ public class TestDB
 		//InteractionBDD.ajoutMessage(c, 1, 1, date, "test"); //PB DE DATE
 		InteractionBDD.ajoutEvenement(c, "Lévenement", 10);
 		
+		InteractionBDD.ajoutDepense(c, new Depense(1, 1, 10, "2017-08-08 10:10:10", "Test du cul"));
+		
 		//try{System.in.read();}catch (IOException e){e.printStackTrace();} //GETCHAR
 		
 		//On se déconnecte de la BDD
