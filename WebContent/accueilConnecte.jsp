@@ -23,7 +23,7 @@
 	
 	<div id="bloc_navigation">
 		<a class="boutton" href="mesEvenements">Mes événements</a>
-		<a class="boutton" href="creerEvenement">Créer un évenement</a>
+		<a class="boutton" href="creationEvenement.jsp">Créer un évenement</a>
 		<a class="boutton" href="mesDepenses">Mes opérations</a>
 	</div>
 

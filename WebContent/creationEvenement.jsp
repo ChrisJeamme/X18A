@@ -11,49 +11,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mes Evénements</title>
+<title>Deal With It !</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<jsp:useBean id="tmp" class="donnees.Evenement"></jsp:useBean>
+<h1>Création d'un événement</h1>
 
-<!--  Afficher les dépenses et tout le bordel ici -->
-
-
-<c:forEach var="util" items="${  utilisateurs  }">
-	<div id="utilisateurs">
-	    <span>${ util.pseudo }</span>
-	    <br/>
-	</div>
-</c:forEach>
-
-<c:forEach var="dep" items="${  depenses  }">
-	<div id="evenement">
-	    <span>${ dep.key.date }</span>
-	    <br/>
-	    <span>${ dep.key.montant }</span>
-	    <br/>
-	    <span>${ dep.value.pseudo }</span>
-	</div>
-</c:forEach>
-
-
-<i>${ erreur }</i>
-
-<form method="post" action="ajoutParticipant">
-	<label for="nom">Ajouter un participant :</label>
+<form method="post" action="creerEvenement">
+	<label for="nom">Nom de l'événement :</label>
 	<br/>
 	<input type="text" name="nom" id="nom" />
 	<br/>
 	
-	<input class="bouton" value="Ajouter" type="submit">
+	<input class="bouton" value="Créer l'événement" type="submit">
 	
 </form>
-
-
-
 
 </body>
 </html>

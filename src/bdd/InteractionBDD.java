@@ -334,7 +334,60 @@ public class InteractionBDD
 		}
 		
 		return listeDepense;
-}
+	}
+	
+	/**
+	 *  Récupère toutes les dépenses d'un événement
+	 * @param bdd
+	 * @param idEvenement
+	 * @return Une liste de dépenses
+	 */
+	public static ArrayList<Depense> recupDepensesDeEvenement(BDD bdd, int idEvenement)
+	{
+		//Initialisation de la Liste à remplir
+		ArrayList<Depense> listeDepense = new ArrayList<>();
+		
+		//Lancement de la requete
+		ResultSet r = bdd.reqSQL("SELECT * FROM depense "
+							   + "WHERE idEvenement = "+idEvenement+";",BDD.TypesRequete.LECTURE);
+	
+		//Traitement des résultats
+		ResultSetMetaData meta = null;
+		
+		try
+		{
+			meta = (ResultSetMetaData) r.getMetaData();
+			
+			while(r.next())
+			{
+				Depense depense = new Depense();
+				
+				for(int i=1; i<=(meta.getColumnCount()); i++)
+				{
+					if(meta.getColumnLabel(i).compareTo("idUtilisateur") == 0)
+						depense.setIdUtilisateur(r.getInt(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("idEvenement") == 0)
+						depense.setIdEvenement(r.getInt(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("date") == 0)
+						depense.setDate(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("montant") == 0)
+						depense.setMontant(r.getInt(meta.getColumnName(i)));
+				}
+				
+				listeDepense.add(depense);
+			}
+		}
+		catch (SQLException e)
+		{
+			System.err.println("Problème SQL");
+			e.printStackTrace();
+			bdd.disconnect();
+			System.exit(-1);
+		}
+		
+		return listeDepense;
+	}	
+
 	
 	/**
 	 *  Récupère tous les évenements d'un utilisateur
@@ -508,6 +561,52 @@ public class InteractionBDD
 	{
 		//Lancement de la requete
 		ResultSet r = bdd.reqSQL("SELECT * FROM utilisateurs WHERE idUtilisateur="+idUtilisateur+";",BDD.TypesRequete.LECTURE);
+	
+		//Traitement des résultats
+		ResultSetMetaData meta = null;
+		
+		try
+		{
+			meta = (ResultSetMetaData) r.getMetaData();
+			
+			while(r.next())
+			{
+				Utilisateur user = new Utilisateur();
+				
+				for(int i=1; i<=(meta.getColumnCount()); i++)
+				{
+					if(meta.getColumnLabel(i).compareTo("idUtilisateur") == 0)
+						user.setId(r.getInt(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("nom") == 0)
+						user.setNom(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("prenom") == 0)
+						user.setPrenom(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("email") == 0)
+						user.setEmail(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("pseudo") == 0)
+						user.setPseudo(r.getString(meta.getColumnName(i)));
+					if(meta.getColumnLabel(i).compareTo("motDePasse") == 0)
+						user.setMotDePasse(r.getString(meta.getColumnName(i)));
+				}
+				
+				return user;
+			}
+		}
+		catch (SQLException e)
+		{
+			System.err.println("Problème SQL");
+			e.printStackTrace();
+			bdd.disconnect();
+			System.exit(-1);
+		}
+
+		return null;
+	}
+	
+	public static Utilisateur recupUtilisateurAvecPseudo(BDD bdd, String pseudo)
+	{
+		//Lancement de la requete
+		ResultSet r = bdd.reqSQL("SELECT * FROM utilisateurs WHERE pseudo=\""+pseudo+"\";",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
