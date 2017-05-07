@@ -2,7 +2,10 @@ package bdd;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.mysql.jdbc.ResultSetMetaData;
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
@@ -818,6 +821,18 @@ public class InteractionBDD
 	public static void ajoutParticipe(BDD bdd, int idUtilisateur, int idEvenement)
 	{
 		bdd.reqSQL("INSERT INTO `participe` (`idUtilisateur`, `idEvenement`) VALUES ('"+idUtilisateur+"','"+idEvenement+"');",BDD.TypesRequete.MODIFICATION);
+	}
+	
+	/**
+	 *  Renvoie une date formaté de type String pour la BDD
+	 */
+	public static String date()
+	{
+		Date d = new Date();
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		String date = format.format(d);
+		System.out.println(date);
+		return date;
 	}
 	
 }

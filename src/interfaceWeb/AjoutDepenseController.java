@@ -1,7 +1,10 @@
 package interfaceWeb;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,15 +24,15 @@ import donnees.Utilisateur;
 /**
  * Servlet implementation class AjoutParticipanController
  */
-@WebServlet("/ajoutParticipant")
-public class AjoutParticipanController extends HttpServlet
+@WebServlet("/ajoutDepense")
+public class AjoutDepenseController extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public AjoutParticipanController()
+	public AjoutDepenseController()
 	{
 		super();
 		// TODO Auto-generated constructor stub
@@ -50,22 +53,21 @@ public class AjoutParticipanController extends HttpServlet
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		String pseudo = (String) request.getParameter("nom");
+		String description = (String) request.getParameter("description");
+		int montant = Integer.parseInt((String) request.getParameter("montant"));
 		
 		HttpSession session = request.getSession();
 		Evenement event = (Evenement) session.getAttribute("evenement");
 		BDD db = new BDD();
 		
-		Utilisateur u = InteractionBDD.recupUtilisateurAvecPseudo(db, pseudo);
-		if (u != null)
-		{
-			InteractionBDD.ajoutParticipe(db, u.getId(), event.getId());
-
-		}
+		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
+		String date = InteractionBDD.date(); 
+		
+		if (montant != 0)
+			InteractionBDD.ajoutDepense(db, u.getId(), event.getId(), date, montant, description);
 		else 
-		{
-			request.setAttribute("erreur", "Cet utilisateur n'existe pas.");
-		}
+			request.setAttribute("erreurMontant", "Veuillez rentrer un montant valide");
+
 		ArrayList<Utilisateur> listeUtilisateurs = InteractionBDD.recupUtilisateursDeEvenement(db, event.getId()); 
 		ArrayList<Depense> listeDepenses = InteractionBDD.recupDepensesDeEvenement(db, event.getId());
 		Map<Depense, Utilisateur> depenses = new HashMap<>();

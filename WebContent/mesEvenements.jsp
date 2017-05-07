@@ -23,9 +23,13 @@
 
 <c:forEach var="event" items="${  evenements  }">
 	<div id="evenement">
-	    <span>${ event.nomEvenement }</span>
-	    <br/>
-	    <span>${ event.budget }</span>
+		<a href="evenement?ev=${ event.id }">	
+			    <span>${ event.nomEvenement }</span>
+			    <br/>
+			    <span>${ event.budget }</span>
+			    <br/>
+			    <br/>
+		</a>
 	</div>
 </c:forEach>
 

@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mes Evénements</title>
+<title>Deal With It !</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -21,6 +21,7 @@
 
 <!--  Afficher les dépenses et tout le bordel ici -->
 
+<h1>${ evenement.nomEvenement }</h1>
 
 <c:forEach var="util" items="${  utilisateurs  }">
 	<div id="utilisateurs">
@@ -39,6 +40,24 @@
 	</div>
 </c:forEach>
 
+Ajouter une dépense
+<br/>
+${ erreurMontant }
+<form method="post" action="ajoutDepense">
+	<label for="description">Description :</label>
+	<br/>
+	<input type="text" name="description" id="description" />
+	<br/>
+	
+	<label for="montant">Montant :</label>
+	<br/>
+	<input type="text" name="montant" id="montant" />
+	<br/>
+	
+	<input class="bouton" value="Ajouter la dépense" type="submit">
+	
+</form>
+
 
 <i>${ erreur }</i>
 
@@ -51,6 +70,7 @@
 	<input class="bouton" value="Ajouter" type="submit">
 	
 </form>
+
 
 
 
