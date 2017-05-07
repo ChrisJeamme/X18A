@@ -11,20 +11,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mes Evénements</title>
+<title>Mes opérations</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<jsp:useBean id="tmp1" class="donnees.Depense"></jsp:useBean>
+<jsp:useBean id="tmp2" class="donnees.Evenement"></jsp:useBean>
 
-<jsp:useBean id="tmp" class="donnees.Evenement"></jsp:useBean>
-
-
-<div>${ evenement1.nomEvenement }</div>
-<div>${ evenement1.budget }</div>
-
-
+<c:forEach var="dep" items="${  depenses  }">
+	<div id="evenement">
+	    <span>${ dep.key.date }</span>
+	    <br/>
+	    <span>${ dep.key.montant }</span>
+	    <br/>
+	    <span>${ dep.value.nomEvenement }</span>
+	</div>
+</c:forEach>
 
 
 </body>

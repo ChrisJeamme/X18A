@@ -11,18 +11,16 @@ import javax.servlet.http.HttpSession;
 import donnees.Utilisateur;
 
 /**
- * Servlet implementation class CompteController
+ * Servlet implementation class AccueilConnecte
  */
-@WebServlet("/compte")
-public class CompteController extends HttpServlet
-{
+@WebServlet("/AccueilConnecte")
+public class AccueilConnecteController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CompteController() 
-    {
+    public AccueilConnecteController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,19 +28,18 @@ public class CompteController extends HttpServlet
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
 		request.setAttribute("utilisateur", u);
-		getServletContext().getRequestDispatcher("/compte.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/accueilConnecte.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

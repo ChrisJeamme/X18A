@@ -49,15 +49,14 @@ public class ConnexionController extends HttpServlet
 	{
 		String pseudo = (String) request.getParameter("pseudo");
 		String motDePasse = (String) request.getParameter("pass");
-		System.out.println(pseudo + "   " + motDePasse);
 		BDD db = new BDD();
-		ArrayList<Evenement> evenement = InteractionBDD.recupEvenementsDeUtilisateur(db, 1);
+
 		String redirection;
 		Utilisateur u = InteractionBDD.verificationConnexion(db, pseudo, motDePasse);
 		if (u != null)
 		{
 			HttpSession session = request.getSession();
-			session.setAttribute("pseudo", pseudo);
+			session.setAttribute("utilisateur", u);
 			redirection = "/accueilConnecte.jsp";
 		}
 		else 

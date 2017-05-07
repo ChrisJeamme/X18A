@@ -17,14 +17,17 @@
 
 <body>
 
+<h1>Mes événements</h1>
 
 <jsp:useBean id="tmp" class="donnees.Evenement"></jsp:useBean>
 
-
-<div>${ evenement1.nomEvenement }</div>
-<div>${ evenement1.budget }</div>
-
-
+<c:forEach var="event" items="${  evenements  }">
+	<div id="evenement">
+	    <span>${ event.nomEvenement }</span>
+	    <br/>
+	    <span>${ event.budget }</span>
+	</div>
+</c:forEach>
 
 
 </body>

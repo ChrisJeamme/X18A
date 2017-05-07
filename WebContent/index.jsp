@@ -10,10 +10,11 @@
 <body>
 	<!-- Header contient la barre du haut avec titre, bouttons connexion etc. -->
 	<header>
-		<h1>RazDocs</h1>
+		<h1>Deal With It !</h1>
 		<div id="bloc_connexion">
-			<a class="bouton" href="#">Connexion</a>
-			<a class="bouton" href="#">Inscription</a>
+			<a class="boutton" href="connexion.jsp">Connexion</a>
+			<a class="boutton" href="inscription.jsp">Inscription</a>
+
 		</div>
 	</header>
 	
