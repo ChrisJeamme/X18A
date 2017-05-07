@@ -39,8 +39,8 @@ public class TestDB
 		System.out.println(InteractionBDD.recupUtilisateurAvecID(c,1));
 		System.out.println(InteractionBDD.recupEvenementsAvecID(c,1));
 		
-		System.out.println("Pseudo cjeamme existe? "+InteractionBDD.utilisateurExiste(c, "cjeamme"));
-		System.out.println("Pseudo zizi existe? "+InteractionBDD.utilisateurExiste(c, "zizi"));
+		System.out.println("Pseudo cjeamme existe? "+InteractionBDD.pseudoExiste(c, "cjeamme"));
+		System.out.println("Pseudo zizi existe? "+InteractionBDD.pseudoExiste(c, "zizi"));
 		System.out.println("Connexion avec cjeamme et pass ok? "+InteractionBDD.verificationConnexion(c, "cjeamme", "pass"));
 		System.out.println("Connexion avec cjeamme et bfazkhbfazf ok? "+InteractionBDD.verificationConnexion(c, "cjeamme", "bfazkhbfazf"));
 

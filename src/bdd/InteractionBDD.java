@@ -18,13 +18,27 @@ public class InteractionBDD
 {
 	//Vérifications utilisateur
 	
-	public static boolean utilisateurExiste(BDD bdd, String pseudo)
+	public static boolean pseudoExiste(BDD bdd, String pseudo)
 	{
 		ArrayList<Utilisateur> users = recupUtilisateurs(bdd);
 		
 		for(Utilisateur utilisateur : users)
 		{
 			if(utilisateur.getPseudo().compareTo(pseudo)==0)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public static boolean emailExiste(BDD bdd, String email)
+	{
+		ArrayList<Utilisateur> users = recupUtilisateurs(bdd);
+		
+		for(Utilisateur utilisateur : users)
+		{
+			if(utilisateur.getEmail().compareTo(email)==0)
 			{
 				return true;
 			}
