@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.mysql.jdbc.ResultSetMetaData;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 import donnees.Utilisateur;
 
@@ -14,7 +15,7 @@ public class BDD
 {
 	public enum TypesRequete
 	{
-		MODIFICATION, LECTURE
+		MODIFICATION, LECTURE, RETOURID
 	}
 	
 	Connection c;
@@ -25,7 +26,6 @@ public class BDD
 		String serveur = "127.0.0.1";
 		String identifiant = "chris";
 		String mdp = "jKFe5FA4ef6";
-		String port = "3306";
 		String url = "jdbc:mysql://"+serveur/*+":"+port*/+"/x18a";
 		
 		try
@@ -111,6 +111,26 @@ public class BDD
 			disconnect();
 			System.exit(-1);
 		}
+	}
+	
+	public int reqSQLid(String query)
+	{
+		try
+		{
+			st.executeUpdate (query, Statement.RETURN_GENERATED_KEYS);          
+	        ResultSet ids = st.getGeneratedKeys();
+	        ids.next();
+			return ids.getInt(1);
+		}
+		catch (MySQLIntegrityConstraintViolationException e)
+		{
+			return -1;
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return -1;
 	}
 	
 	public ResultSet reqSQL(String query, TypesRequete type)

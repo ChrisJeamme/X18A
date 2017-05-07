@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.mysql.jdbc.ResultSetMetaData;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 import bdd.BDD.TypesRequete;
 import donnees.Chat;
@@ -595,38 +596,48 @@ public class InteractionBDD
 	 */
 	public static void ajoutDepense(BDD bdd, int idUtilisateur, int idEvenement, java.sql.Date date, int montant)
 	{
-		bdd.reqSQL("INSERT INTO depense VALUES('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+montant+"');",BDD.TypesRequete.MODIFICATION);
+		bdd.reqSQL("INSERT INTO depense VALUES('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+montant+"');",TypesRequete.MODIFICATION);
 	}
 	
 	/**
-	 *  Ajout l'objet Evenement en argument dans la base de donnée bdd
+	 *  Ajout l'objet Evenement en argument dans la base de donnée bdd si il n'a pas déjà un id, et fixe l'id après l'ajout
 	 * @param bdd Base de donnée chargée
 	 * @param evenement L'objet Evenement à ajouter
 	 */
 	public static void ajoutEvenement(BDD bdd, Evenement evenement)
 	{
-		ajoutEvenement(bdd, evenement.getNomEvenement(), evenement.getBudget());
+		if(evenement.getId() == -1)
+		{
+			System.out.println("Cet évenement possède déjà un id (donc surement déjà dans la BDD)");
+		}
+		int id = ajoutEvenement(bdd, evenement.getNomEvenement(), evenement.getBudget());
+		evenement.setId(id);
 	}
 	
 	/**
-	 *  Ajout l'objet Evenement en argument dans la base de donnée bdd
+	 *  Ajout l'objet Evenement en argument dans la base de donnée bdd et renvoi l'id
 	 * @param bdd
 	 * @param nom
 	 * @param budget
 	 */
-	public static void ajoutEvenement(BDD bdd, String nom, int budget)
+	public static int ajoutEvenement(BDD bdd, String nom, int budget)
 	{
-		bdd.reqSQL("INSERT INTO evenements VALUES('"+nom+"','"+budget+"');",BDD.TypesRequete.MODIFICATION);
+		return bdd.reqSQLid("INSERT INTO evenements (`nomEvenement`, `budget`) VALUES('"+nom+"','"+budget+"');");
 	}
 	
 	/**  
-	 *  Ajout l'objet Utilisateur en argument dans la base de donnée bdd
+	 *  Ajout l'objet Utilisateur en argument dans la base de donnée bdd si l'id n'est pas fixé dans l'objet et le place après l'ajout (-1 si non place => existe déjà)
 	 * @param bdd  Base de donnée chargée
 	 * @param utilisateur
+	 * 
 	 */
 	public static void ajoutUtilisateur(BDD bdd, Utilisateur utilisateur)
 	{
-		ajoutUtilisateur(bdd, utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getEmail(), utilisateur.getPseudo(), utilisateur.getMotDePasse());
+		if(utilisateur.getId() != -1)
+		{
+			int id = ajoutUtilisateur(bdd, utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getEmail(), utilisateur.getPseudo(), utilisateur.getMotDePasse());
+			utilisateur.setId(id);
+		}
 	}
 	
 	/**
@@ -638,10 +649,11 @@ public class InteractionBDD
 	 * @param email
 	 * @param pseudo
 	 * @param motDePasse
+	 * @return -1 si le pseudo est déjà pris
 	 */
-	public static void ajoutUtilisateur(BDD bdd, String nom, String prenom, String email, String pseudo, String motDePasse)
+	public static int ajoutUtilisateur(BDD bdd, String nom, String prenom, String email, String pseudo, String motDePasse)
 	{
-		bdd.reqSQL("INSERT INTO `utilisateurs` (`nom`, `prenom`, `email`, `pseudo`, `motDePasse`) VALUES ('"+nom+"', '"+prenom+"', '"+email+"', '"+pseudo+"', '"+motDePasse+"');",BDD.TypesRequete.MODIFICATION);
+		return bdd.reqSQLid("INSERT INTO `utilisateurs` (`nom`, `prenom`, `email`, `pseudo`, `motDePasse`) VALUES ('"+nom+"', '"+prenom+"', '"+email+"', '"+pseudo+"', '"+motDePasse+"');");
 	}
 
 	/**
@@ -665,6 +677,28 @@ public class InteractionBDD
 	public static void ajoutMessage(BDD bdd, int idUtilisateur, int idEvenement, java.sql.Date date, String message)
 	{
 		bdd.reqSQL("INSERT INTO `poste_message` (`idUtilisateur`, `idEvenement`, `date`, `message`) VALUES ('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+message+"');",BDD.TypesRequete.MODIFICATION);
+	}
+	
+	/**
+	 *  Ajoute un lien dans la bdd de participation de utilisateur à evenement
+	 * @param bdd
+	 * @param utilisateur
+	 * @param evenement
+	 */
+	public static void ajoutParticipe(BDD bdd, Utilisateur utilisateur, Evenement evenement)
+	{
+		ajoutParticipe(bdd, utilisateur.getId(), evenement.getId());
+	}
+
+	/**
+	 *  Ajoute la participation de l'utilisateur idUtilisateur à l'évenement idEvenement
+	 * @param bdd
+	 * @param idUtilisateur
+	 * @param idEvenement
+	 */
+	public static void ajoutParticipe(BDD bdd, int idUtilisateur, int idEvenement)
+	{
+		bdd.reqSQL("INSERT INTO `participe` (`idUtilisateur`, `idEvenement`) VALUES ('"+idUtilisateur+"','"+idEvenement+"');",BDD.TypesRequete.MODIFICATION);
 	}
 	
 }

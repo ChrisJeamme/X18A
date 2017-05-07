@@ -1,7 +1,12 @@
 package bdd;
 
+import java.io.IOException;
+import java.sql.ResultSet;
 import java.util.Date;
 
+import com.mysql.jdbc.ResultSetMetaData;
+
+import bdd.BDD.TypesRequete;
 import donnees.Depense;
 import donnees.Message;
 import donnees.Utilisateur;
@@ -14,6 +19,8 @@ public class TestDB
 		BDD c = new BDD();
 		
 		
+		
+	
 		//InteractionBDD.ajoutUtilisateur(c, new Utilisateur("Gourdin", "Jean-Jacques", "Jean-Jacques.Gourdin@rmc.bfmtv.com", "Jo Gros Gourdin", "FCf(RHÁEfz-F(afAD*"));
 		System.out.println(InteractionBDD.recupUtilisateurs(c));
 		//InteractionBDD.ajoutMessage(c, new Message("Wesh", new java.sql.Date(new Date().getTime()), 2, 2));
@@ -36,6 +43,12 @@ public class TestDB
 		System.out.println("Pseudo zizi existe? "+InteractionBDD.utilisateurExiste(c, "zizi"));
 		System.out.println("Connexion avec cjeamme et pass ok? "+InteractionBDD.verificationConnexion(c, "cjeamme", "pass"));
 		System.out.println("Connexion avec cjeamme et bfazkhbfazf ok? "+InteractionBDD.verificationConnexion(c, "cjeamme", "bfazkhbfazf"));
+
+		System.out.println("Ajout d'un utilisateur, id dans la bdd = "+InteractionBDD.ajoutUtilisateur(c, "A", "B", "C", "D", "E"));
+		InteractionBDD.ajoutParticipe(c, 2, 2);
+		//System.out.println(InteractionBDD.ajoutDepense(c, 1, 1, new java.sql.Date(), 1); //PB DE DATE
+		//InteractionBDD.ajoutMessage(c, 1, 1, date, "test"); //PB DE DATE
+		InteractionBDD.ajoutEvenement(c, "LÈvenement", 10);
 		
 		//try{System.in.read();}catch (IOException e){e.printStackTrace();} //GETCHAR
 		
