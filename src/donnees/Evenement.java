@@ -2,15 +2,23 @@ package donnees;
 
 public class Evenement 
 {
-	private int id;
+	private int id = -1;
 	private String nomEvenement;
 	private int budget;
 	
 	public Evenement()
 	{}
 	
+	public Evenement(String nomEvenement, int budget)
+	{
+		this();
+		this.nomEvenement = nomEvenement;
+		this.budget = budget;
+	}
+	
 	public Evenement(int id, String nomEvenement, int budget)
 	{
+		this();
 		this.id = id;
 		this.nomEvenement = nomEvenement;
 		this.budget = budget;

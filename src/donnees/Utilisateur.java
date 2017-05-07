@@ -2,7 +2,7 @@ package donnees;
 
 public class Utilisateur 
 {
-	private int id;
+	private int id = -1;
 	private String nom;
 	private String prenom;
 	private String email;
