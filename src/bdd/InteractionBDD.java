@@ -718,7 +718,8 @@ public class InteractionBDD
 	 */
 	public static void ajoutDepense(BDD bdd, int idUtilisateur, int idEvenement, String date, int montant, String description)
 	{
-		bdd.reqSQL("INSERT INTO depense VALUES('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+montant+"','"+description+"');",TypesRequete.MODIFICATION);
+		System.out.println("INSERT INTO depense VALUES('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+montant+"','"+description+"');");
+		bdd.reqSQL("INSERT INTO depense (`idUtilisateur`, `idEvenement`, `date`, `montant`, `description`) VALUES('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+montant+"','"+description+"');",TypesRequete.MODIFICATION);
 	}
 	
 	/**

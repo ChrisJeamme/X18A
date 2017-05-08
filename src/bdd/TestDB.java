@@ -18,9 +18,6 @@ public class TestDB
 		//Connexion ‡ la BDD
 		BDD c = new BDD();
 		
-		
-		
-	
 		//InteractionBDD.ajoutUtilisateur(c, new Utilisateur("Gourdin", "Jean-Jacques", "Jean-Jacques.Gourdin@rmc.bfmtv.com", "Jo Gros Gourdin", "FCf(RHÁEfz-F(afAD*"));
 		System.out.println(InteractionBDD.recupUtilisateurs(c));
 		//InteractionBDD.ajoutMessage(c, new Message("Wesh", new java.sql.Date(new Date().getTime()), 2, 2));

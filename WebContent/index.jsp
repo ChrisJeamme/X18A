@@ -3,18 +3,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="style.css">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>RazDocs</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Deal With It !</title>
+	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 	<!-- Header contient la barre du haut avec titre, bouttons connexion etc. -->
 	<header>
 		<h1>Deal With It !</h1>
-		<div id="bloc_connexion">
+		<div class="bloc_connexion">
 			<a class="boutton" href="connexion.jsp">Connexion</a>
 			<a class="boutton" href="inscription.jsp">Inscription</a>
-
 		</div>
 	</header>
 	
@@ -28,7 +28,7 @@
 		
 		Corps sexy de la page
 		
-		<!-- Article est un bloc qui peut servir à différentes choses -->
+		<!-- Article est un bloc qui peut servir ï¿½ diffï¿½rentes choses -->
 		<article> 
 			<p>Un article</p>
 			<a class="bouton" href="#">
