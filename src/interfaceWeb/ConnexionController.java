@@ -59,7 +59,7 @@ public class ConnexionController extends HttpServlet
 			HttpSession session = request.getSession();
 			message = "Bonjour"; 
 			session.setAttribute("utilisateur", u);
-			redirection = "/accueilConnecte.jsp";
+			redirection = "/AccueilConnecte";
 		}
 		else 
 		{

@@ -45,7 +45,6 @@ public class MesDepensesController extends HttpServlet
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
 		BDD db = new BDD();
 		ArrayList<Depense> listeDepenses = InteractionBDD.recupDepensesDeUtilisateur(db, u.getId());
-		ArrayList<Evenement> evenementDepense = new ArrayList<>();
 		Map<Depense, Evenement> depenses = new HashMap<>();
 		for (int i=0; i<listeDepenses.size(); i++)
 		{
