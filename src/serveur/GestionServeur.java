@@ -29,10 +29,22 @@ public class GestionServeur
 			switch(type)
 			{
 			case DEMANDE_OBJET:
-				ParserXML.analyserDemande(reception);
+				//ParserXML.analyserDemande(reception);
 				break;
-			case ENVOI_OBJET:
-				ParserXML.analyserEnvoi(reception);
+			case ENVOI_CHAT:
+				
+				break;
+			case ENVOI_EVENEMENT:
+				
+				break;
+			case ENVOI_DEPENSE:
+				
+				break;
+			case ENVOI_MESSAGE:
+				
+				break;
+			case ENVOI_UTILISATEUR:
+			
 				break;
 			case INCONNU:
 				System.err.println("Requete recu non reconnue");

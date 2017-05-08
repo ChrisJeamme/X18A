@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE evenement SYSTEM "chat.dtd">
+<!DOCTYPE evenement SYSTEM "evenement.dtd">
 <evenement>
 	<id>1</id>
     <nom>A</nom>
