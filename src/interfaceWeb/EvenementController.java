@@ -19,17 +19,17 @@ import donnees.Evenement;
 import donnees.Utilisateur;
 
 /**
- * Servlet implementation class AjoutParticipanController
+ * Servlet implementation class EvenementController
  */
-@WebServlet("/ajoutParticipant")
-public class AjoutParticipanController extends HttpServlet
+@WebServlet("/evenement")
+public class EvenementController extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public AjoutParticipanController()
+	public EvenementController()
 	{
 		super();
 		// TODO Auto-generated constructor stub
@@ -41,31 +41,16 @@ public class AjoutParticipanController extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		// TODO Auto-generated method stub
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		String pseudo = (String) request.getParameter("nom");
+		String idEvent = request.getParameter("ev");
+		int id = Integer.parseInt(idEvent);
 		
-		HttpSession session = request.getSession();
-		Evenement event = (Evenement) session.getAttribute("evenement");
 		BDD db = new BDD();
+		Evenement event = InteractionBDD.recupEvenementsAvecID(db, id);
+		HttpSession session = request.getSession();
+		session.setAttribute("evenement", event);
 		
-		Utilisateur u = InteractionBDD.recupUtilisateurAvecPseudo(db, pseudo);
-		if (u != null)
-		{
-			InteractionBDD.ajoutParticipe(db, u.getId(), event.getId());
+		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
 
-		}
-		else 
-		{
-			request.setAttribute("erreur", "Cet utilisateur n'existe pas.");
-		}
 		ArrayList<Utilisateur> listeUtilisateurs = InteractionBDD.recupUtilisateursDeEvenement(db, event.getId()); 
 		ArrayList<Depense> listeDepenses = InteractionBDD.recupDepensesDeEvenement(db, event.getId());
 		Map<Depense, Utilisateur> depenses = new HashMap<>();
@@ -77,6 +62,16 @@ public class AjoutParticipanController extends HttpServlet
 		request.setAttribute("depenses", depenses);
 		db.disconnect();
 		getServletContext().getRequestDispatcher("/evenement.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	{
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
