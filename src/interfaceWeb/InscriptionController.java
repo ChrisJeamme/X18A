@@ -68,7 +68,7 @@ public class InscriptionController extends HttpServlet
 		else
 		{
 			Utilisateur u = new Utilisateur(nom, prenom, email, pseudo, motDePasse);
-			InteractionBDD.ajoutUtilisateur(db, u);
+			InteractionBDD.ajoutUtilisateur(db, nom, prenom, email, pseudo, motDePasse);
 			HttpSession session = request.getSession();
 			session.setAttribute("utilisateur", u);
 			message = "Bienvenue";
