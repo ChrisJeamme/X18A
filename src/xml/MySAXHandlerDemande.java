@@ -33,17 +33,7 @@ public class MySAXHandlerDemande extends DefaultHandler
 		if(qName=="couple_id")
 		{
 			System.out.println("Couple ID");
-			dernierARemplir = "couple_id";
-		}
-		if(qName=="id_couple")
-		{
-			System.out.println("id");
-			dernierARemplir = "id_couple";
-		}
-		if(qName=="id")
-		{
-			System.out.println("id");
-			dernierARemplir = "id";
+			dernierARemplir = "id1";
 		}
 	}
 
@@ -88,19 +78,17 @@ public class MySAXHandlerDemande extends DefaultHandler
 				break;
 			}
 		}
-		if(dernierARemplir == "id_couple")
+		if(dernierARemplir == "id1")
 		{
-			dernierARemplir = "";
-			System.out.println("Remplissage de l'auteur: "+contenu);
-			Message last = chat.getDernierMessage();
-			last.setIdUtilisateur(contenu);
+			dernierARemplir = "id2";
+			System.out.println("Remplissage du 1er id du couple "+contenu);
+			demande.setId(Integer.valueOf(contenu));
 		}
-		if(dernierARemplir == "id")
+		if(dernierARemplir == "id2")
 		{
 			dernierARemplir = "";
-			System.out.println("Remplissage du texte: "+contenu);
-			Message last = chat.getDernierMessage();
-			last.setTexte(contenu);
+			System.out.println("Remplissage du 2eme id du couple "+contenu);
+			demande.setId2(Integer.valueOf(contenu));
 		}
 	}
 }
