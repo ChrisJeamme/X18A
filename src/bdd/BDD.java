@@ -26,7 +26,7 @@ public class BDD
 		String serveur = "127.0.0.1";
 		String identifiant = "chris";
 		String mdp = "jKFe5FA4ef6";
-		String url = "jdbc:mysql://"+serveur/*+":"+port*/+"/x18a";
+		String url = "jdbc:mysql://"+serveur/*+":"+port*/+"/dealwithit";
 		
 		try
 		{
