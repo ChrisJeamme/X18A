@@ -50,8 +50,9 @@ public class Client
 		}
     }
     
-    public void envoyerMessage(String message)
+    public String envoyerMessage(String message)
     {
+    	String recu = "";
     	if(socket != null)
     	{
     		if(!socket.isClosed())
@@ -70,9 +71,10 @@ public class Client
                     
                     while(!(reponse = reader.readLine()).equals("over") && reponse != null)
                     {
-                   		System.out.println("(Client) Recu : " + reponse);
+                    	recu.concat(reponse);
                     }
                     
+               		//System.out.println("(Client) Recu : " + recu);
                 }
                 catch(ConnectException e)
                 {
@@ -86,10 +88,11 @@ public class Client
         		{
         			e.printStackTrace();
         		}
-     
+    			
     		}
        	}
     	envoyerMessageSansAffichage("over");
+    	return recu;
     }
 
     public void envoyerMessageSansAffichage(String message)
