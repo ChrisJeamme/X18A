@@ -14,7 +14,7 @@ public class InteractionServeur
 	public String envoiServeur(String texte)
 	{
 		client.etablirConnexion();
-    	String recu = client.envoyerMessage("<a><b></b></a>");
+    	String recu = client.envoyerMessage(texte);
     	client.fermetureConnexion();
     	
     	return recu;
