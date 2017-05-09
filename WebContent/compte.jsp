@@ -9,9 +9,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mon Compte</title>
-<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<title>Deal With It !</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="http://anthony.jeamme.fr/css/resume_impress.css" media="print">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -21,7 +25,7 @@
 	<header>
 		<h1>Deal With It !</h1>
 		<div class="bloc_connexion">
-			<a class="boutton" href="deconnexion">Déconnexion</a>
+			<a class="btn btn-default" href="deconnexion"> <span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
 		</div>
 	</header>
 

@@ -10,9 +10,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mes opérations</title>
-<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<title>Deal With It !</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="http://anthony.jeamme.fr/css/resume_impress.css" media="print">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -20,19 +24,25 @@
 <jsp:useBean id="tmp1" class="donnees.Depense"></jsp:useBean>
 <jsp:useBean id="tmp2" class="donnees.Evenement"></jsp:useBean>
 
-<c:forEach var="dep" items="${  depenses  }">
-	<div id="evenement">
-	    <span>${ dep.key.date }</span>
-	    <br/>
-	    <span>${ dep.value.nomEvenement }</span>
-	    <br/>
-	    <span>${ dep.key.description }</span>
-	    <br/>
-	    <span>${ dep.key.montant }&euro;</span>
-	    <br/>
-	</div>
-</c:forEach>
-
+<header>
+	<h2> Mes opérations</h2>	
+</header>
+<section>
+	<ul class="list-group">
+	<c:forEach var="dep" items="${  depenses  }">
+		<li class="list-group-item list-group-item-sucess">
+		    <span class="glyphicon glyphicon-calendar"></span> ${ dep.key.date }
+		    <br/>
+		    <span class="glyphicon glyphicon-arrow-right"></span> ${ dep.value.nomEvenement }
+		    <br/>
+		    <span class="glyphicon glyphicon-info-sign"></span> ${ dep.key.description }
+		    <br/>
+		    <span class="glyphicon glyphicon-euro"></span> ${ dep.key.montant }&euro;
+		    <br/>
+		</li>
+	</c:forEach>
+	</ul>
+</section>
 
 </body>
 </html>

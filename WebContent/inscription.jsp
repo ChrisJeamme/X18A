@@ -10,43 +10,66 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Inscription</title>
-<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<title>Deal With It !</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="http://anthony.jeamme.fr/css/resume_impress.css" media="print">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Inscription</h1>
+<header>
+	<h1>Inscription</h1>
+</header>
 
-<i>${ message }</i>
-<form method="post" action="inscription">
-	<label for="nom">Nom :</label>
-	<br/>
-	<input type="text" name="nom" id="nom" />
-	<br/>
+
+<section>
+	<div class="progress">
+	  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+	    Saisies des informations
+	  </div>
+	</div>
 	
-	<label for="prenom">Prénom :</label>
-	<br/>
-	<input type="text" name="prenom" id="prenom" />
-	<br/>
+	<div class="alert alert-danger" role="alert">${ message }</div>
 	
-	<label for="email">email :</label>
-	<br/>
-	<input type="text" name="email" id="email" />
-	<br/>
+	<ul class="list-group">
 	
-	<label for="pseudo">Choisissez un pseudo :</label>
-	<br/>
-	<input type="text" name="pseudo" id="pseudo" />
-	<br/>
-	
-	<label for="pass">Entrez un mot de passe :</label>
-	<br/>
-	<input type="password" name="pass" id="pass" />
-	<br/>
-	
-	<input class="bouton" value="Inscription" type="submit">
-</form>
+		<form method="post" action="inscription">
+			<div class="panel panel-primary">
+			  <div class="panel-heading">Nom</div>
+			  <div class="panel-body">
+			    <input type="text" name="nom" id="nom" />
+			  </div>
+			</div>
+		<li class="list-group-item">
+			<label for="prenom">Prénom :</label>
+			<input type="text" name="prenom" id="prenom" />
+			<br/>
+		</li>
+		<li class="list-group-item">
+			<label for="email">Mail :</label>
+			<input type="text" name="email" id="email" />
+			<br/>
+			
+		</li>
+		<li class="list-group-item">
+			<label for="pseudo">Choisissez un pseudo :</label>
+			<input type="text" name="pseudo" id="pseudo" />
+			<br/>
+			
+		</li>
+		<li class="list-group-item">
+			<label for="pass">Entrez un mot de passe :</label>
+			<input type="password" name="pass" id="pass" />
+			<br/>
+		</li>
+			<input class="btn btn-default" value="Inscription" type="submit">
+		</form>
+		
+	</ul>
+</section>
 
 </body>
 </html>

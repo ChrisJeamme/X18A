@@ -10,23 +10,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Deal With It !</title>
-<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<title>Deal With It !</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="http://anthony.jeamme.fr/css/resume_impress.css" media="print">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Création d'un événement</h1>
+<header>
+	<h1>Création d'un événement</h1>
+</header>
 
-<form method="post" action="creerEvenement">
-	<label for="nom">Nom de l'événement :</label>
-	<br/>
-	<input type="text" name="nom" id="nom" />
-	<br/>
-	
-	<input class="bouton" value="Créer l'événement" type="submit">
-	
-</form>
+<section>
+	<form method="post" action="creerEvenement">
+		<label for="nom">Nom de l'événement :</label>
+		<br/>
+		<input type="text" name="nom" id="nom" />
+		<br/>
+		
+		<input class="btn btn-default" value="Créer l'événement" type="submit">
+		
+	</form>
+</section>
 
 </body>
 </html>

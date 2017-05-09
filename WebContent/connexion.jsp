@@ -10,24 +10,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Connexion</title>
-<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<title>Deal With It !</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="http://anthony.jeamme.fr/css/resume_impress.css" media="print">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<i>${ message }</i>
-<form method="post" action="connexion">
-	<label for="pseudo">Entrez votre pseudo :</label>
-	<br/>
-	<input type="text" name="pseudo" id="pseudo" />
+<header>
+	<h2>Connexion</h2>
+</header>
+
+<section>
+	<div class="alert alert-danger" role="alert">${ message }</div>
 	
-	<br/>
-	<label for="pass">Entrez votre mot de passe :</label>
-	<br/>
-	<input type="password" name="pass" id="pass" />
-	<br/>
-	<input class="bouton" value="Connexion" type="submit">
-</form>
+	<form method="post" action="connexion">
+		<label for="pseudo">Entrez votre pseudo :</label>
+		<br/>
+		<input type="text" name="pseudo" id="pseudo" />
+		
+		<br/>
+		<label for="pass">Entrez votre mot de passe :</label>
+		<br/>
+		<input type="password" name="pass" id="pass" />
+		<br/>
+		<input class="bouton" value="Connexion" type="submit">
+	</form>
+</section>
 
 </body>
 </html>
