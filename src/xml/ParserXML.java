@@ -74,8 +74,11 @@ public class ParserXML
 
 	public static Evenement lireEvenement(String reception)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		Evenement evenement = new Evenement();
+		ParserSAX p = new ParserSAX();
+		MySAXHandlerEvenement handler = new MySAXHandlerEvenement(evenement);
+		p.monParsing(handler, reception);
+		return evenement;
 	}
 
 	/**

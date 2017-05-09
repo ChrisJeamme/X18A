@@ -22,7 +22,7 @@ public class AccueilNonConnecte {
 		JFrame frame = new JFrame("Deal With It");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(0, 0);
-		frame.setPreferredSize(new Dimension(720, 1280));
+		frame.setPreferredSize(new Dimension(740, 1280));
 		frame.setLayout(new FlowLayout(FlowLayout.CENTER,0,0)); //pour inserer un panel au centre avec 20 pixels de margin H et V
  
 		//Debut entete

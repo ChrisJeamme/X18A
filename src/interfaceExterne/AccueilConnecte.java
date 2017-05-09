@@ -27,7 +27,7 @@ public class AccueilConnecte {
 		JFrame frame = new JFrame("Deal With It");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(0, 0);
-		frame.setPreferredSize(new Dimension(720, 1280));
+		frame.setPreferredSize(new Dimension(740, 1280));
 		frame.setLayout(new FlowLayout(FlowLayout.CENTER,0,0)); //pour inserer un panel au centre avec 20 pixels de margin H et V
  
 		//Debut entete
@@ -98,41 +98,31 @@ public class AccueilConnecte {
 		frame.add(panel3);
 
 		/****creation des éléments****/
-			
+		final JLabel mesEvent = new JLabel();
+		mesEvent.setOpaque(true);
+		mesEvent.setBackground(new Color(180,252,103));	
+		
 		final JLabel creerEvenement = new JLabel();
 		creerEvenement.setOpaque(true);
 		creerEvenement.setBackground(new Color(132,225,33));
 				
-		final JPanel creerEventb = new JPanel(new GridLayout(1,1));//panelWest à l'ouest du borderlayout. c'est une grille d'une colonne avec 4 lignes pour les labels
-		creerEventb.add(creerEvenement);
-		panel3.add(creerEventb,BorderLayout.CENTER);//ajout du panelWest au panel principal
-		
 		final JLabel mesOperations = new JLabel();
 		mesOperations.setOpaque(true);
 		mesOperations.setBackground(new Color(105,197,6));
-				
-		final JPanel mesOperationsb = new JPanel(new GridLayout(1,1));//panelWest à l'ouest du borderlayout. c'est une grille d'une colonne avec 4 lignes pour les labels
-		mesOperationsb.add(mesOperations);
-		panel3.add(mesOperationsb,BorderLayout.CENTER);//ajout du panelWest au panel principal
 		
-		final JLabel mesEvent = new JLabel();
-		mesEvent.setOpaque(true);
-		mesEvent.setBackground(new Color(180,252,103));
+		
 				
-		final JPanel mesEventb = new JPanel(new GridLayout(1,1));//panelWest à l'ouest du borderlayout. c'est une grille d'une colonne avec 4 lignes pour les labels
-		mesEventb.add(mesEvent);
-		panel3.add(mesEventb,BorderLayout.CENTER);//ajout du panelWest au panel principal
+		panel3.add(mesEvent, BorderLayout.CENTER);
+		panel3.add(creerEvenement, BorderLayout.CENTER);
+		panel3.add(mesOperations, BorderLayout.CENTER);
 		
 		event.addMouseListener(new MouseAdapter ()
 		{
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				creerEventb.setVisible(false);
-				creerEvenement.setVisible(false);
-				mesOperationsb.setVisible(false);
-				mesOperations.setVisible(false);
-				mesEventb.setVisible(true);
 				mesEvent.setVisible(true);
+				creerEvenement.setVisible(false);
+				mesOperations.setVisible(false);
 			}
 		});
 		
@@ -140,12 +130,9 @@ public class AccueilConnecte {
 		{
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				creerEventb.setVisible(true);
-				creerEvenement.setVisible(true);
-				mesOperationsb.setVisible(false);
-				mesOperations.setVisible(false);
-				mesEventb.setVisible(false);
 				mesEvent.setVisible(false);
+				creerEvenement.setVisible(true);
+				mesOperations.setVisible(false);
 			}
 		});
 		
@@ -153,12 +140,9 @@ public class AccueilConnecte {
 		{
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				creerEventb.setVisible(false);
-				creerEvenement.setVisible(false);
-				mesOperationsb.setVisible(true);
-				mesOperations.setVisible(true);
-				mesEventb.setVisible(false);
 				mesEvent.setVisible(false);
+				creerEvenement.setVisible(false);
+				mesOperations.setVisible(true);
 			}
 		});
 		
