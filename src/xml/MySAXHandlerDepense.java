@@ -4,7 +4,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
 import donnees.Depense;
-import donnees.Message;
 
 public class MySAXHandlerDepense extends DefaultHandler
 {
@@ -32,8 +31,8 @@ public class MySAXHandlerDepense extends DefaultHandler
 		if(qName=="depense")
 		{
 			System.out.println("Nouvelle dépense");
-			depense.setIdUtilisateur(attributes.getValue(0));
-			depense.setIdEvenement(attributes.getValue(1));
+			depense.setIdUtilisateur(Integer.valueOf(attributes.getValue(0)));
+			depense.setIdEvenement(Integer.valueOf(attributes.getValue(1)));
 			dernierARemplir = "depense";
 		}
 		if(qName=="date")
