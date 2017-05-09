@@ -28,14 +28,14 @@ public class AccueilConnecte {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocation(0, 0);
 		frame.setPreferredSize(new Dimension(740, 1280));
-		frame.setLayout(new FlowLayout(FlowLayout.CENTER,0,0)); //pour inserer un panel au centre avec 20 pixels de margin H et V
+		frame.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
  
 		//Debut entete
-		JPanel panel1 = new JPanel(new BorderLayout(0,0)); //panel principal à inserer 10 pour espacer entre WEST et CENTER, 20 pour espacer entre CENTER et SOUTH
-		panel1.setPreferredSize(new Dimension(720,200));// taille preferee du panel principal
-		frame.add(panel1);
+		JPanel haut = new JPanel(new BorderLayout(0,0));
+		haut.setPreferredSize(new Dimension(720,200));
+		frame.add(haut);
  
-		/****creation des éléments****/
+		/****creation des éléments****/ 
  
 		JLabel lblMenu = new JLabel();
 		lblMenu.setOpaque(true);
@@ -58,17 +58,17 @@ public class AccueilConnecte {
 		lblMenu.add(monCompte);
 		lblMenu.add(deconnexion);
 		
-		JPanel panel1b = new JPanel(new GridLayout(1,1));//panelWest à l'ouest du borderlayout. c'est une grille d'une colonne avec 4 lignes pour les labels
-		panel1b.add(lblTitre);
-		panel1b.add(lblMenu);
-		panel1.add(panel1b,BorderLayout.CENTER);//ajout du panelWest au panel principal
+		JPanel entete = new JPanel(new GridLayout(1,1));
+		entete.add(lblTitre);
+		entete.add(lblMenu);
+		haut.add(entete,BorderLayout.CENTER);
 		
 		// Fin entete
 		
 		//Debut accueil
-		JPanel panel2 = new JPanel(new BorderLayout(10,10)); //panel principal à inserer 10 pour espacer entre WEST et CENTER, 20 pour espacer entre CENTER et SOUTH
-		panel2.setPreferredSize(new Dimension(720,360));// taille preferee du panel principal
-		frame.add(panel2);
+		JPanel centre = new JPanel(new BorderLayout(10,10));
+		centre.setPreferredSize(new Dimension(720,360));
+		frame.add(centre);
 
 		/****creation des éléments****/
 		
@@ -84,33 +84,34 @@ public class AccueilConnecte {
 		operations.setOpaque(true);
 		operations.setBackground(new Color(105,197,6));		
 
-		JPanel panel2b = new JPanel(new GridLayout(1,1));//panelWest à l'ouest du borderlayout. c'est une grille d'une colonne avec 4 lignes pour les labels
-		panel2b.add(event, BorderLayout.EAST);
-		panel2b.add(creerEvent, BorderLayout.CENTER);
-		panel2b.add(operations, BorderLayout.WEST);
+		JPanel boutonMenu = new JPanel(new GridLayout(1,1));
+		boutonMenu.add(event, BorderLayout.EAST);
+		boutonMenu.add(creerEvent, BorderLayout.CENTER);
+		boutonMenu.add(operations, BorderLayout.WEST);
 		
-		panel2.add(panel2b,BorderLayout.CENTER);//ajout du panelWest au panel principal
+		centre.add(boutonMenu,BorderLayout.CENTER);
 		
 		
 		//Numéro 3
-		JPanel panel3 = new JPanel(new BorderLayout(10,10)); //panel principal à inserer 10 pour espacer entre WEST et CENTER, 20 pour espacer entre CENTER et SOUTH
-		panel3.setPreferredSize(new Dimension(720,720));// taille preferee du panel principal
+		JPanel panel3 = new JPanel(new BorderLayout(10,10));
+		panel3.setPreferredSize(new Dimension(720,720));
 		frame.add(panel3);
 
 		/****creation des éléments****/
-		final JLabel mesEvent = new JLabel();
-		mesEvent.setOpaque(true);
+		final JLabel mesEvent = new JLabel("Mes évènements");
 		mesEvent.setBackground(new Color(180,252,103));	
+		mesEvent.setOpaque(true);
+		mesEvent.setVisible(false);
 		
-		final JLabel creerEvenement = new JLabel();
-		creerEvenement.setOpaque(true);
+		final JLabel creerEvenement = new JLabel("Créer évènements");
 		creerEvenement.setBackground(new Color(132,225,33));
-				
-		final JLabel mesOperations = new JLabel();
-		mesOperations.setOpaque(true);
+		creerEvenement.setOpaque(true);
+		creerEvenement.setVisible(false);
+		
+		final JLabel mesOperations = new JLabel("Mes opérations");
 		mesOperations.setBackground(new Color(105,197,6));
-		
-		
+		mesOperations.setOpaque(true);
+		mesOperations.setVisible(false);
 				
 		panel3.add(mesEvent, BorderLayout.CENTER);
 		panel3.add(creerEvenement, BorderLayout.CENTER);
@@ -146,7 +147,7 @@ public class AccueilConnecte {
 			}
 		});
 		
-		frame.pack();//java propose la meilleure taille en fonction des elements
+		frame.pack();
 		frame.setVisible(true);
 	}
 }
