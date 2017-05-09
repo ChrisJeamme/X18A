@@ -43,4 +43,10 @@ public class ParserSAX
 			e.printStackTrace();
 		}
 	}
+
+	public void monParsing(MySAXHandlerDepense handler, String reception)
+	{
+		// TODO Auto-generated method stub
+		
+	}
 }
