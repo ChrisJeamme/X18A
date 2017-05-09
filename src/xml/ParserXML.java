@@ -56,8 +56,11 @@ public class ParserXML
 
 	public static Message lireMessage(String reception)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		Message message = new Message();
+		ParserSAX p = new ParserSAX();
+		MySAXHandlerMessage handler = new MySAXHandlerMessage(message);
+		p.monParsing(handler, reception);
+		return message;
 	}
 
 	public static Utilisateur lireUtilisateur(String reception)

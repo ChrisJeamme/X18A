@@ -1,6 +1,7 @@
 package xml;
 
 import donnees.Depense;
+import donnees.Message;
 
 public class MySAXHandlerDepense
 {
