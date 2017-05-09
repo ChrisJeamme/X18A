@@ -53,3 +53,14 @@ article
 	display: flex;
 	margin: auto auto auto auto;
 }
+
+#Global #Gauche 
+{
+    float:left;
+    width:30%;
+}
+
+#Global #Droite 
+{
+    margin-left:60%   
+}

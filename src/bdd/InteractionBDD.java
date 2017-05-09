@@ -115,7 +115,7 @@ public class InteractionBDD
 		ArrayList<Depense> listeDepense = new ArrayList<>();
 		
 		//Lancement de la requete
-		ResultSet r = bdd.reqSQL("SELECT * FROM depense",BDD.TypesRequete.LECTURE);
+		ResultSet r = bdd.reqSQL("SELECT * FROM depense ORDER BY date DESC",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -327,7 +327,7 @@ public class InteractionBDD
 		
 		//Lancement de la requete
 		ResultSet r = bdd.reqSQL("SELECT * FROM depense "
-							   + "WHERE idUtilisateur = "+idUtilisateur+";",BDD.TypesRequete.LECTURE);
+							   + "WHERE idUtilisateur = "+idUtilisateur+" ORDER BY date DESC;",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -381,7 +381,7 @@ public class InteractionBDD
 		
 		//Lancement de la requete
 		ResultSet r = bdd.reqSQL("SELECT * FROM depense "
-							   + "WHERE idEvenement = "+idEvenement+";",BDD.TypesRequete.LECTURE);
+							   + "WHERE idEvenement = "+idEvenement+" ORDER BY date DESC;",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -637,6 +637,51 @@ public class InteractionBDD
 		return null;
 	}
 	
+//	public static Depense recupDepense(BDD bdd, int idUtilisateur, int idEvenement, String date)
+//	{
+//		//Lancement de la requete
+//		ResultSet r = bdd.reqSQL("SELECT * FROM depense WHERE idUtilisateur = "+idUtilisateur+
+//								 " AND idEvenement = "+idEvenement+
+//								 " AND date LIKE "+date+" ;",BDD.TypesRequete.LECTURE);
+//	
+//		//Traitement des résultats
+//		ResultSetMetaData meta = null;
+//		
+//		try
+//		{
+//			meta = (ResultSetMetaData) r.getMetaData();
+//		
+//			Depense dep = new Depense();
+//			
+//			for(int i=1; i<=(meta.getColumnCount()); i++)
+//			{
+//				if(meta.getColumnLabel(i).compareTo("idUtilisateur") == 0)
+//					dep.setIdUtilisateur(r.getInt(meta.getColumnName(i)));
+//				if(meta.getColumnLabel(i).compareTo("idEvenement") == 0)
+//					dep.setIdEvenement(r.getInt(meta.getColumnName(i)));
+//				if(meta.getColumnLabel(i).compareTo("date") == 0)
+//					dep.setDate(r.getString(meta.getColumnName(i)));
+//				if(meta.getColumnLabel(i).compareTo("description") == 0)
+//					dep.setDescription(r.getString(meta.getColumnName(i)));
+//				if(meta.getColumnLabel(i).compareTo("montant") == 0)
+//					dep.setMontant(r.getInt(meta.getColumnName(i)));
+//			}
+//			
+//			return dep;
+//
+//		}
+//		catch (SQLException e)
+//		{
+//			System.err.println("Problème SQL");
+//			e.printStackTrace();
+//			bdd.disconnect();
+//			System.exit(-1);
+//		}
+//
+//		return null;
+//	}
+	
+	
 	public static Utilisateur recupUtilisateurAvecPseudo(BDD bdd, String pseudo)
 	{
 		//Lancement de la requete
@@ -855,7 +900,7 @@ public class InteractionBDD
 	public static String date()
 	{
 		Date d = new Date();
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = format.format(d);
 		System.out.println(date);
 		return date;

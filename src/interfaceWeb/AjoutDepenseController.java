@@ -59,7 +59,6 @@ public class AjoutDepenseController extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		String description = (String) request.getParameter("description");
-		int montant = Integer.parseInt((String) request.getParameter("montant"));
 		
 		HttpSession session = request.getSession();
 		Evenement event = (Evenement) session.getAttribute("evenement");
@@ -68,11 +67,15 @@ public class AjoutDepenseController extends HttpServlet
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
 		String date = InteractionBDD.date(); 
 		
-		if (montant != 0)
+		try
+		{
+			int montant = Integer.parseInt((String) request.getParameter("montant"));
 			InteractionBDD.ajoutDepense(db, u.getId(), event.getId(), date, montant, description);
-		else 
+		}
+		catch (Exception e)
+		{
 			request.setAttribute("erreurMontant", "Veuillez rentrer un montant valide");
-
+		}
 		ArrayList<Utilisateur> listeUtilisateurs = InteractionBDD.recupUtilisateursDeEvenement(db, event.getId()); 
 		ArrayList<Depense> listeDepenses = InteractionBDD.recupDepensesDeEvenement(db, event.getId());
 		Map<Depense, Utilisateur> depenses = new HashMap<>();
