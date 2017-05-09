@@ -31,8 +31,9 @@ public class MySAXHandlerDepense extends DefaultHandler
 		if(qName=="depense")
 		{
 			System.out.println("Nouvelle dépense");
-			depense.setIdUtilisateur(Integer.valueOf(attributes.getValue(0)));
-			depense.setIdEvenement(Integer.valueOf(attributes.getValue(1)));
+
+			depense.setIdUtilisateur(Integer.parseInt(attributes.getValue(0)));
+			depense.setIdEvenement(Integer.parseInt(attributes.getValue(1)));
 			dernierARemplir = "depense";
 		}
 		if(qName=="date")

@@ -17,6 +17,7 @@ import donnees.Evenement;
 import donnees.Message;
 import donnees.Utilisateur;
 
+
 public class InteractionBDD
 {
 	//Vérifications utilisateur

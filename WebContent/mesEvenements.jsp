@@ -7,7 +7,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -21,7 +21,7 @@
 
 <body>
 
-<header>
+<header> 
 	<h1>Mes évenements</h1>
 </header>
 

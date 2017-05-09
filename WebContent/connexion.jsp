@@ -22,10 +22,12 @@
 <header>
 	<h2>Connexion</h2>
 </header>
-
+ 
 <section>
-	<div class="alert alert-danger" role="alert">${ message }</div>
-	
+	<c:if test="${ not empty message }">
+		<div class="alert alert-danger" role="alert">${ message }</div>
+	</c:if>
+
 	<form method="post" action="connexion">
 		<label for="pseudo">Entrez votre pseudo :</label>
 		<br/>

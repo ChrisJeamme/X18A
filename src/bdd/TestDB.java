@@ -6,10 +6,8 @@ import java.util.Date;
 
 import com.mysql.jdbc.ResultSetMetaData;
 
-import bdd.BDD.TypesRequete;
 import donnees.Depense;
-import donnees.Message;
-import donnees.Utilisateur;
+
 
 public class TestDB
 {
