@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT utilisateur (id,nom,prenom,email,pseudo,motDePasse)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT prenom (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT pseudo (#PCDATA)>
+<!ELEMENT motDePasse (#PCDATA)>
