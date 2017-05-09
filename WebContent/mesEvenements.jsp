@@ -34,7 +34,7 @@
 	
 	<ul class="list-group">
 	<c:forEach var="event" items="${  evenements  }">
-		<li class="list-group-item list-group-item-sucess">
+		<li class="list-group-item list-group-item-warning">
 			<a href="evenement?ev=${ event.id }">	
 			    <span class="glyphicon glyphicon-arrow-right"></span> ${ event.nomEvenement }
 			    <br/>
@@ -42,7 +42,6 @@
 			    <br/>
 			    <br/>
 			</a>
-		</div>
 	</c:forEach>
 	</ul>
 </section>

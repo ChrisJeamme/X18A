@@ -48,7 +48,6 @@ public class AccueilConnecteController extends HttpServlet
 			return;
 		}
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
-		System.out.println("C'est bon je suis la !");
 		BDD db = new BDD();
 		ArrayList<Depense> listeDepenses = InteractionBDD.recupDepensesDeUtilisateur(db, u.getId());
 		Map<Depense, Evenement> depenses = new HashMap<>();
