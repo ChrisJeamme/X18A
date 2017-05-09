@@ -5,7 +5,16 @@ public class Demande
 	private ObjetDemande type;
 	private int id;
 	private int id2;
+	private String date;
 	
+	public String getDate()
+	{
+		return date;
+	}
+	public void setDate(String date)
+	{
+		this.date = date;
+	}
 	public ObjetDemande getType()
 	{
 		return type;

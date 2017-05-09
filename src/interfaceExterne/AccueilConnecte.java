@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 
 public class AccueilConnecte {
@@ -45,13 +46,14 @@ public class AccueilConnecte {
 		lblTitre.setOpaque(true);
 		lblTitre.setBackground(new Color(0,128,255));
 		lblTitre.setText("Deal With It");
-		lblTitre.setLocation(500,0);
+		lblTitre.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitre.setVerticalAlignment(SwingConstants.CENTER);
 							
 		monCompte = new JButton("Mon compte");
 		monCompte.setSize(new Dimension(150,30));
 		monCompte.setLocation(0, 85);
 					
-		deconnexion = new JButton("Déconnexion");
+		deconnexion = new JButton("Deconnexion");
 		deconnexion.setSize(new Dimension(150,30));
 		deconnexion.setLocation(170, 85);
 					
@@ -67,15 +69,15 @@ public class AccueilConnecte {
 			
 		//Definition des boutons	
 			
-		event = new JButton("event");
+		event = new JButton("Mes Evenements");
 		event.setOpaque(true);
 		event.setBackground(new Color(180,252,103));
 					
-		creerEvent = new JButton("creerEvent");
+		creerEvent = new JButton("Creer un Evenement");
 		creerEvent.setOpaque(true);
 		creerEvent.setBackground(new Color(132,225,33));
 					
-		operations = new JButton("operations");
+		operations = new JButton("Mes Operations");
 		operations.setOpaque(true);
 		operations.setBackground(new Color(105,197,6));
 					
@@ -91,20 +93,29 @@ public class AccueilConnecte {
 		panel2b.add(operations, BorderLayout.WEST);
 		panel2.add(panel2b,BorderLayout.CENTER);
 					
-		final JLabel mesEvent = new JLabel("event");
+		final JLabel mesEvent = new JLabel();
 		mesEvent.setOpaque(true);
 		mesEvent.setBackground(new Color(180,252,103));
 		mesEvent.setPreferredSize(new Dimension(880, 264));
+		mesEvent.setText("Mes Evenement");	
+		mesEvent.setHorizontalAlignment(SwingConstants.CENTER);
+		mesEvent.setVerticalAlignment(SwingConstants.CENTER);
 					
-		final JLabel creerEvenement = new JLabel("creerEvent");
+		final JLabel creerEvenement = new JLabel();
 		creerEvenement.setOpaque(true);
 		creerEvenement.setBackground(new Color(132,225,33));
 		creerEvenement.setPreferredSize(new Dimension(880, 264));
+		creerEvenement.setText("Créer Evenement");	
+		creerEvenement.setHorizontalAlignment(SwingConstants.CENTER);
+		creerEvenement.setVerticalAlignment(SwingConstants.CENTER);
 					
-		final JLabel mesOperations = new JLabel("operations");
+		final JLabel mesOperations = new JLabel();
 		mesOperations.setOpaque(true);
 		mesOperations.setBackground(new Color(105,197,6));
 		mesOperations.setPreferredSize(new Dimension(880, 264));
+		mesOperations.setText("Mes Opérations");	
+		mesOperations.setHorizontalAlignment(SwingConstants.CENTER);
+		mesOperations.setVerticalAlignment(SwingConstants.CENTER);
 					
 		JPanel panel3 = new JPanel();
 		panel3.setPreferredSize(new Dimension(880,264));
