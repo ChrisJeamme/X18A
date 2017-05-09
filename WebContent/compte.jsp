@@ -30,7 +30,7 @@
 	</header>
 
 	<section>
-		<h1>Mon Compte</h1>
+		<h1>Mon Compte</h1> 
 		<div>
 			<ul>
 				<li>Pseudo : <b>${ utilisateur.pseudo }</b></li>

@@ -51,7 +51,7 @@
 			    <br/>
 			    <span class="glyphicon glyphicon-euro"></span> ${ dep.key.montant }&euro;
 			    <br/>
-			</li>
+			</li> 
 		</c:forEach>
 		</ul>
 		

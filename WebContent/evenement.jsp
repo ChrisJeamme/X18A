@@ -68,7 +68,7 @@
 	</form>
 	
 	<br />
-	<c:if test="${not empty erreur }">
+	<c:if test="${not empty erreur }"> 
 	 	<span class="alert alert-danger">${ erreur }</span>
 	</c:if>
 	
