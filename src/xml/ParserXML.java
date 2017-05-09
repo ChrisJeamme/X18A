@@ -3,6 +3,7 @@ package xml;
 import donnees.Depense;
 import donnees.Evenement;
 import donnees.Message;
+import donnees.Participe;
 import donnees.Utilisateur;
 
 public class ParserXML
@@ -38,6 +39,11 @@ public class ParserXML
 		{
 //			System.out.println("Chat");
 			return TypeRequete.ENVOI_MESSAGE;
+		}
+		if(reception.contains("<!DOCTYPE participe SYSTEM"))
+		{
+//			System.out.println("Participe");
+			return TypeRequete.ENVOI_PARTICIPE;
 		}
 		
 		
@@ -79,6 +85,15 @@ public class ParserXML
 		MySAXHandlerEvenement handler = new MySAXHandlerEvenement(evenement);
 		p.monParsing(handler, reception);
 		return evenement;
+	}
+	
+	public static Participe lireParticipe(String reception)
+	{
+		Participe participe = new Participe();
+		ParserSAX p = new ParserSAX();
+		MySAXHandlerParticipe handler = new MySAXHandlerParticipe(participe);
+		p.monParsing(handler, reception);
+		return participe;
 	}
 
 	/**
