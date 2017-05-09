@@ -57,7 +57,9 @@
 	</ul>
 	
 	<h2>Ajouter une dépense</h2>
-	<p class="bg-danger">${ erreurMontant }</p>
+	<c:if test="${ not empty erreurMontant }">
+		<div class="alert alert-danger" role="alert">${ erreurMontant }</div>
+	</c:if>
 	<form method="post" action="ajoutDepense">
 		<label for="description">Description :</label><br />
 		<input type="text" name="description" id="description" />
