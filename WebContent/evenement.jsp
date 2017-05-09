@@ -29,6 +29,10 @@
 	<h1>${ evenement.nomEvenement }</h1>
 </header>
 
+ 	<nav id="bloc_navigation">
+		<a class="btn btn-success btn-lg nav nav-tabs nav-left" href="AccueilConnecte"><span class="glyphicon glyphicon-chevron-left"></span>  Accueil  </a>
+	</nav>
+
 <section>
 	<h2><span class="glyphicon glyphicon-user"></span> Participants</h2>
 	<ul class="list-group">

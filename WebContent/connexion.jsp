@@ -23,6 +23,11 @@
 	<h2>Connexion</h2>
 </header>
  
+ 	<nav id="bloc_navigation">
+		<a class="btn btn-success btn-lg nav nav-tabs nav-left" href="AccueilConnecte"><span class="glyphicon glyphicon-chevron-left"></span>  Accueil  </a>
+	</nav>
+ 
+ 
 <section>
 	<c:if test="${ not empty message }">
 		<div class="alert alert-danger" role="alert">${ message }</div>

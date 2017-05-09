@@ -25,6 +25,10 @@
 	<h1>Mes évenements</h1>
 </header>
 
+ 	<nav id="bloc_navigation">
+		<a class="btn btn-success btn-lg nav nav-tabs nav-left" href="AccueilConnecte"><span class="glyphicon glyphicon-chevron-left"></span>  Accueil  </a>
+	</nav>
+
 <section>
 	<jsp:useBean id="tmp" class="donnees.Evenement"></jsp:useBean>
 	

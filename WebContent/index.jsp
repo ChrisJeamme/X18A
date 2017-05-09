@@ -22,7 +22,6 @@
 		</div>
 	</header>
 	
-	 <!-- Nav contient les liens vers toutes les pages (Chat, board etc.) -->
 	<nav></nav>
 	
 	<!-- Section est la grosse partie centrale de la page qui contient tout contenu -->

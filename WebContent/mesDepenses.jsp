@@ -27,6 +27,11 @@
 <header>
 	<h2> Mes opérations</h2>	
 </header>
+
+ 	<nav id="bloc_navigation">
+		<a class="btn btn-success btn-lg nav nav-tabs nav-left" href="AccueilConnecte"><span class="glyphicon glyphicon-chevron-left"></span>  Accueil  </a>
+	</nav>
+
 <section>
 	<ul class="list-group">
 	<c:forEach var="dep" items="${  depenses  }">

@@ -24,6 +24,10 @@
 	<h1>Création d'un événement</h1>
 </header>
 
+ 	<nav id="bloc_navigation">
+		<a class="btn btn-success btn-lg nav nav-tabs nav-left" href="AccueilConnecte"><span class="glyphicon glyphicon-chevron-left"></span>  Accueil  </a>
+	</nav>
+
 <section>
 	<form method="post" action="creerEvenement">
 		<label for="nom">Nom de l'événement :</label>

@@ -29,6 +29,10 @@
 		</div>
 	</header>
 
+	<nav id="bloc_navigation">
+		<a class="btn btn-success btn-lg nav nav-tabs nav-left" href="AccueilConnecte"><span class="glyphicon glyphicon-chevron-left"></span>  Accueil  </a>
+	</nav>
+
 	<section>
 		<h1>Mon Compte</h1>
 		<div>
