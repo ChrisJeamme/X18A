@@ -8,7 +8,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
-<html> 
+<html>
 <head>
 	<meta charset="UTF-8">
 	<title>Deal With It !</title>

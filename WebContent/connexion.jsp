@@ -22,7 +22,7 @@
 <header>
 	<h2>Connexion</h2>
 </header>
-
+ 
 <section>
 	<c:if test="${ not empty message }">
 		<div class="alert alert-danger" role="alert">${ message }</div>
