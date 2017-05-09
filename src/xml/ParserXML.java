@@ -26,7 +26,7 @@ public class ParserXML
 		}
 		if(reception.contains("<!DOCTYPE depense SYSTEM"))
 		{
-//			System.out.println("Dépense");
+//			System.out.println("Dï¿½pense");
 			return TypeRequete.ENVOI_DEPENSE;
 		}
 		if(reception.contains("<!DOCTYPE chat SYSTEM"))
@@ -62,8 +62,11 @@ public class ParserXML
 
 	public static Utilisateur lireUtilisateur(String reception)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		Utilisateur utilisateur = new Utilisateur();
+		ParserSAX p = new ParserSAX();
+		MySAXHandlerUtilisateur handler = new MySAXHandlerUtilisateur(utilisateur);
+		p.monParsing(handler, reception);
+		return utilisateur;
 	}
 
 	public static Evenement lireEvenement(String reception)
@@ -73,13 +76,13 @@ public class ParserXML
 	}
 
 	/**
-	 *  Va servir à enlever ce qui ne passerait pas au parser XML
+	 *  Va servir ï¿½ enlever ce qui ne passerait pas au parser XML
 	 * @param reception
 	 * @return 
 	 */
 	public static String clean(String reception)
 	{
-		//On supprime "over" à la fin
+		//On supprime "over" ï¿½ la fin
 		return reception.substring(0, reception.length()-4);
 	}
 }
