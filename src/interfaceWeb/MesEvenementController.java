@@ -38,6 +38,11 @@ public class MesEvenementController extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		HttpSession session = request.getSession();
+		if (session.getAttribute("utilisateur") == null)
+		{
+			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			return;
+		}
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
 		BDD db = new BDD();
 		ArrayList<Evenement> listeEvenement = InteractionBDD.recupEvenementsDeUtilisateur(db, u.getId());

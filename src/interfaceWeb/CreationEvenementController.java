@@ -37,7 +37,12 @@ public class CreationEvenementController extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
+		if (session.getAttribute("utilisateur") == null)
+		{
+			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			return;
+		}
 	}
 
 	/**

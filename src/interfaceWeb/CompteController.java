@@ -33,6 +33,11 @@ public class CompteController extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		HttpSession session = request.getSession();
+		if (session.getAttribute("utilisateur") == null)
+		{
+			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			return;
+		}
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
 		request.setAttribute("utilisateur", u);
 		getServletContext().getRequestDispatcher("/compte.jsp").forward(request, response);
