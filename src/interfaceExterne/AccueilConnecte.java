@@ -53,7 +53,7 @@ public class AccueilConnecte {
 		monCompte.setSize(new Dimension(150,30));
 		monCompte.setLocation(0, 85);
 					
-		deconnexion = new JButton("Déconnexion");
+		deconnexion = new JButton("Deconnexion");
 		deconnexion.setSize(new Dimension(150,30));
 		deconnexion.setLocation(170, 85);
 					
@@ -69,15 +69,15 @@ public class AccueilConnecte {
 			
 		//Definition des boutons	
 			
-		event = new JButton("event");
+		event = new JButton("Mes Evenements");
 		event.setOpaque(true);
 		event.setBackground(new Color(180,252,103));
 					
-		creerEvent = new JButton("creerEvent");
+		creerEvent = new JButton("Creer un Evenement");
 		creerEvent.setOpaque(true);
 		creerEvent.setBackground(new Color(132,225,33));
 					
-		operations = new JButton("operations");
+		operations = new JButton("Mes Operations");
 		operations.setOpaque(true);
 		operations.setBackground(new Color(105,197,6));
 					
