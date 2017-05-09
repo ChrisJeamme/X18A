@@ -5,10 +5,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
@@ -76,7 +79,15 @@ public class AccueilNonConnecte {
 		labelMain.setHorizontalAlignment(SwingConstants.CENTER);
 		labelMain.setVerticalAlignment(SwingConstants.CENTER);
 		
-
+		connexion.addActionListener(new ActionListener(){
+		      public void actionPerformed(ActionEvent arg0) {
+		        DialogConnexion zd = new DialogConnexion(null, "Connexion", true);
+		        DialogConnexionInfo zInfo = zd.showZDialog(); 
+		        JOptionPane jop = new JOptionPane();
+		        jop.showMessageDialog(null, zInfo.toString(), "Connexion", JOptionPane.INFORMATION_MESSAGE);
+		      }         
+		    }); 
+		
 		JPanel panel2b = new JPanel(new GridLayout(1,1));//panelWest à l'ouest du borderlayout. c'est une grille d'une colonne avec 4 lignes pour les labels
 		panel2b.add(labelMain);
 		panel2.add(panel2b,BorderLayout.CENTER);//ajout du panelWest au panel principal		
