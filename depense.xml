@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chat SYSTEM "depense.dtd">
+<depense idUtilisateur="1" idEvenement="1">
+	<date>2017-08-08</date>
+	<montant>10</montant>
+	<description>test</description>
+</depense>
