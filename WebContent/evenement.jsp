@@ -71,6 +71,9 @@
 	<c:if test="${ not empty erreur }">
 	 <span class="alert alert-danger">${ erreur }</span>
 	</c:if>
+	<c:if test="${ not empty utilisateurParticipe }">
+	 <span class="alert alert-danger">${ utilisateurParticipe }</span>
+	</c:if>
 	
 	<form method="post" action="ajoutParticipant">
 		<h2>Ajouter un participant :</h2>

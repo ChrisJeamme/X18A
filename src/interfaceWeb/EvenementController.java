@@ -51,7 +51,17 @@ public class EvenementController extends HttpServlet
 		
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
 
-		ArrayList<Utilisateur> listeUtilisateurs = InteractionBDD.recupUtilisateursDeEvenement(db, event.getId()); 
+		ArrayList<Utilisateur> listeUtilisateursEv = InteractionBDD.recupUtilisateursDeEvenement(db, event.getId()); 
+		ArrayList<Utilisateur> listeUtilisateurs = new ArrayList<>();
+		for (int i=0; i<listeUtilisateursEv.size(); i++)
+		{
+			if (listeUtilisateursEv.get(i).getId() != u.getId())
+			{
+				listeUtilisateurs.add(listeUtilisateursEv.get(i));
+			}
+		}
+		
+		
 		ArrayList<Depense> listeDepenses = InteractionBDD.recupDepensesDeEvenement(db, event.getId());
 		Map<Depense, Utilisateur> depenses = new HashMap<>();
 		for (int i=0; i<listeDepenses.size(); i++)

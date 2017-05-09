@@ -36,7 +36,7 @@
 	<section>
 	
 	<div>
-		${ message } ${ utilisateur.prenom } !
+		<h4>${ message } ${ utilisateur.prenom } !</h4>
 	</div>
 	
 	<h2> Mes dernières opérations</h2>	

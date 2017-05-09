@@ -50,6 +50,30 @@ public class InteractionBDD
 		return false;
 	}
 	
+	public static boolean utilisateurParticpeAEvenement(BDD bdd, int idUtilisateur, int idEvenement)
+	{
+		//Lancement de la requete
+		ResultSet r = bdd.reqSQL("SELECT *"
+							   + " FROM participe"
+							   + " WHERE idUtilisateur = "+idUtilisateur
+							   + " AND idEvenement = "+idEvenement+";",BDD.TypesRequete.LECTURE);
+		
+		try
+		{
+			if (r.next())
+				return true;
+			return false;
+		} 
+		catch (SQLException e)
+		{
+			System.err.println("Problème SQL");
+			e.printStackTrace();
+			bdd.disconnect();
+			System.exit(-1);
+		}
+		return false;
+	}
+	
 	/**
 	 *  Pour effectuer une connexion
 	 * @param bdd
@@ -836,5 +860,6 @@ public class InteractionBDD
 		System.out.println(date);
 		return date;
 	}
+
 	
 }

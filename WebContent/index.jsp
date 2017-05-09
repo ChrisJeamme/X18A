@@ -29,7 +29,8 @@
 	<section> 
 		<div class="jumbotron">
 			<h2> Bienvenue sur <b>DealWithIt</b></h2>
-			<p> Vous pourrez gérer ici les dépenses de vos évenements de groupe</p>
+			<p> Avec <b>DealWithIt</b>, gérer vos dépenses de groupes n'aura jamais été aussi simple !</p>
+			<p> Vacances entre amis, cadeaux d'anniversaires, organisation de soirée ... il vous suffit de créer l'événement, ajouter les participants et ajouter les dépenses que vous réalisez.  </p>
 			
 			<p><a class="btn btn-sucess btn-lg" href="inscription.jsp" role="button">Inscrivez-vous</a></p>
 		</div>

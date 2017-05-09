@@ -56,27 +56,36 @@ public class AjoutParticipanController extends HttpServlet
 		Evenement event = (Evenement) session.getAttribute("evenement");
 		BDD db = new BDD();
 		
-		Utilisateur u = InteractionBDD.recupUtilisateurAvecPseudo(db, pseudo);
-		if (u != null)
+		Utilisateur newU = InteractionBDD.recupUtilisateurAvecPseudo(db, pseudo);
+		if (newU != null)
 		{
-			InteractionBDD.ajoutParticipe(db, u.getId(), event.getId());
-
+			if (! InteractionBDD.utilisateurParticpeAEvenement(db, newU.getId(), event.getId()) ) //S'il n'y participe pas
+			{
+				InteractionBDD.ajoutParticipe(db, newU.getId(), event.getId()); //On ajoute l'utilisateur a l'événement
+			}
+			else 
+			{	
+				request.setAttribute("utilisateurParticipe", "Cet utilisateur participe déjà à cet événement.");
+			}
 		}
 		else 
 		{
 			request.setAttribute("erreur", "Cet utilisateur n'existe pas.");
 		}
-		ArrayList<Utilisateur> listeUtilisateurs = InteractionBDD.recupUtilisateursDeEvenement(db, event.getId()); 
-		ArrayList<Depense> listeDepenses = InteractionBDD.recupDepensesDeEvenement(db, event.getId());
-		Map<Depense, Utilisateur> depenses = new HashMap<>();
-		for (int i=0; i<listeDepenses.size(); i++)
-		{
-			depenses.put(listeDepenses.get(i), InteractionBDD.recupUtilisateurAvecID(db, listeDepenses.get(i).getIdUtilisateur()));
-		}
-		request.setAttribute("utilisateurs", listeUtilisateurs);
-		request.setAttribute("depenses", depenses);
+		
+		
+		
+//		ArrayList<Utilisateur> listeUtilisateurs = InteractionBDD.recupUtilisateursDeEvenement(db, event.getId()); 
+//		ArrayList<Depense> listeDepenses = InteractionBDD.recupDepensesDeEvenement(db, event.getId());
+//		Map<Depense, Utilisateur> depenses = new HashMap<>();
+//		for (int i=0; i<listeDepenses.size(); i++)
+//		{
+//			depenses.put(listeDepenses.get(i), InteractionBDD.recupUtilisateurAvecID(db, listeDepenses.get(i).getIdUtilisateur()));
+//		}
+//		request.setAttribute("utilisateurs", listeUtilisateurs);
+//		request.setAttribute("depenses", depenses);
 		db.disconnect();
-		getServletContext().getRequestDispatcher("/evenement.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/evenement?ev="+event.getId()).forward(request, response);
 	}
 
 }
