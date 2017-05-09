@@ -69,16 +69,16 @@ public class AccueilNonConnecte {
 
 		/****creation des éléments****/
 		
-		JLabel labelSexe = new JLabel();
-		labelSexe.setOpaque(true);
-		labelSexe.setBackground(new Color(105,197,6));
-		labelSexe.setText("Presentation");	
-		labelSexe.setHorizontalAlignment(SwingConstants.CENTER);
-		labelSexe.setVerticalAlignment(SwingConstants.CENTER);
+		JLabel labelMain = new JLabel();
+		labelMain.setOpaque(true);
+		labelMain.setBackground(new Color(105,197,6));
+		labelMain.setText("Presentation");	
+		labelMain.setHorizontalAlignment(SwingConstants.CENTER);
+		labelMain.setVerticalAlignment(SwingConstants.CENTER);
 		
 
 		JPanel panel2b = new JPanel(new GridLayout(1,1));//panelWest à l'ouest du borderlayout. c'est une grille d'une colonne avec 4 lignes pour les labels
-		panel2b.add(labelSexe);
+		panel2b.add(labelMain);
 		panel2.add(panel2b,BorderLayout.CENTER);//ajout du panelWest au panel principal		
 		
 		frame.pack();//java propose la meilleure taille en fonction des elements
