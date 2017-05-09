@@ -1,17 +1,19 @@
 package xml;
 
-import donnees.Chat;
+import donnees.Depense;
 
 public class Test
 {
 
 	public static void main(String[] args)
 	{
-		Chat chat = new Chat();
+		//Chat chat = new Chat();
+		Depense depense = new Depense();
 		
 		ParserSAX p3 = new ParserSAX();
-		MySAXHandlerChat handlerChat = new MySAXHandlerChat(chat);
+		//MySAXHandlerChat handlerChat = new MySAXHandlerChat(chat);
+		MySAXHandlerDepense handlerDepense = new MySAXHandlerDepense(depense);
 		
-		p3.monParsing(handlerChat, "chat.xml");
+		p3.monParsing(handlerDepense, "depense.xml");
 	}
 }
