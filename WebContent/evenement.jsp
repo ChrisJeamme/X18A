@@ -43,8 +43,6 @@
 		<li class="list-group-item list-group-item-warning">
 		    <span class="glyphicon glyphicon-calendar"></span> <b>${ dep.key.date }</b>
 		    <br/>
-		    <span class="glyphicon glyphicon-arrow-right"></span> ${ dep.key.description }
-		    <br/>
 		    <span class="glyphicon glyphicon-euro"></span>  ${ dep.key.montant } €
 		    <br/>
 		    <span class="glyphicon glyphicon-user"></span> ${ dep.value.pseudo }
@@ -68,9 +66,7 @@
 	</form>
 	
 	<br />
-	<c:if test="${not empty erreur }">
-	 	<span class="alert alert-danger">${ erreur }</span>
-	</c:if>
+	 <span class="alert alert-danger">${ erreur }</span>
 	
 	<form method="post" action="ajoutParticipant">
 		<h2>Ajouter un participant :</h2>

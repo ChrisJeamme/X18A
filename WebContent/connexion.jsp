@@ -24,9 +24,7 @@
 </header>
 
 <section>
-	<c:if test="${ not empty message }">
-		<div class="alert alert-danger" role="alert">${ message }</div>
-	</c:if>
+	<div class="alert alert-danger" role="alert">${ message }</div>
 	
 	<form method="post" action="connexion">
 		<label for="pseudo">Entrez votre pseudo :</label>

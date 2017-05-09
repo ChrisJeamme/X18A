@@ -26,18 +26,23 @@
 
 
 <section>
+	<div class="progress">
+	  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+	    Saisies des informations
+	  </div>
+	</div>
 	
-	<c:if test="${ not empty message }">
-		<div class="alert alert-danger" role="alert">${ message }</div>
-	</c:if>
+	<div class="alert alert-danger" role="alert">${ message }</div>
+	
 	<ul class="list-group">
 	
 		<form method="post" action="inscription">
-		<li class="list-group-item">
-			<label for="nom">Nom :</label>
-			<input type="text" name="nom" id="nom" />
-			<br/>
-		</li>
+			<div class="panel panel-primary">
+			  <div class="panel-heading">Nom</div>
+			  <div class="panel-body">
+			    <input type="text" name="nom" id="nom" />
+			  </div>
+			</div>
 		<li class="list-group-item">
 			<label for="prenom">Prénom :</label>
 			<input type="text" name="prenom" id="prenom" />
