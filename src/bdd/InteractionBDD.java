@@ -115,7 +115,7 @@ public class InteractionBDD
 		ArrayList<Depense> listeDepense = new ArrayList<>();
 		
 		//Lancement de la requete
-		ResultSet r = bdd.reqSQL("SELECT * FROM depense",BDD.TypesRequete.LECTURE);
+		ResultSet r = bdd.reqSQL("SELECT * FROM depense ORDER BY date ASC",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -327,7 +327,7 @@ public class InteractionBDD
 		
 		//Lancement de la requete
 		ResultSet r = bdd.reqSQL("SELECT * FROM depense "
-							   + "WHERE idUtilisateur = "+idUtilisateur+";",BDD.TypesRequete.LECTURE);
+							   + "WHERE idUtilisateur = "+idUtilisateur+" ORDER BY date ASC;",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;
@@ -381,7 +381,7 @@ public class InteractionBDD
 		
 		//Lancement de la requete
 		ResultSet r = bdd.reqSQL("SELECT * FROM depense "
-							   + "WHERE idEvenement = "+idEvenement+";",BDD.TypesRequete.LECTURE);
+							   + "WHERE idEvenement = "+idEvenement+" ORDER BY date ASC;",BDD.TypesRequete.LECTURE);
 	
 		//Traitement des résultats
 		ResultSetMetaData meta = null;

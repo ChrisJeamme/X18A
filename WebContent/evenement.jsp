@@ -55,41 +55,44 @@
 		</li>
 	</c:forEach>
 	</ul>
+
 	
-	<h2>Ajouter une dépense</h2>
-	<c:if test="${ not empty erreurMontant }">
-		<div class="alert alert-danger" role="alert">${ erreurMontant }</div>
-	</c:if>
-	<form method="post" action="ajoutDepense">
-		<label for="description">Description :</label><br />
-		<input type="text" name="description" id="description" />
-		<br/>
-		
-		<label for="montant">Montant :</label>
-		<br/>
-		<input type="text" name="montant" id="montant" />
-		<br/>
-		
-		<input class="btn btn-default" value="Ajouter la dépense" type="submit">	
-	</form>
-	
-	<br />
-	<c:if test="${ not empty erreur }">
-	 <span class="alert alert-danger">${ erreur }</span>
-	</c:if>
-	<c:if test="${ not empty utilisateurParticipe }">
-	 <span class="alert alert-danger">${ utilisateurParticipe }</span>
-	</c:if>
-	
-	<form method="post" action="ajoutParticipant">
-		<h2>Ajouter un participant :</h2>
-		<label for="nom">Pseudo du participant :</label><br />
-		<input type="text" name="nom" id="nom" />
-		<br/>
-		
-		<input class="btn btn-default" value="Ajouter ce participant" type="submit">
-	</form>
-	
+	<div id="Global">
+		<div id="Gauche">
+			<h2>Ajouter une dépense</h2>
+			<c:if test="${ not empty erreurMontant }">
+				<div class="alert alert-danger" role="alert">${ erreurMontant }</div>
+			</c:if>
+			<form method="post" action="ajoutDepense">
+				<label for="description">Description :</label><br />
+				<input type="text" name="description" id="description" />
+				<br/>
+				
+				<label for="montant">Montant :</label>
+				<br/>
+				<input type="text" name="montant" id="montant" />
+				<br/>
+				<input class="btn btn-default" value="Ajouter la dépense" type="submit">	
+			</form>
+		</div>
+		<div id="Droite">
+			<c:if test="${ not empty erreur }">
+			 <span class="alert alert-danger">${ erreur }</span>
+			</c:if>
+			<c:if test="${ not empty utilisateurParticipe }">
+			 <span class="alert alert-danger">${ utilisateurParticipe }</span>
+			</c:if>
+			<br/>
+			<h2>Ajouter un participant :</h2>
+			<form method="post" action="ajoutParticipant">
+				<label for="nom">Pseudo du participant :</label><br />
+				<input type="text" name="nom" id="nom" />
+				<br/>
+				
+				<input class="btn btn-default" value="Ajouter ce participant" type="submit">
+			</form>
+		</div>
+	</div>
 </section>
 
 </body>
