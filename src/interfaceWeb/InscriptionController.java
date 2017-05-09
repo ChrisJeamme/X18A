@@ -12,6 +12,7 @@ import bdd.BDD;
 import bdd.InteractionBDD;
 import donnees.Utilisateur;
 
+
 /**
  * Servlet implementation class InscriptionController
  */
@@ -72,7 +73,7 @@ public class InscriptionController extends HttpServlet
 			HttpSession session = request.getSession();
 			session.setAttribute("utilisateur", u);
 			message = "Bienvenue";
-			redirection = "/accueilConnecte.jsp";
+			redirection = "/AccueilConnecte";
 		}
 		db.disconnect();	
 		request.setAttribute("message", message);

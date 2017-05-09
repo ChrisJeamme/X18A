@@ -30,6 +30,7 @@
 	<c:if test="${ not empty message }">
 		<div class="alert alert-danger" role="alert">${ message }</div>
 	</c:if>
+	
 	<ul class="list-group">
 	
 		<form method="post" action="inscription">
