@@ -26,9 +26,9 @@ public class Depense
 		return idUtilisateur;
 	}
 
-	public void setIdUtilisateur(String user) 
+	public void setIdUtilisateur(int user) 
 	{
-		this.idUtilisateur = Integer.valueOf(user);
+		this.idUtilisateur = user;
 	}
 
 	public String getDate() 
@@ -56,9 +56,9 @@ public class Depense
 		return idEvent;
 	}
 
-	public void setIdEvenement(String event)
+	public void setIdEvenement(int event)
 	{
-		this.idEvent = Integer.valueOf(event);
+		this.idEvent = event;
 	}
 
 	public String getDescription()
