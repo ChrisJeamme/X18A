@@ -38,9 +38,7 @@ public class MySAXHandlerDemande extends DefaultHandler
 	}
 
 	public void endElement(String uri, String localName, String qName)
-	{
-		
-	}
+	{}
 	
 	public void characters(char[] ch, int start, int length)
 	{
