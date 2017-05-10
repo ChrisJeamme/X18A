@@ -125,7 +125,7 @@ public class AccueilConnecte {
 					
 		frame.add(panel3);
 				
-		mesEvent.setVisible(false);
+		//mesEvent.setVisible(false);
 		creerEvenement.setVisible(false);
 		mesOperations.setVisible(false);
 		

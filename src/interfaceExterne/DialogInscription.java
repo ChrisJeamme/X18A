@@ -82,7 +82,7 @@ public class DialogInscription extends JDialog {
     
     JPanel panMdp = new JPanel();
     panMdp.setBackground(Color.white);
-    panMdp.setPreferredSize(new Dimension(220, 60));
+    panMdp.setPreferredSize(new Dimension(240, 60));
     mdp = new JTextField();
     mdp.setPreferredSize(new Dimension(100, 25));
     panMdp.setBorder(BorderFactory.createTitledBorder("Mot de passe"));

@@ -34,6 +34,11 @@ public class ParserXML
 				return TypeRequete.DEMANDE_UTILISATEUR;
 			}
 		}
+		if(reception.contains("<!DOCTYPE connexion SYSTEM"))
+		{
+//			System.out.println("Evenement");
+			return TypeRequete.CONNEXION;
+		}
 		if(reception.contains("<!DOCTYPE evenement SYSTEM"))
 		{
 //			System.out.println("Evenement");
@@ -48,11 +53,6 @@ public class ParserXML
 		{
 //			System.out.println("D�pense");
 			return TypeRequete.ENVOI_DEPENSE;
-		}
-		if(reception.contains("<!DOCTYPE chat SYSTEM"))
-		{
-//			System.out.println("Chat");
-			return TypeRequete.ENVOI_CHAT;
 		}
 		if(reception.contains("<!DOCTYPE message SYSTEM"))
 		{
@@ -195,5 +195,23 @@ public class ParserXML
 		MySAXHandlerAnalyseDate handler = new MySAXHandlerAnalyseDate(date);
 		p.monParsing(handler, reception);
 		return date;
+	}
+
+	public static String analyserConnexionPseudo(String reception)
+	{
+		String pseudo = "";
+		ParserSAX p = new ParserSAX();
+		MySAXHandlerRecupPseudo handler = new MySAXHandlerRecupPseudo(pseudo);
+		p.monParsing(handler, reception);
+		return pseudo;
+	}
+
+	public static String analyserConnexionMdp(String reception)
+	{
+		String mdp = "";
+		ParserSAX p = new ParserSAX();
+		MySAXHandlerRecupMdp handler = new MySAXHandlerRecupMdp(mdp);
+		p.monParsing(handler, reception);
+		return mdp;
 	}
 }

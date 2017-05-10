@@ -29,7 +29,7 @@ public class DialogConnexionInfo {
 		}
 		db.disconnect();*/
 	    
-	    InteractionServeur.currentInteractionServeur.ajoutUtilisateur(u);
+	    //InteractionServeur.currentInteractionServeur.ajoutUtilisateur(u);
 	  }
 
 	  public String toString(){

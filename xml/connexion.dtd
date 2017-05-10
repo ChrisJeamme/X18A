@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT connexion (pseudo,pass)>
+<!ELEMENT pseudo (#PCDATA)>
+<!ELEMENT pass (#PCDATA)>
