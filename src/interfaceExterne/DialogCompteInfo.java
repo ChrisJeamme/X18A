@@ -1,9 +1,11 @@
 package interfaceExterne;
 
-import clientExterne.InteractionServeur;
+import clientExterne.InteractionServeurStatic;
 import donnees.Utilisateur;
 
 public class DialogCompteInfo {
 	
-	public DialogCompteInfo(){}
-	}
+	public DialogCompteInfo()
+	{}
+	
+}
