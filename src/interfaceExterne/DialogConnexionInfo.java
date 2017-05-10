@@ -2,6 +2,7 @@ package interfaceExterne;
 
 import bdd.BDD;
 import bdd.InteractionBDD;
+import clientExterne.InteractionServeur;
 import donnees.Utilisateur;
 
 public class DialogConnexionInfo {
@@ -9,8 +10,9 @@ public class DialogConnexionInfo {
 
 	  public DialogConnexionInfo(){}
 	  public DialogConnexionInfo(String pseudo, String mdp){
-	    this.pseudo = pseudo;
-	    this.mdp = mdp;
+		Utilisateur u = new Utilisateur();
+	    u.setPseudo(pseudo);
+	    u.setMotDePasse(mdp);
 	    
 	    /*BDD db = new BDD();
 
@@ -26,6 +28,8 @@ public class DialogConnexionInfo {
 			message = "Utilisateur inconnu ou mot de passe incorrect.";
 		}
 		db.disconnect();*/
+	    
+	    InteractionServeur.currentInteractionServeur.ajoutUtilisateur(u);
 	  }
 
 	  public String toString(){
