@@ -9,6 +9,7 @@ public class Serveur
 	int port;
 	ServerSocket server;
 	Socket client;
+	BufferedReader in;
 	PrintWriter out;
 	
 	public Serveur(int port)
@@ -51,6 +52,8 @@ public class Serveur
 		try
 		{
 			client = server.accept();
+			in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+			out = new PrintWriter(client.getOutputStream());
 			System.out.println("(Server) Nouvelle connexion");
 		}
 		catch (IOException e)
@@ -72,8 +75,6 @@ public class Serveur
 
 		try
 		{
-			BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-			PrintWriter out = new PrintWriter(client.getOutputStream());
 			String recu = "";
 			while((ligne = in.readLine()) != null && !ligne.equals("over") && !ligne.equals("finServeur") && !ligne.equals("finConnexion")) //On lit toutes les lignes
 			{

@@ -30,7 +30,7 @@ public class GestionServeur
 			//On attend une connexion du client lourd
 			serveur.attente();
 			String reception = serveur.recevoir();
-			reception = ParserXML.clean(reception);
+			//reception = ParserXML.clean(reception);
 			System.out.println(reception);
 			
 			//On analyse le type de requet (Envoi/Demande d'objet)
@@ -67,26 +67,31 @@ public class GestionServeur
 			// Envoi d'objets
 				
 			case ENVOI_EVENEMENT:	//Le client lourd nous demande de créer cet evenement
+				System.out.println("(Server) Recu: Evenement à ajouter");
 				Evenement evenement = ParserXML.lireEvenement(reception);
 				InteractionBDD.ajoutEvenement(bdd, evenement);
 				InteractionAvecClient.envoyerEvenement(serveur, evenement);
 				break;
 			case ENVOI_DEPENSE:		//Le client lourd nous demande de créer cette dépense
+				System.out.println("(Server) Recu: Dépense à ajouter");
 				Depense depense = ParserXML.lireDepense(reception);
 				InteractionBDD.ajoutDepense(bdd, depense);
 				InteractionAvecClient.envoyerDepense(serveur, depense);
 				break;
 			case ENVOI_MESSAGE:		//Le client lourd nous demande de créer ce message
+				System.out.println("(Server) Recu: Message à ajouter");
 				Message message = ParserXML.lireMessage(reception);
 				InteractionBDD.ajoutMessage(bdd, message);
 				serveur.envoyer("ok\nover"); //On a pas à renvoyer d'id pour celui ci
 				break;
 			case ENVOI_UTILISATEUR:	//Le client lourd nous demande de créer cet utilisateur
+				System.out.println("(Server) Recu: Utilisateur à ajouter");
 				Utilisateur utilisateur = ParserXML.lireUtilisateur(reception);
 				InteractionBDD.ajoutUtilisateur(bdd, utilisateur);
 				InteractionAvecClient.envoyerUtilisateur(serveur, utilisateur);
 				break;
 			case ENVOI_PARTICIPE:
+				System.out.println("(Server) Recu: Participe à ajouter");
 				Participe participe = new Participe();
 				InteractionBDD.ajoutParticipe(bdd, participe.getIdUtilisateur(), participe.getIdEvenement());
 				serveur.envoyer("ok\nover"); //On a pas à renvoyer d'id pour celui ci

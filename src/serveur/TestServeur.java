@@ -3,7 +3,7 @@ package serveur;
 import java.io.IOException;
 import java.util.Date;
 
-public class Test
+public class TestServeur
 {
 	public static void main(String[] args) throws IOException
     {

@@ -88,6 +88,15 @@ public class AccueilNonConnecte {
 		      }         
 		    }); 
 		
+		inscription.addActionListener(new ActionListener(){
+		      public void actionPerformed(ActionEvent arg0) {
+		        DialogInscription zd = new DialogInscription(null, "Inscription", true);
+		        DialogInscriptionInfo zInfo = zd.showZDialog(); 
+		        JOptionPane jop = new JOptionPane();
+		        jop.showMessageDialog(null, zInfo.toString(), "Inscription", JOptionPane.INFORMATION_MESSAGE);
+		      }         
+		    }); 
+		
 		JPanel panel2b = new JPanel(new GridLayout(1,1));//panelWest à l'ouest du borderlayout. c'est une grille d'une colonne avec 4 lignes pour les labels
 		panel2b.add(labelMain);
 		panel2.add(panel2b,BorderLayout.CENTER);		

@@ -17,8 +17,22 @@ public class ParserXML
 	{
 		if(reception.contains("<!DOCTYPE demande SYSTEM"))
 		{
-//			System.out.println("Demande");
-			return TypeRequete.DEMANDE_OBJET;
+			if(reception.contains("evenement") || reception.contains("évenement"))
+			{
+				return TypeRequete.DEMANDE_EVENEMENT;
+			}
+			if(reception.contains("chat"))
+			{
+				return TypeRequete.DEMANDE_CHAT;
+			}
+			if(reception.contains("depense") || reception.contains("dépense"))
+			{
+				return TypeRequete.DEMANDE_DEPENSE;
+			}
+			if(reception.contains("utilisateur"))
+			{
+				return TypeRequete.DEMANDE_UTILISATEUR;
+			}
 		}
 		if(reception.contains("<!DOCTYPE evenement SYSTEM"))
 		{

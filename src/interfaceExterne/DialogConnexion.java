@@ -11,14 +11,17 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class DialogConnexion extends JDialog {
 
-	  private DialogConnexionInfo zInfo = new DialogConnexionInfo();
+	private static final long serialVersionUID = -6024520991619817565L;
+	private DialogConnexionInfo zInfo = new DialogConnexionInfo();
 	  private boolean sendData;
 	  private JLabel pseudoLabel, mdpLabel;
-	  private JTextField pseudo, mdp;
+	  private JTextField pseudo;
+	  private JPasswordField mdp;
 
 	  public DialogConnexion(JFrame parent, String title, boolean modal){
 	    super(parent, title, modal);
@@ -51,7 +54,7 @@ public class DialogConnexion extends JDialog {
 	    JPanel panMdp = new JPanel();
 	    panMdp.setBackground(Color.white);
 	    panMdp.setPreferredSize(new Dimension(220, 60));
-	    mdp = new JTextField();
+	    mdp = new JPasswordField();
 	    mdp.setPreferredSize(new Dimension(100, 25));
 	    panMdp.setBorder(BorderFactory.createTitledBorder("Mot de passe"));
 	    mdpLabel = new JLabel("Saisir votre mot de passe :");
@@ -69,7 +72,8 @@ public class DialogConnexion extends JDialog {
 	    
 	    okBouton.addActionListener(new ActionListener(){
 	      public void actionPerformed(ActionEvent arg0) {        
-	        zInfo = new DialogConnexionInfo(pseudo.getText(), mdp.getText());
+	        zInfo = new DialogConnexionInfo(pseudo.getText(), String.valueOf(mdp.getPassword()));
+	        mdp.setText("");
 	        setVisible(false);
 	      }
      

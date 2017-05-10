@@ -826,7 +826,7 @@ public class InteractionBDD
 	 */
 	public static void ajoutUtilisateur(BDD bdd, Utilisateur utilisateur)
 	{
-		if(utilisateur.getId() != -1)
+		if(utilisateur.getId() == -1)
 		{
 			int id = ajoutUtilisateur(bdd, utilisateur.getNom(), utilisateur.getPrenom(), utilisateur.getEmail(), utilisateur.getPseudo(), utilisateur.getMotDePasse());
 			utilisateur.setId(id);
