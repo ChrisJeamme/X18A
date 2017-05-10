@@ -51,7 +51,7 @@ public class MySAXHandlerEvenement extends DefaultHandler
 		if(dernierARemplir == "id")
 		{
 			dernierARemplir = "";
-			if(contenu.compareTo("-2")!=0)
+			if(contenu.compareTo("-1")!=0)
 				evenement.setId(Integer.valueOf(contenu));
 		}
 		if(dernierARemplir == "nom")

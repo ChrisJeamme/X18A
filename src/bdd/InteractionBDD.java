@@ -799,7 +799,7 @@ public class InteractionBDD
 	 */
 	public static void ajoutEvenement(BDD bdd, Evenement evenement)
 	{
-		if(evenement.getId() == -1)
+		if(evenement.getId() != -1)
 		{
 			System.out.println("Cet évenement possède déjà un id (donc surement déjà dans la BDD)");
 		}

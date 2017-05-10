@@ -191,7 +191,7 @@ public class InteractionServeur
 		String xml =   	"<?xml version='1.0' encoding='UTF-8'?>"
 					+   "<!DOCTYPE evenement SYSTEM 'xml\\evenement.dtd'>"
 					+	"<evenement>"
-					+		"<id>-2</id>"
+					+		"<id>-1</id>"
 					+		"<nom>"+e.getNomEvenement()+"</nom>"
 					+		"<budget>"+e.getBudget()+"</budget>"
 					+	"</evenement>";
