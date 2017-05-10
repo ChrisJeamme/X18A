@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" HTTP-EQUIV="Refresh" CONTENT="20; URL=evenement?ev=${ evenement.id }"> 
 	<title>Deal With It !</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="http://anthony.jeamme.fr/css/resume_impress.css" media="print">
@@ -34,12 +34,14 @@
 	</nav>
 
 <section>
+	<div id="contentDiv">
 	<h2><span class="glyphicon glyphicon-user"></span> Participants</h2>
 	<ul class="list-group">
 	<c:forEach var="util" items="${  utilisateurs  }">
 	    <li class="list-group-item list-group-item-info">${ util.pseudo }</li>
 	</c:forEach>
 	</ul>
+
 	
 	<h2><span class="glyphicon glyphicon-euro"></span> Dépenses</h2>
 	<ul class="list-group">
@@ -55,7 +57,7 @@
 		</li>
 	</c:forEach>
 	</ul>
-
+	</div>
 	
 	<div id="Global">
 		<div id="Gauche">
@@ -75,7 +77,7 @@
 				<input class="btn btn-default" value="Ajouter la dépense" type="submit">	
 			</form>
 		</div>
-		<div id="Droite">
+		<div id="Gauche">
 			<c:if test="${ not empty erreur }">
 			 <span class="alert alert-danger">${ erreur }</span>
 			</c:if>
@@ -92,6 +94,13 @@
 				<input class="btn btn-default" value="Ajouter ce participant" type="submit">
 			</form>
 		</div>
+		
+		
+		<div id="Gauche">
+			
+		</div>
+		
+		
 	</div>
 </section>
 

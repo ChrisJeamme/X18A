@@ -3,6 +3,7 @@ package interfaceWeb;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -50,7 +51,7 @@ public class MesDepensesController extends HttpServlet
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
 		BDD db = new BDD();
 		ArrayList<Depense> listeDepenses = InteractionBDD.recupDepensesDeUtilisateur(db, u.getId());
-		Map<Depense, Evenement> depenses = new HashMap<>();
+		Map<Depense, Evenement> depenses = new LinkedHashMap<>();
 		for (int i=0; i<listeDepenses.size(); i++)
 		{
 			depenses.put(listeDepenses.get(i), InteractionBDD.recupEvenementsAvecID(db, listeDepenses.get(i).getIdEvenement()));
