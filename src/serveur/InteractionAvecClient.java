@@ -29,8 +29,6 @@ public class InteractionAvecClient
 					+		"<motDePasse>"+u.getMotDePasse()+"</motDePasse>"
 					+	"</utilisateur>;";
 		
-		xml = xml.concat("\nover");
-		
 		serveur.envoyer(xml);
 	}
 
@@ -48,6 +46,8 @@ public class InteractionAvecClient
 					+	"	<montant>'"+d.getMontant()+"'</montant>"
 					+	"	<description>'"+d.getDescription()+"'</description>"
 					+	"</depense>";
+		
+		xml = xml.concat("\nover");
 		
 		serveur.envoyer(xml);
 	}
