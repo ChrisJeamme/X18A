@@ -3,6 +3,7 @@ package interfaceWeb;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -68,7 +69,7 @@ public class EvenementController extends HttpServlet
 		
 		
 		ArrayList<Depense> listeDepenses = InteractionBDD.recupDepensesDeEvenement(db, event.getId());
-		Map<Depense, Utilisateur> depenses = new HashMap<>();
+		Map<Depense, Utilisateur> depenses = new LinkedHashMap<>();
 		for (int i=0; i<listeDepenses.size(); i++)
 		{
 			depenses.put(listeDepenses.get(i), InteractionBDD.recupUtilisateurAvecID(db, listeDepenses.get(i).getIdUtilisateur()));
