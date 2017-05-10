@@ -8,6 +8,11 @@ import donnees.Utilisateur;
 
 public class ParserXML
 {
+	/**
+	 *  Renvoi le type de requete de ce XML
+	 * @param reception
+	 * @return
+	 */
 	public static TypeRequete analyserType(String reception)
 	{
 		if(reception.contains("<!DOCTYPE demande SYSTEM"))
@@ -50,6 +55,11 @@ public class ParserXML
 		return TypeRequete.INCONNU;
 	}
 
+	/**
+	 *  Lis l'objet de ce XML et le renvoi
+	 * @param reception
+	 * @return
+	 */
 	public static Depense lireDepense(String reception)
 	{
 		//Ne marche pas mais donne la gueule du truc
@@ -60,6 +70,11 @@ public class ParserXML
 		return depense;
 	}
 
+	/**
+	 *  Lis l'objet de ce XML et le renvoi
+	 * @param reception
+	 * @return
+	 */
 	public static Message lireMessage(String reception)
 	{
 		Message message = new Message();
@@ -69,6 +84,11 @@ public class ParserXML
 		return message;
 	}
 
+	/**
+	 *  Lis l'objet de ce XML et le renvoi
+	 * @param reception
+	 * @return
+	 */
 	public static Utilisateur lireUtilisateur(String reception)
 	{
 		Utilisateur utilisateur = new Utilisateur();
@@ -78,6 +98,11 @@ public class ParserXML
 		return utilisateur;
 	}
 
+	/**
+	 *  Lis l'objet de ce XML et le renvoi
+	 * @param reception
+	 * @return
+	 */
 	public static Evenement lireEvenement(String reception)
 	{
 		Evenement evenement = new Evenement();
@@ -87,6 +112,11 @@ public class ParserXML
 		return evenement;
 	}
 	
+	/**
+	 *  Lis l'objet de ce XML et le renvoi
+	 * @param reception
+	 * @return
+	 */
 	public static Participe lireParticipe(String reception)
 	{
 		Participe participe = new Participe();
@@ -107,6 +137,11 @@ public class ParserXML
 		return reception.substring(0, reception.length()-4);
 	}
 
+	/**
+	 *  On veut récupérer l'id demandé dans un XML de demande
+	 * @param reception
+	 * @return
+	 */
 	public static int analyserDemande1Id(String reception)
 	{
 		Integer id = new Integer(0);
@@ -116,9 +151,21 @@ public class ParserXML
 		return id;
 	}
 
+	/**
+	 *  On veut récupérer les 2 id de l'objet demandé d'un XML de demande
+	 * @param reception
+	 * @return
+	 */
 	public static int[] analyserDemande2Id(String reception)
 	{
-		
-		return null;
+		Integer id1 = new Integer(0);
+		Integer id2 = new Integer(0);
+		ParserSAX p = new ParserSAX();
+		MySAXHandlerAnalyseID2 handler = new MySAXHandlerAnalyseID2(id1,id2);
+		p.monParsing(handler, reception);
+		int id[] = {-1,-1};
+		id[0] = id1;
+		id[1] = id2;
+		return id;
 	}
 }
