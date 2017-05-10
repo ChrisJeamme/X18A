@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE utilisateur SYSTEM "utilisateur.dtd">
+<utilisateur>
+	<id>1</id>
+	<nom>Martin</nom>
+	<prenom>Jean</prenom>
+	<email>jm@gmail.com</email>
+	<pseudo>JM</pseudo>
+	<motDePasse>jm42</motDePasse>
+</utilisateur>

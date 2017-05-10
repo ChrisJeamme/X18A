@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT evenement (id,nom,budget)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT budget (#PCDATA)>

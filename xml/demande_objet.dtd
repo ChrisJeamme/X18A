@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT demande (type,(id|couple_id|couple_id_date))>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT id_couple (#PCDATA)>
+<!ELEMENT couple_id_date (id_couple,id_couple,date)>
+<!ELEMENT couple_id (id_couple,id_couple)>
+<!ELEMENT date (#PCDATA)>

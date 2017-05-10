@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE demande SYSTEM "demande_objet.dtd">
+<demande>
+	 <type>evenement</type>
+	 <couple_id_date>
+		 <id_couple>1</id_couple>
+		 <id_couple>2</id_couple>
+		 <date>2017-05-05 05:05:05</date>
+	 </couple_id_date>
+</demande>

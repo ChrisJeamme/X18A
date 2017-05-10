@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT depense (date,montant,description)>
+<!ATTLIST depense
+	idUtilisateur CDATA #REQUIRED
+	idEvenement CDATA #REQUIRED
+>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT montant (#PCDATA)>
+<!ELEMENT description (#PCDATA)>

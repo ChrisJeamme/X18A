@@ -7,8 +7,8 @@ body
 header
 {
 	display: flex;
-	background-color: #27ae60;
-	height: 70px;
+	background-color: #27AE60;
+	height: 80px;
 	width: 100%;
 	margin-top: 0px;
 	color: white;
@@ -20,7 +20,7 @@ nav
 	display: flex;
 	justify-content: flex-start;
 	width: 100%;
-	height: 50px;
+	height: 60px;
 	padding: 5px 5px 5px 5px;
 	background-color: #b3f4b8;
 }
@@ -48,29 +48,19 @@ article
 	background-color: #27ae60;
 }
 
-#bloc_connexion
+.bloc_connexion
 {
 	display: flex;
 	margin: auto auto auto auto;
 }
 
-.boutton
+#Global #Gauche 
 {
-	background-color: #2ecc71;
-	border-radius: 5px;
-	padding: 8px;
-	color: white;
-	font-weight: bold;
-	width: 10%;
-	min-width: 90px;
-	min-height: 30px;
-	height: 30%;
-	margin: auto;
-	text-align: center;
+    float:left;
+    width:30%;
 }
 
-header .boutton
+#Global #Droite 
 {
-	padding: 5px 5px 5px 5px;
-	margin: 5px 5px 5px 5px;
+    margin-left:60%   
 }

@@ -3,39 +3,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="style.css">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>RazDocs</title>
+	<meta charset="UTF-8">
+	<title>Deal With It !</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="http://anthony.jeamme.fr/css/resume_impress.css" media="print">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 	<!-- Header contient la barre du haut avec titre, bouttons connexion etc. -->
 	<header>
-		<h1>RazDocs</h1>
-		<div id="bloc_connexion">
-			<a class="boutton" href="#">Connexion</a>
-			<a class="boutton" href="#">Inscription</a>
+		<h1>Deal With It !</h1>
+		<div class="bloc_connexion">
+			<a class="btn btn-default" href="connexion.jsp"> <span class="glyphicon glyphicon-log-in"></span> Connexion</a>
+			<a class="btn btn-default" href="inscription.jsp"> <span class="glyphicon glyphicon-plus"></span> Inscription</a>
 		</div>
 	</header>
 	
-	 <!-- Nav contient les liens vers toutes les pages (Chat, board etc.) -->
-	<nav>
-		<p>Ici les boutons de navigations</p>
-	</nav>
+	<nav></nav>
 	
 	<!-- Section est la grosse partie centrale de la page qui contient tout contenu -->
 	<section> 
-		
-		Corps sexy de la page
-		
-		<!-- Article est un bloc qui peut servir à différentes choses -->
-		<article> 
-			<p>Un article</p>
-			<a class="boutton" href="#">
-			Un boutton
-			</a>
-		</article>
-		
-		Bla bla bla mes boules
+		<div class="jumbotron">
+			<h2> Bienvenue sur <b>DealWithIt</b></h2>
+			<p> Avec <b>DealWithIt</b>, gérer vos dépenses de groupes n'aura jamais été aussi simple !</p>
+			<p> Vacances entre amis, cadeaux d'anniversaires, organisation de soirée ... il vous suffit de créer l'événement, ajouter les participants et ajouter les dépenses que vous réalisez.  </p>
+			
+			<p><a class="btn btn-sucess btn-lg" href="inscription.jsp" role="button">Inscrivez-vous</a></p>
+		</div>
 
 	</section>
 	
