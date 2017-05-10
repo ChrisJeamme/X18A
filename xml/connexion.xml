@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE connexion SYSTEM "connexion.dtd">
+<connexion>
+	 <pseudo>cjeamme</pseudo>
+	 <pass>pass</pass>
+</connexion>

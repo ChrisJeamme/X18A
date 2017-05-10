@@ -1,7 +1,5 @@
 package interfaceExterne;
 
-import bdd.BDD;
-import bdd.InteractionBDD;
 import clientExterne.InteractionServeur;
 import donnees.Utilisateur;
 

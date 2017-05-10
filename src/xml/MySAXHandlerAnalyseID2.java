@@ -3,8 +3,6 @@ package xml;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
-import donnees.Depense;
-
 public class MySAXHandlerAnalyseID2 extends DefaultHandler
 {
 	boolean copier1 = false;

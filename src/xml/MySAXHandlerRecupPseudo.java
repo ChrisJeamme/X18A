@@ -3,14 +3,14 @@ package xml;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class MySAXHandlerAnalyseID1 extends DefaultHandler
+public class MySAXHandlerRecupPseudo extends DefaultHandler
 {
 	boolean copier = false;
-	Integer id;
+	String pseudo;
 	
-	public MySAXHandlerAnalyseID1(Integer aCompleter)
+	public MySAXHandlerRecupPseudo(String aCompleter)
 	{
-		id = aCompleter;
+		pseudo = aCompleter;
 	}
 	
 	public void startDocument()
@@ -21,7 +21,7 @@ public class MySAXHandlerAnalyseID1 extends DefaultHandler
 	
 	public void startElement(String uri, String localName, String qName, Attributes attributes)
 	{
-		if(qName=="id")
+		if(qName=="pseudo")
 		{
 			copier = true;
 		}
@@ -41,7 +41,7 @@ public class MySAXHandlerAnalyseID1 extends DefaultHandler
 				contenu = contenu.concat(ch[i]+"");
 			}
 			
-			id = Integer.parseInt(contenu);
+			pseudo = contenu;
 		}
 	}
 

@@ -19,9 +19,7 @@ public class InteractionServeur
 	
 	public String envoiServeur(String texte)
 	{
-		
     	String recu = client.envoyerMessage(texte);
-    	
     	
     	return recu;
 	}
@@ -43,9 +41,11 @@ public class InteractionServeur
 					+		"<email>"+u.getEmail()+"</email>"
 					+		"<pseudo>"+u.getPseudo()+"</pseudo>"
 					+		"<motDePasse>"+u.getMotDePasse()+"</motDePasse>"
-					+	"</utilisateur>\nover";
+					+	"</utilisateur>";
 		
 		String reponse = envoiServeur(xml);
+
+		System.out.println("OH?");
 		
 		//On enlève over à la fin de la réponse
 		//reponse = clean(reponse);
@@ -75,9 +75,26 @@ public class InteractionServeur
 		
 		Utilisateur utilisateur = ParserXML.lireUtilisateur(reponse);
 		
+		
+		
 		return utilisateur;
 	}
 	
+	public Utilisateur connexion(String pseudo, String mdp )
+	{
+		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+					+	"<!DOCTYPE connexion SYSTEM \"xml\\connexion.dtd\">"
+					+	"<demande>"
+					+	"	<type>utilisateur</type>"
+					+	"	<id>idUtilisateur</id>"
+					+	"</demande>";
+		
+		String reponse = envoiServeur(xml);
+		
+		Utilisateur utilisateur = ParserXML.lireUtilisateur(reponse);
+		
+		return utilisateur;
+	}	
 
 	
 	/**
@@ -150,7 +167,7 @@ public class InteractionServeur
 	{
 		//non testé mais montre la gueule des fonctions de ce type
 		String xml =   	"<?xml version='1.0' encoding='UTF-8'?>"
-					+   "<!DOCTYPE depense SYSTEM 'depense.dtd'>"
+					+   "<!DOCTYPE depense SYSTEM 'xml\\depense.dtd'>"
 					+	"<depense>"
 					+		"<idUtilisateur>"+d.getIdUtilisateur()+"</idUtilisateur>"
 					+		"<idEvenement>"+d.getIdEvenement()+"</idEvenement>"
@@ -177,7 +194,7 @@ public class InteractionServeur
 	{
 		//non testé mais montre la gueule des fonctions de ce type
 		String xml =   	"<?xml version='1.0' encoding='UTF-8'?>"
-					+   "<!DOCTYPE evenement SYSTEM 'evenement.dtd'>"
+					+   "<!DOCTYPE evenement SYSTEM 'xml\\evenement.dtd'>"
 					+	"<evenement>"
 					+		"<id></id>"
 					+		"<nomEvenement>"+e.getNomEvenement()+"</nomEvenement>"
@@ -204,7 +221,7 @@ public class InteractionServeur
 	{
 		//non testé mais montre la gueule des fonctions de ce type
 		String xml =   	"<?xml version='1.0' encoding='UTF-8'?>"
-					+   "<!DOCTYPE participe SYSTEM 'participe.dtd'>"
+					+   "<!DOCTYPE participe SYSTEM 'xml\\participe.dtd'>"
 					+	"<participe>"
 					+		"<idUtilisateur>"+p.getIdUtilisateur()+"</idUtilisateur>"
 					+		"<idEvenement>"+p.getIdEvenement()+"</idEvenement>"

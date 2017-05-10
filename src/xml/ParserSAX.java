@@ -2,10 +2,6 @@ package xml;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.util.logging.Handler;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;

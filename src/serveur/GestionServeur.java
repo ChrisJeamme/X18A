@@ -1,7 +1,5 @@
 package serveur;
 
-import javax.swing.text.Utilities;
-
 import bdd.BDD;
 import bdd.InteractionBDD;
 import donnees.Chat;
@@ -64,6 +62,14 @@ public class GestionServeur
 				InteractionAvecClient.envoyerUtilisateur(serveur, u);
 				break;
 				
+			case CONNEXION:
+				String pseudo = ParserXML.analyserConnexionPseudo(reception);
+				String mdp = ParserXML.analyserConnexionMdp(reception);
+				Utilisateur u2 = InteractionBDD.verificationConnexion(bdd, pseudo, mdp);
+				if(u2==null) u2 = new Utilisateur("", "", "", "", ""); //id sera à -1 (Si la connexion a échoué)
+				InteractionAvecClient.envoyerUtilisateur(serveur, u2);
+				break;
+				
 			// Envoi d'objets
 				
 			case ENVOI_EVENEMENT:	//Le client lourd nous demande de créer cet evenement
@@ -99,6 +105,8 @@ public class GestionServeur
 				
 			case INCONNU:
 				System.err.println("Requete recu non reconnue");
+				break;
+			default:
 				break;
 			}
 		}		
