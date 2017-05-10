@@ -3,9 +3,6 @@ package xml;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
-import donnees.Chat;
-import donnees.Message;
-
 public class MySAXHandlerDemande extends DefaultHandler
 {	
 	String dernierARemplir;
