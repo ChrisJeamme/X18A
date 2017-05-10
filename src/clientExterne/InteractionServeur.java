@@ -39,7 +39,7 @@ public class InteractionServeur
 		//On enlève over à la fin de la réponse
 		reponse = clean(reponse);
 		//On récupère l'id de la réponse
-		int id = Integer.valueOf(reponse);
+		int id = Integer.parseInt(reponse);
 		
 		if(id != -1 && u.getId() == -1) //Si il a bien été ajouté et l'utilisateur n'a pas déjà un id
 		{
