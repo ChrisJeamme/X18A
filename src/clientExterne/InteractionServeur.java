@@ -53,6 +53,9 @@ public class InteractionServeur
 	public static String clean(String reception)
 	{
 		//On supprime "over" à la fin
-		return reception.substring(0, reception.length()-4);
+		if(reception.length()>4)
+			return reception.substring(0, reception.length()-4);
+		else
+			return reception;
 	}
 }
