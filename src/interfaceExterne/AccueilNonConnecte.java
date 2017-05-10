@@ -15,10 +15,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import donnees.Utilisateur;
+
 
 public class AccueilNonConnecte {
 		static JButton connexion;		
 		static JButton inscription;
+		public static Utilisateur user = new Utilisateur(); // Utilisateur de la session
 		
 	public static void main(String[] args) {
 		

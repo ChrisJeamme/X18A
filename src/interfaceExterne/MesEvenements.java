@@ -2,6 +2,7 @@ package interfaceExterne;
 
 import java.util.ArrayList;
 
+import clientExterne.InteractionServeurStatic;
 import donnees.Evenement;
 
 public class MesEvenements {
