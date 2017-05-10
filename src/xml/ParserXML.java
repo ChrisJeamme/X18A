@@ -97,13 +97,28 @@ public class ParserXML
 	}
 
 	/**
-	 *  Va servir ï¿½ enlever ce qui ne passerait pas au parser XML
+	 *  Va servir à enlever ce qui ne passerait pas au parser XML
 	 * @param reception
 	 * @return 
 	 */
 	public static String clean(String reception)
 	{
-		//On supprime "over" ï¿½ la fin
+		//On supprime "over" à la fin
 		return reception.substring(0, reception.length()-4);
+	}
+
+	public static int analyserDemande1Id(String reception)
+	{
+		Integer id = new Integer(0);
+		ParserSAX p = new ParserSAX();
+		MySAXHandlerAnalyseID1 handler = new MySAXHandlerAnalyseID1(id);
+		p.monParsing(handler, reception);
+		return id;
+	}
+
+	public static int[] analyserDemande2Id(String reception)
+	{
+		
+		return null;
 	}
 }
