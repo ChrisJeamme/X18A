@@ -196,4 +196,22 @@ public class ParserXML
 		p.monParsing(handler, reception);
 		return date;
 	}
+
+	public static String analyserConnexionPseudo(String reception)
+	{
+		String pseudo = "";
+		ParserSAX p = new ParserSAX();
+		MySAXHandlerRecupPseudo handler = new MySAXHandlerRecupPseudo(pseudo);
+		p.monParsing(handler, reception);
+		return pseudo;
+	}
+
+	public static String analyserConnexionMdp(String reception)
+	{
+		String mdp = "";
+		ParserSAX p = new ParserSAX();
+		MySAXHandlerRecupMdp handler = new MySAXHandlerRecupMdp(mdp);
+		p.monParsing(handler, reception);
+		return mdp;
+	}
 }
