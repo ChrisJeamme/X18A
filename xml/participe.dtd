@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!ELEMENT participe (participant*)>
 <!ATTLIST participe
-	evenementId CDATA #REQUIRED
->
-<!ELEMENT participant (utilisateur)>
-<!ATTLIST participant
 	idUtilisateur CDATA #REQUIRED
 	idEvenement CDATA #REQUIRED
 >
-<!ELEMENT utilisateur (#PCDATA)>
