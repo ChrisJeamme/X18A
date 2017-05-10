@@ -43,8 +43,6 @@ public class InteractionServeur
 					+	"</utilisateur>";
 		
 		String reponse = envoiServeur(xml);
-
-		System.out.println("OH?");
 		
 		//On enlève over à la fin de la réponse
 		//reponse = clean(reponse);
