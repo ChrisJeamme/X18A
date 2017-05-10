@@ -31,16 +31,4 @@ public class DialogConnexionInfo {
 	    
 	    InteractionServeur.currentInteractionServeur.ajoutUtilisateur(u);
 	  }
-
-	  public String toString(){
-	    String str;
-	    if(this.pseudo != null && this.mdp != null){
-	      str = "Bonjour ";
-	      str += this.pseudo + " ! \n";
-	    }
-	    else{
-	      str = "Aucune information !";
-	    }
-	    return str;
-	  }
 	}

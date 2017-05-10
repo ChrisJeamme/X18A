@@ -82,18 +82,14 @@ public class AccueilNonConnecte {
 		connexion.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent arg0) {
 		        DialogConnexion zd = new DialogConnexion(null, "Connexion", true);
-		        DialogConnexionInfo zInfo = zd.showZDialog(); 
-		        JOptionPane jop = new JOptionPane();
-		        jop.showMessageDialog(null, zInfo.toString(), "Connexion", JOptionPane.INFORMATION_MESSAGE);
+		        DialogConnexionInfo zInfo = zd.showZDialog();
 		      }         
 		    }); 
 		
 		inscription.addActionListener(new ActionListener(){
 		      public void actionPerformed(ActionEvent arg0) {
 		        DialogInscription zd = new DialogInscription(null, "Inscription", true);
-		        DialogInscriptionInfo zInfo = zd.showZDialog(); 
-		        JOptionPane jop = new JOptionPane();
-		        jop.showMessageDialog(null, zInfo.toString(), "Inscription", JOptionPane.INFORMATION_MESSAGE);
+		        DialogInscriptionInfo zInfo = zd.showZDialog();
 		      }         
 		    }); 
 		

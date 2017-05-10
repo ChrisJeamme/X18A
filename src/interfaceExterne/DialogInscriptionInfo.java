@@ -17,19 +17,4 @@ public class DialogInscriptionInfo {
 	    this.pseudo = pseudo;
 	    this.mdp = mdp;
 	  }
-
-	  public String toString(){
-	    String str;
-	    if(this.nom != null && this.prenom != null && this.mdp != null && this.email != null && this.pseudo != null){
-	      Utilisateur newUtil = new Utilisateur(this.nom, this.prenom, this.email, this.pseudo, this.mdp);
-	      
-	      InteractionServeur.currentInteractionServeur.ajoutUtilisateur(newUtil);
-
-	      str = "Bienvenue " + this.pseudo + " !";
-	    }
-	    else{
-	      str = "Aucune information !";
-	    }
-	    return str;
-	  }
 	}
