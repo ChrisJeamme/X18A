@@ -2,6 +2,7 @@ package interfaceExterne;
 
 import bdd.BDD;
 import bdd.InteractionBDD;
+import clientExterne.InteractionServeur;
 import donnees.Utilisateur;
 
 public class DialogInscriptionInfo {
@@ -22,8 +23,8 @@ public class DialogInscriptionInfo {
 	    if(this.nom != null && this.prenom != null && this.mdp != null && this.email != null && this.pseudo != null){
 	      Utilisateur newUtil = new Utilisateur(this.nom, this.prenom, this.email, this.pseudo, this.mdp);
 	      
-	      //AJOUTER UTILISATEUR GRACE A L'OBJET INTERACTIONSERVEUR
-	      //ajoutUtilisateur(newUtil);
+	      InteractionServeur.currentInteractionServeur.ajoutUtilisateur(newUtil);
+
 	      str = "Bienvenue " + this.pseudo + " !";
 	    }
 	    else{
