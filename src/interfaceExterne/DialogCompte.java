@@ -18,16 +18,16 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 
-public class DialogInscription extends JDialog {
+import clientExterne.InteractionServeurStatic;
+import donnees.Utilisateur;
 
-  private static final long serialVersionUID = 3528976261668591282L;
-  private DialogInscriptionInfo zInfo = new DialogInscriptionInfo();
+public class DialogCompte extends JDialog {
+  private DialogCompteInfo zInfo = new DialogCompteInfo();
   private boolean sendData;
   private JLabel nomLabel, prenomLabel, emailLabel, pseudoLabel, mdpLabel;
-  private JTextField nom, prenom, email, pseudo;
-  private JPasswordField mdp;
+  private JTextField nom, prenom, email, pseudo, mdp;
 
-  public DialogInscription(JFrame parent, String title, boolean modal){
+  public DialogCompte(JFrame parent, String title, boolean modal){
     super(parent, title, modal);
     this.setSize(550, 270);
     this.setLocationRelativeTo(null);
@@ -36,7 +36,7 @@ public class DialogInscription extends JDialog {
     this.initComponent();
   }
 
-  public DialogInscriptionInfo showZDialog(){
+  public DialogCompteInfo showZDialog(){
     this.sendData = false;
     this.setVisible(true);      
     return this.zInfo;      
@@ -44,12 +44,15 @@ public class DialogInscription extends JDialog {
 
   private void initComponent(){
 
+	  Utilisateur u = new Utilisateur();
+	  u = InteractionServeurStatic.currentInteractionServeur.connexion(String.valueOf(mdp),String.valueOf(pseudo));
+	  
     JPanel panNom = new JPanel();
     panNom.setBackground(Color.white);
     panNom.setPreferredSize(new Dimension(220, 60));
-    nom = new JTextField();
+    nom = new JTextField(u.getNom());
     nom.setPreferredSize(new Dimension(100, 25));
-    panNom.setBorder(BorderFactory.createTitledBorder("Nom"));
+    panNom.setBorder(BorderFactory.createTitledBorder("Nouveau Nom"));
     nomLabel = new JLabel("Nom :");
     panNom.add(nomLabel);
     panNom.add(nom);
@@ -57,9 +60,9 @@ public class DialogInscription extends JDialog {
     JPanel panPrenom = new JPanel();
     panPrenom.setBackground(Color.white);
     panPrenom.setPreferredSize(new Dimension(220, 60));
-    prenom = new JTextField();
+    prenom = new JTextField(u.getPrenom());
     prenom.setPreferredSize(new Dimension(100, 25));
-    panPrenom.setBorder(BorderFactory.createTitledBorder("Prenom"));
+    panPrenom.setBorder(BorderFactory.createTitledBorder("Nouveau Prenom"));
     prenomLabel = new JLabel("Prenom :");
     panPrenom.add(prenomLabel);
     panPrenom.add(prenom);
@@ -67,9 +70,9 @@ public class DialogInscription extends JDialog {
     JPanel panEmail = new JPanel();
     panEmail.setBackground(Color.white);
     panEmail.setPreferredSize(new Dimension(440, 60));
-    email = new JTextField();
+    email = new JTextField(u.getEmail());
     email.setPreferredSize(new Dimension(200, 25));
-    panEmail.setBorder(BorderFactory.createTitledBorder("E-mail"));
+    panEmail.setBorder(BorderFactory.createTitledBorder("Nouvel E-mail"));
     emailLabel = new JLabel("E-mail :");
     panEmail.add(emailLabel);
     panEmail.add(email);
@@ -77,9 +80,9 @@ public class DialogInscription extends JDialog {
     JPanel panPseudo = new JPanel();
     panPseudo.setBackground(Color.white);
     panPseudo.setPreferredSize(new Dimension(220, 60));
-    pseudo = new JTextField();
+    pseudo = new JTextField(u.getPseudo());
     pseudo.setPreferredSize(new Dimension(100, 25));
-    panPseudo.setBorder(BorderFactory.createTitledBorder("Pseudo"));
+    panPseudo.setBorder(BorderFactory.createTitledBorder("Nouveau Pseudo"));
     pseudoLabel = new JLabel("Pseudo :");
     panPseudo.add(pseudoLabel);
     panPseudo.add(pseudo);
@@ -87,9 +90,9 @@ public class DialogInscription extends JDialog {
     JPanel panMdp = new JPanel();
     panMdp.setBackground(Color.white);
     panMdp.setPreferredSize(new Dimension(240, 60));
-    mdp = new JPasswordField();
+    mdp = new JPasswordField(u.getMotDePasse());
     mdp.setPreferredSize(new Dimension(100, 25));
-    panMdp.setBorder(BorderFactory.createTitledBorder("Mot de passe"));
+    panMdp.setBorder(BorderFactory.createTitledBorder("Nouveau Mot de passe"));
     mdpLabel = new JLabel("Mot de passe :");
     panMdp.add(mdpLabel);
     panMdp.add(mdp);
@@ -107,9 +110,8 @@ public class DialogInscription extends JDialog {
     
     okBouton.addActionListener(new ActionListener(){
       public void actionPerformed(ActionEvent arg0) {
-    	if (nom.getText() != "" && prenom.getText() != "" && email.getText() != "" && pseudo.getText() != "" && mdp.getPassword().length != 0)
+    	if (nom.getText() != "" && prenom.getText() != "" && email.getText() != "" && pseudo.getText() != "" && mdp.getText() != "")
     	{
-    		//zInfo = new DialogInscriptionInfo(nom.getText(), prenom.getText(), email.getText(), pseudo.getText(), String.valueOf(mdp.getPassword()));
     		setVisible(false);
     	}
       }    

@@ -9,8 +9,7 @@ import xml.ParserXML;
 public class InteractionServeur
 {
 	Client client;
-	public static InteractionServeur currentInteractionServeur = new InteractionServeur(); // Objet statique qui se partage entre toutes les pages
-	
+		
 	public InteractionServeur()
 	{
 		client = new Client();

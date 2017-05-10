@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -158,6 +160,13 @@ public class AccueilConnecte {
 				mesOperations.setVisible(true);
 			}
 		});
+		
+		monCompte.addActionListener(new ActionListener(){
+		      public void actionPerformed(ActionEvent arg0) {
+		        DialogCompte zd = new DialogCompte(null, "Mon Compte", true);
+		        DialogCompteInfo zInfo = zd.showZDialog();
+		      }         
+		    }); 
 					
 		frame.pack();
 		frame.setVisible(true);
