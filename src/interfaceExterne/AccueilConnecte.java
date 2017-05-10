@@ -46,7 +46,7 @@ public class AccueilConnecte {
 		panel1.setPreferredSize(new Dimension(880,200));
 		frame.add(panel1);
 			
-		/****creation des éléments****/
+		/****creation des elements****/
 		JLabel lblMenu = new JLabel();
 		lblMenu.setOpaque(true);
 		lblMenu.setBackground(new Color(0,128,255));		
@@ -96,7 +96,7 @@ public class AccueilConnecte {
 		panel2.setPreferredSize(new Dimension(880,250));
 		frame.add(panel2);
 
-		/****creation des éléments****/
+		/****creation des elements****/
 		JPanel panel2b = new JPanel(new GridLayout(1,1));
 		panel2b.add(event, BorderLayout.EAST);
 		panel2b.add(creerEvent, BorderLayout.CENTER);
@@ -110,7 +110,7 @@ public class AccueilConnecte {
 		
 		/*Chargement des evenements*/
 		
-		String[] entetes = {"Nom de l'évènement", "Budget"};
+		String[] entetes = {"Nom de l'evenement", "Budget"};
  
         MesEvenements mesEvenements = new MesEvenements();
 		ArrayList<Evenement> listeEvent = new ArrayList<>();
@@ -143,7 +143,7 @@ public class AccueilConnecte {
 		creerEvenement.setPreferredSize(new Dimension(880, 264));
 	    nomEv = new JTextField();
 	    nomEv.setPreferredSize(new Dimension(100, 25));
-	    lblnomEv = new JLabel("Nom de l'évènement :");
+	    lblnomEv = new JLabel("Nom de l'evenement :");
 	    creerEvenement.add(lblnomEv);
 	    creerEvenement.add(nomEv);
 	   
