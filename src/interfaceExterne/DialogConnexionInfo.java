@@ -1,6 +1,6 @@
 package interfaceExterne;
 
-import clientExterne.InteractionServeur;
+import clientExterne.InteractionServeurStatic;
 import donnees.Utilisateur;
 
 public class DialogConnexionInfo {
@@ -9,6 +9,6 @@ public class DialogConnexionInfo {
 	  {}
 	  public DialogConnexionInfo(String pseudo, String mdp){
 		Utilisateur u = new Utilisateur();
-	    u = InteractionServeur.currentInteractionServeur.connexion(pseudo, mdp);
+	    u = InteractionServeurStatic.currentInteractionServeur.connexion(pseudo, mdp);
 	  }
 	}

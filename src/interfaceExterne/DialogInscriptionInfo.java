@@ -1,6 +1,6 @@
 package interfaceExterne;
 
-import clientExterne.InteractionServeur;
+import clientExterne.InteractionServeurStatic;
 import donnees.Utilisateur;
 
 public class DialogInscriptionInfo {
@@ -16,7 +16,7 @@ public class DialogInscriptionInfo {
 	    u.setEmail(email);
 	    u.setPseudo(pseudo);
 	    u.setMotDePasse(mdp);
-	    InteractionServeur.currentInteractionServeur.ajoutUtilisateur(u);
+	    InteractionServeurStatic.currentInteractionServeur.ajoutUtilisateur(u);
 	  
 	}
 	
