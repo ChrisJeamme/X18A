@@ -78,6 +78,22 @@ public class InteractionServeur
 		return utilisateur;
 	}
 	
+	public void ajoutDepense(Depense d)
+	{
+		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+					+	"<!DOCTYPE depense SYSTEM \"xml\\depense.dtd\">"
+					+	"<depense idUtilisateur=\""+d.getIdUtilisateur()+"\" idEvenement=\""+d.getIdEvenement()+"\">"
+					+	"	<date>"+d.getDate()+"</date>"
+					+	"	<montant>"+d.getMontant()+"</montant>"
+					+	"	<description>"+d.getDescription()+"</description>"
+					+	"</depense>\nover";
+		
+		String reponse = envoiServeur(xml);
+		
+		// Faut il faire quelque chose après comme on utilise pas d'id propre ?
+
+	}
+	
 	/**
 	 *  Demande un objet Depense avec ses ids primaires
 	 * @param idEvenement
@@ -108,6 +124,30 @@ public class InteractionServeur
 		return depense;
 	}
 	
+	public boolean ajoutEvenement(Evenement e)
+	{
+		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+					+	"<!DOCTYPE evenement SYSTEM \"xml\\evenement.dtd\">"
+					+	"<evenement>"
+					+	"	<id></id>"
+					+	"	<nom>"+e.getNomEvenement()+"</nom>"
+					+	"	<budget>"+e.getBudget()+"</budget"
+					+	"</evenement>\nover";
+		
+		String reponse = envoiServeur(xml);
+		
+		//On récupère l'id de la réponse
+		int id = Integer.parseInt(reponse);
+		
+		if(id != -1 && e.getId() == -1) //Si il a bien été ajouté et l'utilisateur n'a pas déjà un id
+		{
+			e.setId(id);	//On entre l'id dans l'objet
+			return true;
+		}
+		else
+			return false;
+	}
+	
 	public Evenement recevoirEvenement(int idEvenement)
 	{
 		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
@@ -122,6 +162,18 @@ public class InteractionServeur
 		Evenement evenement = ParserXML.lireEvenement(reponse);
 		
 		return evenement;
+	}
+	
+	public void ajoutParticipe(Participe p)
+	{
+		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+					+	"<!DOCTTYPE participe SYSTEM \"xml\\participe.dtd\">"
+					+	"<participe idEvenement=\""+p.getIdEvenement()+"\" idUtilisateur=\""+p.getIdUtilisateur()+"\"></participe>\nover";
+		
+		String reponse = envoiServeur(xml);
+		
+		// Faut il faire quelque chose après comme on utilise pas d'id propre ?
+					
 	}
 	
 	public Participe recevoirParticipe(int idUtilisateur, int idEvenement)
