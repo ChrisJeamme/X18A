@@ -16,7 +16,8 @@ import javax.swing.JTextField;
 
 public class DialogConnexion extends JDialog {
 
-	  private DialogConnexionInfo zInfo = new DialogConnexionInfo();
+	private static final long serialVersionUID = -6024520991619817565L;
+	private DialogConnexionInfo zInfo = new DialogConnexionInfo();
 	  private boolean sendData;
 	  private JLabel pseudoLabel, mdpLabel;
 	  private JTextField pseudo;
