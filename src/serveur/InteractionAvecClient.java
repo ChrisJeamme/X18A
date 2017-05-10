@@ -49,8 +49,6 @@ public class InteractionAvecClient
 					+	"	<description>'"+d.getDescription()+"'</description>"
 					+	"</depense>";
 		
-		xml = xml.concat("\nover");
-		
 		serveur.envoyer(xml);
 	}
 
