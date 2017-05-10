@@ -105,7 +105,7 @@ public class AccueilConnecte {
 		creerEvenement.setOpaque(true);
 		creerEvenement.setBackground(new Color(132,225,33));
 		creerEvenement.setPreferredSize(new Dimension(880, 264));
-		creerEvenement.setText("Créer Evenement");	
+		creerEvenement.setText("Creer Evenement");	
 		creerEvenement.setHorizontalAlignment(SwingConstants.CENTER);
 		creerEvenement.setVerticalAlignment(SwingConstants.CENTER);
 					
@@ -113,7 +113,7 @@ public class AccueilConnecte {
 		mesOperations.setOpaque(true);
 		mesOperations.setBackground(new Color(105,197,6));
 		mesOperations.setPreferredSize(new Dimension(880, 264));
-		mesOperations.setText("Mes Opérations");	
+		mesOperations.setText("Mes Operations");	
 		mesOperations.setHorizontalAlignment(SwingConstants.CENTER);
 		mesOperations.setVerticalAlignment(SwingConstants.CENTER);
 					
