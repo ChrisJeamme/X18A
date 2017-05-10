@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT participeMultipleUtilisateur (participe*, end)>
+<!ATTLIST participeMultipleUtilisateur
+	idUtilisateur CDATA #REQUIRED
+>
+<!ELEMENT participe EMPTY>
+<!ATTLIST participe
+	idUtilisateur CDATA #REQUIRED
+	idEvenement CDATA #REQUIRED
+>
+<!ELEMENT end EMPTY>
