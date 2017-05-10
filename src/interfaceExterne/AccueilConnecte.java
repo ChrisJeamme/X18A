@@ -23,8 +23,7 @@ import donnees.Depense;
 import donnees.Evenement;
 
 
-public class AccueilConnecte {
-		static JButton monCompte;		
+public class AccueilConnecte {		
 		static JButton deconnexion;
 		static JButton event;
 		static JButton creerEvent;
@@ -59,15 +58,10 @@ public class AccueilConnecte {
 		lblTitre.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitre.setVerticalAlignment(SwingConstants.CENTER);
 							
-		monCompte = new JButton("Mon compte");
-		monCompte.setSize(new Dimension(150,30));
-		monCompte.setLocation(0, 85);
-					
 		deconnexion = new JButton("Deconnexion");
 		deconnexion.setSize(new Dimension(150,30));
 		deconnexion.setLocation(170, 85);
-					
-		lblMenu.add(monCompte);
+
 		lblMenu.add(deconnexion);
 							
 		JPanel panel1b = new JPanel(new GridLayout(1,1));
@@ -246,13 +240,6 @@ public class AccueilConnecte {
 				mesOperations.setVisible(true);
 			}
 		});
-		
-		monCompte.addActionListener(new ActionListener(){
-		      public void actionPerformed(ActionEvent arg0) {
-		        DialogCompte zd = new DialogCompte(null, "Mon Compte", true);
-		        DialogCompteInfo zInfo = zd.showZDialog();
-		      }         
-		    }); 
 					
 		frame.pack();
 		frame.setVisible(true);
