@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE demande SYSTEM "demande_objet.dtd">
+<demande>
+	 <type>evenement</type>
+	 <id>1</id>
+</demande>
