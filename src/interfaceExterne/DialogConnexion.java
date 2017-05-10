@@ -71,10 +71,13 @@ public class DialogConnexion extends JDialog {
 	    JButton okBouton = new JButton("OK");
 	    
 	    okBouton.addActionListener(new ActionListener(){
-	      public void actionPerformed(ActionEvent arg0) {        
-	        zInfo = new DialogConnexionInfo(pseudo.getText(), String.valueOf(mdp.getPassword()));
-	        mdp.setText("");
-	        setVisible(false);
+	      public void actionPerformed(ActionEvent arg0) {      
+	    	 if (pseudo.getText() != "" && mdp.getPassword().length != 0)
+	      	{
+		        zInfo = new DialogConnexionInfo(pseudo.getText(), String.valueOf(mdp.getPassword()));
+		        mdp.setText("");
+		        setVisible(false);
+	      	}
 	      }
      
 	    });

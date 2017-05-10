@@ -17,7 +17,7 @@ public class ParserXML
 	{
 		if(reception.contains("<!DOCTYPE demande SYSTEM"))
 		{
-			if(reception.contains("evenement") || reception.contains("évenement"))
+			if(reception.contains("evenement") || reception.contains("évenement") || reception.contains("événement"))
 			{
 				return TypeRequete.DEMANDE_EVENEMENT;
 			}
@@ -32,6 +32,10 @@ public class ParserXML
 			if(reception.contains("utilisateur"))
 			{
 				return TypeRequete.DEMANDE_UTILISATEUR;
+			}
+			if(reception.contains("participeUtilisateur"))
+			{
+				return TypeRequete.DEMANDE_PARTICIPEUTILISATEUR;
 			}
 		}
 		if(reception.contains("<!DOCTYPE connexion SYSTEM"))

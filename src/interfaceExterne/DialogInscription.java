@@ -13,15 +13,19 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 
 public class DialogInscription extends JDialog {
+
+  private static final long serialVersionUID = 3528976261668591282L;
   private DialogInscriptionInfo zInfo = new DialogInscriptionInfo();
   private boolean sendData;
   private JLabel nomLabel, prenomLabel, emailLabel, pseudoLabel, mdpLabel;
-  private JTextField nom, prenom, email, pseudo, mdp;
+  private JTextField nom, prenom, email, pseudo;
+  private JPasswordField mdp;
 
   public DialogInscription(JFrame parent, String title, boolean modal){
     super(parent, title, modal);
@@ -83,7 +87,7 @@ public class DialogInscription extends JDialog {
     JPanel panMdp = new JPanel();
     panMdp.setBackground(Color.white);
     panMdp.setPreferredSize(new Dimension(240, 60));
-    mdp = new JTextField();
+    mdp = new JPasswordField();
     mdp.setPreferredSize(new Dimension(100, 25));
     panMdp.setBorder(BorderFactory.createTitledBorder("Mot de passe"));
     mdpLabel = new JLabel("Mot de passe :");
@@ -102,9 +106,12 @@ public class DialogInscription extends JDialog {
     JButton okBouton = new JButton("OK");
     
     okBouton.addActionListener(new ActionListener(){
-      public void actionPerformed(ActionEvent arg0) {        
-        zInfo = new DialogInscriptionInfo(nom.getText(), prenom.getText(), email.getText(), pseudo.getText() ,mdp.getText());
-        setVisible(false);
+      public void actionPerformed(ActionEvent arg0) {
+    	if (nom.getText() != "" && prenom.getText() != "" && email.getText() != "" && pseudo.getText() != "" && mdp.getPassword().length != 0)
+    	{
+    		//zInfo = new DialogInscriptionInfo(nom.getText(), prenom.getText(), email.getText(), pseudo.getText(), String.valueOf(mdp.getPassword()));
+    		setVisible(false);
+    	}
       }    
     });
 

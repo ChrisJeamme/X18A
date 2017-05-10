@@ -29,8 +29,6 @@ public class InteractionAvecClient
 					+		"<motDePasse>"+u.getMotDePasse()+"</motDePasse>"
 					+	"</utilisateur>;";
 		
-		xml = xml.concat("\nover");
-		
 		serveur.envoyer(xml);
 	}
 

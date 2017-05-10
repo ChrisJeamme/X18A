@@ -9,8 +9,7 @@ import xml.ParserXML;
 public class InteractionServeur
 {
 	Client client;
-	public static InteractionServeur currentInteractionServeur = new InteractionServeur(); // Objet statique qui se partage entre toutes les pages
-	
+		
 	public InteractionServeur()
 	{
 		client = new Client();
@@ -44,8 +43,6 @@ public class InteractionServeur
 					+	"</utilisateur>";
 		
 		String reponse = envoiServeur(xml);
-
-		System.out.println("OH?");
 		
 		//On enlève over à la fin de la réponse
 		//reponse = clean(reponse);
