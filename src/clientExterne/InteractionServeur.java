@@ -1,6 +1,8 @@
 package clientExterne;
 
 import donnees.Depense;
+import donnees.Evenement;
+import donnees.Participe;
 import donnees.Utilisateur;
 import xml.ParserXML;
 
@@ -60,6 +62,22 @@ public class InteractionServeur
 			return false;
 	}
 	
+	public Utilisateur recevoirUtilisateur(int idUtilisateur)
+	{
+		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+					+	"<!DOCTYPE demande SYSTEM \"xml\\demande_objet.dtd\">"
+					+	"<demande>"
+					+	"	<type>utilisateur</type>"
+					+	"	<id>idUtilisateur</id>"
+					+	"</demande>";
+		
+		String reponse = envoiServeur(xml);
+		
+		Utilisateur utilisateur = ParserXML.lireUtilisateur(reponse);
+		
+		return utilisateur;
+	}
+	
 	/**
 	 *  Demande un objet Depense avec ses ids primaires
 	 * @param idEvenement
@@ -88,6 +106,41 @@ public class InteractionServeur
 		Depense depense = ParserXML.lireDepense(reponse);
 		
 		return depense;
+	}
+	
+	public Evenement recevoirEvenement(int idEvenement)
+	{
+		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+					+	"<!DOCTYPE demande SYSTEM \"xml\\demande_objet.dtd\">"
+					+	"<demande>"
+					+	"	<type>evenement</type>"
+					+	"	<id>idEvenement</id>"
+					+	"</demande>";
+		
+		String reponse = envoiServeur(xml);
+		
+		Evenement evenement = ParserXML.lireEvenement(reponse);
+		
+		return evenement;
+	}
+	
+	public Participe recevoirParticipe(int idUtilisateur, int idEvenement)
+	{
+		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+					+	"<!DOCTYPE demande SYSTEM \"xml\\demande_objet.dtd\">"
+					+	"<demande>"
+					+	"	<type>participe</type>"
+					+	"	<couple_id>"
+					+	"		<id_couple>"+idUtilisateur+"</id_couple>" // Sur le meme modèle que recevoir depense
+					+	"		<id_couple>"+idEvenement+"</id_couple>"
+					+	"	</couple_id>"
+					+	"</demande>";
+		
+		String reponse = envoiServeur(xml);
+		
+		Participe participe = ParserXML.lireParticipe(reponse);
+		
+		return participe;
 	}
 
 	public static String clean(String reception)
