@@ -49,11 +49,6 @@ public class ParserXML
 //			System.out.println("D�pense");
 			return TypeRequete.ENVOI_DEPENSE;
 		}
-		if(reception.contains("<!DOCTYPE chat SYSTEM"))
-		{
-//			System.out.println("Chat");
-			return TypeRequete.ENVOI_CHAT;
-		}
 		if(reception.contains("<!DOCTYPE message SYSTEM"))
 		{
 //			System.out.println("Chat");
