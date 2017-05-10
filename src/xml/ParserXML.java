@@ -168,4 +168,18 @@ public class ParserXML
 		id[1] = id2;
 		return id;
 	}
+
+	/**
+	 *  On veut récupérer la date d'un objet (car clé primaire) depuis le XML
+	 * @param reception
+	 * @return
+	 */
+	public static String analyserDemandeDate(String reception)
+	{
+		String date = "";
+		ParserSAX p = new ParserSAX();
+		MySAXHandlerAnalyseDate handler = new MySAXHandlerAnalyseDate(date);
+		p.monParsing(handler, reception);
+		return date;
+	}
 }
