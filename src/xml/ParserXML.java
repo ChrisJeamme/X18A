@@ -34,6 +34,11 @@ public class ParserXML
 				return TypeRequete.DEMANDE_UTILISATEUR;
 			}
 		}
+		if(reception.contains("<!DOCTYPE connexion SYSTEM"))
+		{
+//			System.out.println("Evenement");
+			return TypeRequete.CONNEXION;
+		}
 		if(reception.contains("<!DOCTYPE evenement SYSTEM"))
 		{
 //			System.out.println("Evenement");
