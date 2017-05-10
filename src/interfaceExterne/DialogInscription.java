@@ -19,6 +19,8 @@ import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 
 public class DialogInscription extends JDialog {
+
+  private static final long serialVersionUID = 3528976261668591282L;
   private DialogInscriptionInfo zInfo = new DialogInscriptionInfo();
   private boolean sendData;
   private JLabel nomLabel, prenomLabel, emailLabel, pseudoLabel, mdpLabel;
