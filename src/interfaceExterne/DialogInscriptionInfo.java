@@ -5,14 +5,19 @@ import donnees.Utilisateur;
 
 public class DialogInscriptionInfo {
 
-	  private String nom, prenom, email, pseudo, mdp;
+	  public static Utilisateur u = new Utilisateur();
 	
-	public DialogInscriptionInfo(){}
-	  public DialogInscriptionInfo(String nom, String prenom, String email, String pseudo, String mdp){
-	    this.nom = nom;
-	    this.prenom = prenom;
-	    this.email = email;
-	    this.pseudo = pseudo;
-	    this.mdp = mdp;
-	  }
+	public DialogInscriptionInfo()
+	{}
+	  
+	public DialogInscriptionInfo(String nom, String prenom, String email, String pseudo, String mdp){
+	    u.setNom(nom);
+	    u.setPrenom(prenom);
+	    u.setEmail(email);
+	    u.setPseudo(pseudo);
+	    u.setMotDePasse(mdp);
+	    InteractionServeur.currentInteractionServeur.ajoutUtilisateur(u);
+	  
 	}
+	
+}
