@@ -18,7 +18,7 @@ import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
 
-import clientExterne.InteractionServeur;
+import clientExterne.InteractionServeurStatic;
 import donnees.Utilisateur;
 
 public class DialogCompte extends JDialog {
@@ -45,7 +45,7 @@ public class DialogCompte extends JDialog {
   private void initComponent(){
 
 	  Utilisateur u = new Utilisateur();
-	  u = InteractionServeur.currentInteractionServeur.connexion(String.valueOf(mdp),String.valueOf(pseudo));
+	  u = InteractionServeurStatic.currentInteractionServeur.connexion(String.valueOf(mdp),String.valueOf(pseudo));
 	  
     JPanel panNom = new JPanel();
     panNom.setBackground(Color.white);
