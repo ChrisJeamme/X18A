@@ -9,12 +9,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import donnees.Depense;
+import donnees.Evenement;
 
 
 public class AccueilConnecte {
@@ -23,6 +29,8 @@ public class AccueilConnecte {
 		static JButton event;
 		static JButton creerEvent;
 		static JButton operations;
+		private static JTextField nomEv, budgetEv;
+		private static JLabel lblnomEv, lblbudgetEv;
 		
 	public static void main(String[] args) {
 			
@@ -95,38 +103,116 @@ public class AccueilConnecte {
 		panel2b.add(operations, BorderLayout.WEST);
 		panel2.add(panel2b,BorderLayout.CENTER);
 					
-		final JLabel mesEvent = new JLabel();
+		final JPanel mesEvent = new JPanel();
+		mesEvent.setPreferredSize(new Dimension(880, 264));
 		mesEvent.setOpaque(true);
 		mesEvent.setBackground(new Color(180,252,103));
-		mesEvent.setPreferredSize(new Dimension(880, 264));
-		mesEvent.setText("Mes Evenement");	
-		mesEvent.setHorizontalAlignment(SwingConstants.CENTER);
-		mesEvent.setVerticalAlignment(SwingConstants.CENTER);
-					
-		final JLabel creerEvenement = new JLabel();
+		
+		/*Chargement des evenements*/
+		
+		String[] entetes = {"Nom de l'évènement", "Budget"};
+ 
+        MesEvenements mesEvenements = new MesEvenements();
+		ArrayList<Evenement> listeEvent = new ArrayList<>();
+		listeEvent = mesEvenements.chargerEvenements();
+		String donnees[][] = new String [listeEvent.size()][listeEvent.size()];
+				
+		int i=0;
+		for(Evenement e : listeEvent){
+			String budget = Integer.toString(e.getBudget());
+			donnees[i][0] = e.getNomEvenement();
+	        donnees[i][1] = budget;
+	        i++;
+		}
+		
+		JTable tableau = new JTable(donnees, entetes);
+        tableau.getColumnModel().getColumn(0).setPreferredWidth(300);
+        tableau.getColumnModel().getColumn(1).setPreferredWidth(300);
+        tableau.getTableHeader().setBackground(new Color(200,200,200));
+        tableau.setBackground(new Color(150,150,150));
+				
+        mesEvent.add(tableau.getTableHeader(), BorderLayout.NORTH);
+        mesEvent.add(tableau, BorderLayout.CENTER);
+        /*Fin du chargement des evenements*/
+        
+        /*Creation des evenements*/
+		
+		final JPanel creerEvenement = new JPanel();
 		creerEvenement.setOpaque(true);
 		creerEvenement.setBackground(new Color(132,225,33));
 		creerEvenement.setPreferredSize(new Dimension(880, 264));
-		creerEvenement.setText("Creer Evenement");	
-		creerEvenement.setHorizontalAlignment(SwingConstants.CENTER);
-		creerEvenement.setVerticalAlignment(SwingConstants.CENTER);
-					
-		final JLabel mesOperations = new JLabel();
+	    nomEv = new JTextField();
+	    nomEv.setPreferredSize(new Dimension(100, 25));
+	    lblnomEv = new JLabel("Nom de l'évènement :");
+	    creerEvenement.add(lblnomEv);
+	    creerEvenement.add(nomEv);
+	   
+	    budgetEv = new JTextField();
+	    budgetEv.setPreferredSize(new Dimension(100, 25));
+	    lblbudgetEv = new JLabel("Budget :");
+	    creerEvenement.add(lblbudgetEv);
+	    creerEvenement.add(budgetEv);
+	    
+	    JButton validation = new JButton("Valider");
+	    
+	    validation.addActionListener(new ActionListener(){
+	      public void actionPerformed(ActionEvent arg0) {
+	        String nomE = nomEv.getText();
+	        String budgetE = budgetEv.getText();
+	        //A rentrer en base
+	      }
+     
+	    });
+	    
+	    creerEvenement.add(lblbudgetEv);
+	    creerEvenement.add(budgetEv);
+	    creerEvenement.add(validation);
+	    
+	    /**************************************************************************************/
+		
+		/*Fin de creations des evenements*/
+		
+		final JPanel mesOperations = new JPanel();
+		mesOperations.setPreferredSize(new Dimension(880, 264));
 		mesOperations.setOpaque(true);
 		mesOperations.setBackground(new Color(105,197,6));
-		mesOperations.setPreferredSize(new Dimension(880, 264));
-		mesOperations.setText("Mes Operations");	
-		mesOperations.setHorizontalAlignment(SwingConstants.CENTER);
-		mesOperations.setVerticalAlignment(SwingConstants.CENTER);
-					
-		JPanel panel3 = new JPanel();
+		
+		/*Chargement des operations*/
+		
+		String[] entetes2 = {"Date", "Description", "Montant"};
+ 
+        MesOperations mesOps = new MesOperations();
+		ArrayList<Depense> listeOps = new ArrayList<>();
+		listeOps = mesOps.chargerOperations();
+		String donnees2[][] = new String [listeOps.size()][listeOps.size()];
+				
+		int j=0;
+		for(Depense d : listeOps){
+			String montant = Integer.toString(d.getMontant());
+			donnees2[j][0] = d.getDate();
+	        donnees2[j][1] = d.getDescription();
+	        donnees2[j][2] = montant;
+	        j++;
+		}
+		
+		JTable tableau2 = new JTable(donnees2, entetes2);
+		tableau2.getColumnModel().getColumn(0).setPreferredWidth(200);
+        tableau2.getColumnModel().getColumn(1).setPreferredWidth(200);
+        tableau2.getColumnModel().getColumn(2).setPreferredWidth(200);
+        tableau2.getTableHeader().setBackground(new Color(200,200,200));
+        tableau2.setBackground(new Color(150,150,150));
+				
+        mesOperations.add(tableau2.getTableHeader(), BorderLayout.NORTH);
+        mesOperations.add(tableau2, BorderLayout.CENTER);
+        /*Fin du chargement des evenements*/
+		
+        JPanel panel3 = new JPanel();
 		panel3.setPreferredSize(new Dimension(880,264));
 		panel3.add(mesEvent,BorderLayout.CENTER);
 		panel3.add(creerEvenement,BorderLayout.CENTER);
 		panel3.add(mesOperations,BorderLayout.CENTER);
-					
-		frame.add(panel3);
-				
+        frame.add(panel3);
+		
 		//mesEvent.setVisible(false);
 		creerEvenement.setVisible(false);
 		mesOperations.setVisible(false);
