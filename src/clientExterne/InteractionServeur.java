@@ -244,8 +244,9 @@ public class InteractionServeur
 		
 		//On enlève over à la fin de la réponse
 		reponse = clean(reponse);
-		//On récupère l'id de la réponse
-		int id = Integer.parseInt(reponse);
+		
+		//On récupère l'évenement avec l'ID remplit
+		int id = ParserXML.lireEvenement(reponse).getId();
 		
 		if(id != -1 && e.getId() == -1) //Si il a bien été ajouté
 		{
