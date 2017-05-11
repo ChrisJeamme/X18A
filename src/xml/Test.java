@@ -3,6 +3,10 @@ package xml;
 import donnees.Chat;
 import donnees.Utilisateur;
 
+/**
+ * Sert aux tests sur le XML et les parsers
+ *
+ */
 public class Test
 {
 

@@ -6,12 +6,16 @@ import donnees.Message;
 import donnees.Participe;
 import donnees.Utilisateur;
 
+/**
+ * Gestion du parserXML
+ *
+ */
 public class ParserXML
 {
 	/**
-	 *  Renvoi le type de requete de ce XML
-	 * @param reception
-	 * @return
+	 * Renvoie le type de requete du XML
+	 * @param reception String
+	 * @return TypeRequete : Le type de la requête
 	 */
 	public static TypeRequete analyserType(String reception)
 	{
@@ -74,9 +78,9 @@ public class ParserXML
 	}
 
 	/**
-	 *  Lis l'objet de ce XML et le renvoi
-	 * @param reception
-	 * @return
+	 * Lit l'objet du XML et le renvoiee
+	 * @param reception String
+	 * @return Depense : L'objet Depense décrit par le XML
 	 */
 	public static Depense lireDepense(String reception)
 	{
@@ -89,9 +93,9 @@ public class ParserXML
 	}
 
 	/**
-	 *  Lis l'objet de ce XML et le renvoi
-	 * @param reception
-	 * @return
+	 * Lit l'objet du XML et le renvoie
+	 * @param reception String
+	 * @return Message : L'objet Message décrit par le XML
 	 */
 	public static Message lireMessage(String reception)
 	{
@@ -103,9 +107,9 @@ public class ParserXML
 	}
 
 	/**
-	 *  Lis l'objet de ce XML et le renvoi
-	 * @param reception
-	 * @return
+	 * Lit l'objet du XML et le renvoie
+	 * @param reception String
+	 * @return Utilisateur : L'objet Utilisateur décrit par le XML
 	 */
 	public static Utilisateur lireUtilisateur(String reception)
 	{
@@ -117,9 +121,9 @@ public class ParserXML
 	}
 
 	/**
-	 *  Lis l'objet de ce XML et le renvoi
-	 * @param reception
-	 * @return
+	 * Lit l'objet du XML et le renvoie
+	 * @param reception String
+	 * @return Evenement : L'objet Evenement décrit par le XML
 	 */
 	public static Evenement lireEvenement(String reception)
 	{
@@ -131,9 +135,9 @@ public class ParserXML
 	}
 	
 	/**
-	 *  Lis l'objet de ce XML et le renvoi
-	 * @param reception
-	 * @return
+	 * Lit l'objet du XML et le renvoie
+	 * @param reception String
+	 * @return Participe : L'objet Participe décrit par le XML
 	 */
 	public static Participe lireParticipe(String reception)
 	{
@@ -145,9 +149,9 @@ public class ParserXML
 	}
 
 	/**
-	 *  Va servir à enlever ce qui ne passerait pas au parser XML
-	 * @param reception
-	 * @return 
+	 * Va servir à enlever ce qui ne passerait pas au parser XML
+	 * @param reception String
+	 * @return String : Le message nettoyé
 	 */
 	public static String clean(String reception)
 	{
@@ -156,9 +160,9 @@ public class ParserXML
 	}
 
 	/**
-	 *  On veut récupérer l'id demandé dans un XML de demande
-	 * @param reception
-	 * @return
+	 * On veut récupérer l'id demandé dans un XML de demande
+	 * @param reception String
+	 * @return int : L'id demandé
 	 */
 	public static int analyserDemande1Id(String reception)
 	{
@@ -170,9 +174,9 @@ public class ParserXML
 	}
 
 	/**
-	 *  On veut récupérer les 2 id de l'objet demandé d'un XML de demande
-	 * @param reception
-	 * @return
+	 * On veut récupérer les 2 id de l'objet demandé d'un XML de demande
+	 * @param reception String
+	 * @return int[] : Un tableau contenant les deux id demandées
 	 */
 	public static int[] analyserDemande2Id(String reception)
 	{
@@ -188,9 +192,9 @@ public class ParserXML
 	}
 
 	/**
-	 *  On veut récupérer la date d'un objet (car clé primaire) depuis le XML
-	 * @param reception
-	 * @return
+	 * On veut récupérer la date d'un objet (car clé primaire) depuis le XML
+	 * @param reception String
+	 * @return String : La date demandée
 	 */
 	public static String analyserDemandeDate(String reception)
 	{
@@ -201,6 +205,11 @@ public class ParserXML
 		return date;
 	}
 
+	/**
+	 * On veut récupérer le pseudo d'un utilisateur depuis le XML
+	 * @param reception String
+	 * @return String : Le pseudo demandé
+	 */
 	public static String analyserConnexionPseudo(String reception)
 	{
 		ParserSAX p = new ParserSAX();
@@ -209,6 +218,11 @@ public class ParserXML
 		return handler.getPseudo();
 	}
 
+	/**
+	 * On veut récupérer le mot de passe d'un utilisateur depuis le XML
+	 * @param reception String
+	 * @return String : Le mot de passe demandé
+	 */
 	public static String analyserConnexionMdp(String reception)
 	{
 		ParserSAX p = new ParserSAX();

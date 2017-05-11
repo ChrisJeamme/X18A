@@ -6,27 +6,44 @@ import org.xml.sax.helpers.DefaultHandler;
 import donnees.Chat;
 import donnees.Message;
 
+/**
+ * Handler SAX de l'objet Chat
+ *
+ */
 public class MySAXHandlerChat extends DefaultHandler
 {	
 	Chat chat;
 	String dernierARemplir;
 	
+	/**
+	 * Constructeur et initialise le chat
+	 * @param chat Chat
+	 */
 	public MySAXHandlerChat(Chat chat)
 	{
 		this.chat = chat;
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#startDocument()
+	 */
 	public void startDocument()
 	{
 		System.out.println("Début fichier:\n\n");
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#endDocument()
+	 */
 	public void endDocument()
 	{
 		System.out.println("Fichier terminé");
 		System.out.println();
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
+	 */
 	public void startElement(String uri, String localName, String qName, Attributes attributes)
 	{
 		if(qName=="message")
@@ -54,11 +71,17 @@ public class MySAXHandlerChat extends DefaultHandler
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String, java.lang.String, java.lang.String)
+	 */
 	public void endElement(String uri, String localName, String qName)
 	{
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#characters(char[], int, int)
+	 */
 	public void characters(char[] ch, int start, int length)
 	{
 		String contenu = "";
