@@ -38,11 +38,18 @@ public class ConnexionController extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		//On récupère la session
 		HttpSession session = request.getSession();
-		if (session.getAttribute("utilisateur") == null)
+		
+		if (session.getAttribute("utilisateur") != null)
 		{
-			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-			return;
+			//Si déjà connecté, on envoie sur l'accueil connecté
+			getServletContext().getRequestDispatcher("/AccueilConnecte").forward(request, response);
+		}
+		else
+		{
+			//On envoie sur le formulaire de connexion
+			getServletContext().getRequestDispatcher("/connexion.jsp").forward(request, response);
 		}
 	}
 
@@ -51,15 +58,20 @@ public class ConnexionController extends HttpServlet
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		//On a récupéré le formulaire de connexion
 		String pseudo = (String) request.getParameter("pseudo");
 		String motDePasse = (String) request.getParameter("pass");
+		//Connexion à la base de données
 		BDD db = new BDD();
 
 		String redirection;
 		String message;
+		
+		//On récupère l'utilisateur avec ce pseudo et ce mot de passe
 		Utilisateur u = InteractionBDD.verificationConnexion(db, pseudo, motDePasse);
 		if (u != null) //L'utilisateur existe et s'est correctement authentifié
 		{
+			//On fixe la session et on envoie sur l'accueil connecté
 			HttpSession session = request.getSession();
 			message = "Bonjour"; 
 			session.setAttribute("utilisateur", u);
@@ -67,10 +79,13 @@ public class ConnexionController extends HttpServlet
 		}
 		else 
 		{
+			//On evnvoie sur le formulaire de connexion avec un message d'erreur
 			message = "Utilisateur inconnu ou mot de passe incorrect.";
 			redirection = "/connexion.jsp";
 		}
-		db.disconnect();
+		db.disconnect();//deconnexion de la bdd
+		
+		//Redirection
 		request.setAttribute("message", message);
 		getServletContext().getRequestDispatcher(redirection).forward(request, response);
 		

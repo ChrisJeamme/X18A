@@ -37,11 +37,14 @@ public class CreationEvenementController extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		//On récupère la session en cours
 		HttpSession session = request.getSession();
+		//On vérifie que l'utilisateur est bien connecté
 		if (session.getAttribute("utilisateur") == null)
 		{
+			//il n'y a pas d'utilisateur connecté, on renvoit vers la page d'accueuil du site
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-			return;
+			return; //on n'execute pas la suite du code
 		}
 	}
 
@@ -51,19 +54,25 @@ public class CreationEvenementController extends HttpServlet
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		//On a récupéré le formulaire de création d'un événement
 		String nomEvenement = (String) request.getParameter("nom");
-		BDD db = new BDD();
+		BDD db = new BDD(); //Connexion à la base de données 
 		
+		//Récupération de la session
 		HttpSession session = request.getSession();
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
 		
+		//On ajoute l'événement dans la base de donnée et on récupère son identifiant
 		int idEvent = InteractionBDD.ajoutEvenement(db, nomEvenement, 0);
 		Evenement e = InteractionBDD.recupEvenementsAvecID(db, idEvent);
+		//On ajoute le créateur de l'événement comme participant
 		InteractionBDD.ajoutParticipe(db, u.getId(), idEvent);
+		//On met l'événement en variable de session
 		session.setAttribute("evenement", e);
+		db.disconnect();//Deconnexion de la bdd
 		
+		//On envoit sur l'événement qu'on vient de créer
 		request.setAttribute("evenement", e);
-		db.disconnect();
 		getServletContext().getRequestDispatcher("/evenement.jsp").forward(request, response);
 	}
 

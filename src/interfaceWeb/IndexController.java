@@ -32,11 +32,14 @@ public class IndexController extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		HttpSession session = request.getSession();
+		//Si l'utilisateur est connecté
 		if (session.getAttribute("utilisateur") != null)
 		{
+			//On envoie sur accueil connecté
 			getServletContext().getRequestDispatcher("/AccueilConnecte").forward(request, response);
 			return;
 		}
+		//On renvoie sur intdex.jsp qui affiche la présentation du site
 		response.sendRedirect("index.jsp");
 	}
 
