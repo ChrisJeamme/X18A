@@ -30,6 +30,11 @@ public class DialogConnexionInfo
 		{
 			System.out.println("Connexion réussi");
 			AccueilNonConnecte.user = userRecu;
+			
+			//On enlève les elements de la fenetre
+			LancerInterface.frame.getContentPane().removeAll();
+			
+			//On charge l'accueil connecté
 	 	    AccueilConnecte.lancerInterface();
 		}
 		else

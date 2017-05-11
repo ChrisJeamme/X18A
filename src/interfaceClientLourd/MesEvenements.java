@@ -3,7 +3,6 @@ package interfaceClientLourd;
 import java.util.ArrayList;
 
 import donnees.Evenement;
-import gestionReseauClientLourd.InteractionServeurStatic;
 
 /**
  * Affiche tous les evenements de l'utilisateur en session

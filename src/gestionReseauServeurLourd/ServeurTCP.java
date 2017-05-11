@@ -35,6 +35,11 @@ public class ServeurTCP
 			server = new ServerSocket(port);
 			System.out.println("(Server) Serveur lancé");
 		}
+		catch (java.net.BindException e)
+		{
+			System.err.println("Erreur: Port déjà utilisé, vérifiez que le programme n'est pas déjà lancé");
+			System.exit(-1);
+		}
 		catch (IOException e)
 		{
 			e.printStackTrace();

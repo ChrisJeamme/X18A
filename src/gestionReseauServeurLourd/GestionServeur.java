@@ -1,15 +1,6 @@
 package gestionReseauServeurLourd;
 
 import bdd.BDD;
-import bdd.InteractionBDD;
-import donnees.Chat;
-import donnees.Depense;
-import donnees.Evenement;
-import donnees.Message;
-import donnees.Participe;
-import donnees.Utilisateur;
-import xml.ParserXML;
-import xml.TypeRequete;
 
 /**
  * Thread de gestion du serveur (client lourd)

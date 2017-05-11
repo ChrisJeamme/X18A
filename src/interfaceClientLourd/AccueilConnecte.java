@@ -21,6 +21,7 @@ import javax.swing.SwingConstants;
 
 import donnees.Depense;
 import donnees.Evenement;
+import donnees.Utilisateur;
 import gestionReseauClientLourd.InteractionServeurStatic;
 
 
@@ -41,8 +42,6 @@ public class AccueilConnecte
 	{			
 		//On récupère la frame static
 		JFrame frame = LancerInterface.frame;
-		
-		frame.getContentPane().removeAll();
 		
 		//Debut entete
 		JPanel panel1 = new JPanel(new BorderLayout(0,0));
@@ -252,6 +251,18 @@ public class AccueilConnecte
 				mesOperations.setVisible(true);
 			}
 		});
+		
+		deconnexion.addActionListener(new ActionListener()
+		{
+			  public void actionPerformed(ActionEvent arg0)
+			  {
+				 //On reset l'utilisateur 
+				 AccueilNonConnecte.user = new Utilisateur();
+				
+				 System.out.println("Déconnecté");
+				 AccueilConnecte.lancerInterface();
+			  }         
+		}); 
 					
 		frame.pack();
 		frame.setVisible(true);

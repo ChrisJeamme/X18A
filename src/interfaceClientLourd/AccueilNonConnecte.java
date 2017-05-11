@@ -31,6 +31,8 @@ public class AccueilNonConnecte
 	{			
 		//On récupère la frame static
 		JFrame frame = LancerInterface.frame;
+
+		frame.getContentPane().removeAll();
 		
 		//Debut entete
 		JPanel panel1 = new JPanel(new BorderLayout(0,0));
