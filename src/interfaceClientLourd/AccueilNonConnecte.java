@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
@@ -22,20 +21,17 @@ import donnees.Utilisateur;
  * Contient la page d'accueil en étant non connecté
  *
  */
-public class AccueilNonConnecte {
-		static JButton connexion;		
-		static JButton inscription;
-		public static Utilisateur user = new Utilisateur(); // Utilisateur de la session
+public class AccueilNonConnecte
+{
+	static JButton connexion;		
+	static JButton inscription;
+	public static Utilisateur user = new Utilisateur(); // Utilisateur de la session
+	
+	public static void lancerInterface()
+	{			
+		//On récupère la frame static
+		JFrame frame = LancerInterface.frame;
 		
-	public static void main(String[] args) {
-		
-		JFrame frame = new JFrame();
-		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocation(0, 0);
-		frame.setPreferredSize(new Dimension(900, 750));
-		frame.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
-							
 		//Debut entete
 		JPanel panel1 = new JPanel(new BorderLayout(0,0));
 		panel1.setPreferredSize(new Dimension(880,200));
@@ -86,19 +82,23 @@ public class AccueilNonConnecte {
 		labelMain.setHorizontalAlignment(SwingConstants.CENTER);
 		labelMain.setVerticalAlignment(SwingConstants.CENTER);
 		
-		connexion.addActionListener(new ActionListener(){
-		      public void actionPerformed(ActionEvent arg0) {
+		connexion.addActionListener(new ActionListener()
+		{
+		      public void actionPerformed(ActionEvent arg0)
+		      {
 		        DialogConnexion zd = new DialogConnexion(null, "Connexion", true);
 		        DialogConnexionInfo zInfo = zd.showZDialog();
 		      }         
-		    }); 
+		}); 
 		
-		inscription.addActionListener(new ActionListener(){
-		      public void actionPerformed(ActionEvent arg0) {
+		inscription.addActionListener(new ActionListener()
+		{
+		      public void actionPerformed(ActionEvent arg0)
+		      {
 		        DialogInscription zd = new DialogInscription(null, "Inscription", true);
 		        DialogInscriptionInfo zInfo = zd.showZDialog();
 		      }         
-		    }); 
+		}); 
 		
 		JPanel panel2b = new JPanel(new GridLayout(1,1));//panelWest Ã  l'ouest du borderlayout. c'est une grille d'une colonne avec 4 lignes pour les labels
 		panel2b.add(labelMain);

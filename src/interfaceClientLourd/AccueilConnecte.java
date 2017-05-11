@@ -28,7 +28,8 @@ import gestionReseauClientLourd.InteractionServeurStatic;
  * Contient la page d'accueil en étant connecté
  *
  */
-public class AccueilConnecte {		
+public class AccueilConnecte
+{		
 		static JButton deconnexion;
 		static JButton event;
 		static JButton creerEvent;
@@ -36,15 +37,13 @@ public class AccueilConnecte {
 		private static JTextField nomEv, budgetEv;
 		private static JLabel lblnomEv, lblbudgetEv;
 		
-	public static void main(String[] args) {
-			
-		JFrame frame = new JFrame();
-				
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocation(0, 0);
-		frame.setPreferredSize(new Dimension(900, 750));
-		frame.setLayout(new FlowLayout(FlowLayout.CENTER,0,0));
-							
+	public static void lancerInterface()
+	{			
+		//On récupère la frame static
+		JFrame frame = LancerInterface.frame;
+		
+		frame.getContentPane().removeAll();
+		
 		//Debut entete
 		JPanel panel1 = new JPanel(new BorderLayout(0,0));
 		panel1.setPreferredSize(new Dimension(880,200));
@@ -59,7 +58,7 @@ public class AccueilConnecte {
 		JLabel lblTitre = new JLabel();
 		lblTitre.setOpaque(true);
 		lblTitre.setBackground(new Color(0,128,255));
-		lblTitre.setText("Deal With It");
+		lblTitre.setText("Deal With It                       Vous êtes connecté, "+AccueilNonConnecte.user.getPseudo());
 		lblTitre.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTitre.setVerticalAlignment(SwingConstants.CENTER);
 							
@@ -117,7 +116,8 @@ public class AccueilConnecte {
 		String donnees[][] = new String [listeEvent.size()][listeEvent.size()];
 				
 		int i=0;
-		for(Evenement e : listeEvent){
+		for(Evenement e : listeEvent)
+		{
 			String budget = Integer.toString(e.getBudget());
 			donnees[i][0] = e.getNomEvenement();
 	        donnees[i][1] = budget;
@@ -154,8 +154,10 @@ public class AccueilConnecte {
 	    
 	    JButton validation = new JButton("Valider");
 	    
-	    validation.addActionListener(new ActionListener(){
-	      public void actionPerformed(ActionEvent arg0) {
+	    validation.addActionListener(new ActionListener()
+	    {
+	      public void actionPerformed(ActionEvent arg0)
+	      {
 	        String nomE = nomEv.getText();
 	        String budgetE = budgetEv.getText();
 	        Evenement ev = new Evenement(nomE, Integer.parseInt(budgetE));
@@ -187,7 +189,8 @@ public class AccueilConnecte {
 		String donnees2[][] = new String [listeOps.size()][listeOps.size()];
 				
 		int j=0;
-		for(Depense d : listeOps){
+		for(Depense d : listeOps)
+		{
 			String montant = Integer.toString(d.getMontant());
 			donnees2[j][0] = d.getDate();
 	        donnees2[j][1] = d.getDescription();
@@ -220,7 +223,8 @@ public class AccueilConnecte {
 		event.addMouseListener(new MouseAdapter ()
 		{
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e)
+			{
 				mesEvent.setVisible(true);
 				creerEvenement.setVisible(false);
 				mesOperations.setVisible(false);
@@ -230,7 +234,8 @@ public class AccueilConnecte {
 		creerEvent.addMouseListener(new MouseAdapter ()
 		{
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e)
+			{
 				mesEvent.setVisible(false);
 				creerEvenement.setVisible(true);
 				mesOperations.setVisible(false);
@@ -240,7 +245,8 @@ public class AccueilConnecte {
 		operations.addMouseListener(new MouseAdapter ()
 		{
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e)
+			{
 				mesEvent.setVisible(false);
 				creerEvenement.setVisible(false);
 				mesOperations.setVisible(true);

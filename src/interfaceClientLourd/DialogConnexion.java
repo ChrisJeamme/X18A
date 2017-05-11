@@ -18,7 +18,8 @@ import javax.swing.JTextField;
  * Contient le formulaire de connexion
  *
  */
-public class DialogConnexion extends JDialog {
+public class DialogConnexion extends JDialog
+{
 
 	private static final long serialVersionUID = -6024520991619817565L;
 	private DialogConnexionInfo zInfo = new DialogConnexionInfo();

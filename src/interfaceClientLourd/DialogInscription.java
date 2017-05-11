@@ -22,7 +22,8 @@ import javax.swing.JTextField;
  * Contient le formulaire d'inscription
  *
  */
-public class DialogInscription extends JDialog {
+public class DialogInscription extends JDialog
+{
 
   private static final long serialVersionUID = 3528976261668591282L;
   private DialogInscriptionInfo zInfo = new DialogInscriptionInfo();
@@ -37,29 +38,32 @@ public class DialogInscription extends JDialog {
 	 * @param title String
 	 * @param modal boolean
 	 */
-	public DialogInscription(JFrame parent, String title, boolean modal){
+	public DialogInscription(JFrame parent, String title, boolean modal)
+	{
 	    super(parent, title, modal);
 	    this.setSize(550, 270);
 	    this.setLocationRelativeTo(null);
 	    this.setResizable(false);
 	    this.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 	    this.initComponent();
-	  }
+	}
 	
 	/**
 	 * Affiche le popup
 	 * @return DialogInsrciptionInfo : L'objet DialogInscriptionInfo
 	 */
-	public DialogInscriptionInfo showZDialog(){
+	public DialogInscriptionInfo showZDialog()
+	{
 	    this.sendData = false;
 	    this.setVisible(true);      
 	    return this.zInfo;      
-	  }
+	}
 	
 	/**
 	 * Initialise tout l'affichage
 	 */
-	private void initComponent(){
+	private void initComponent()
+	{
 	
 	    JPanel panNom = new JPanel();
 	    panNom.setBackground(Color.white);
@@ -122,7 +126,8 @@ public class DialogInscription extends JDialog {
 	    JPanel control = new JPanel();
 	    JButton okBouton = new JButton("OK");
 	    
-	    okBouton.addActionListener(new ActionListener(){
+	    okBouton.addActionListener(new ActionListener()
+	    {
 	      public void actionPerformed(ActionEvent arg0) {
 	    	if (nom.getText() != "" && prenom.getText() != "" && email.getText() != "" && pseudo.getText() != "" && mdp.getPassword().length != 0)
 	    	{
@@ -133,8 +138,10 @@ public class DialogInscription extends JDialog {
 	    });
 	
 	    JButton cancelBouton = new JButton("Annuler");
-	    cancelBouton.addActionListener(new ActionListener(){
-	      public void actionPerformed(ActionEvent arg0) {
+	    cancelBouton.addActionListener(new ActionListener()
+	    {
+	      public void actionPerformed(ActionEvent arg0)
+	      {
 	        setVisible(false);
 	      }      
 	    });

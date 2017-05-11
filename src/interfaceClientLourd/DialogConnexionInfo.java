@@ -30,12 +30,11 @@ public class DialogConnexionInfo
 		{
 			System.out.println("Connexion réussi");
 			AccueilNonConnecte.user = userRecu;
-			// C'est bon aller sur la page connectee avec le user en session
+	 	    AccueilConnecte.lancerInterface();
 		}
 		else
 		{
 			System.out.println("Connexion échoué");
-			// Erreur Retourner sur la page non connectee
 		}
 	}
 }
