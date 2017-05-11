@@ -3,6 +3,10 @@ package clientExterne;
 import donnees.Evenement;
 import donnees.Utilisateur;
 
+/**
+ * Sert aux tests d'interaction entre le client externe et le serveur
+ *
+ */
 public class TestClient
 {
 
