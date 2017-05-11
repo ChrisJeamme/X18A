@@ -8,9 +8,9 @@ public class MySAXHandlerRecupPseudo extends DefaultHandler
 	boolean copier = false;
 	String pseudo;
 	
-	public MySAXHandlerRecupPseudo(String aCompleter)
+	public MySAXHandlerRecupPseudo()
 	{
-		pseudo = aCompleter;
+		pseudo = "";
 	}
 	
 	public void startDocument()
@@ -40,9 +40,13 @@ public class MySAXHandlerRecupPseudo extends DefaultHandler
 			{
 				contenu = contenu.concat(ch[i]+"");
 			}
-			
 			pseudo = contenu;
 		}
+	}
+	
+	public String getPseudo()
+	{
+		return pseudo;
 	}
 
 }
