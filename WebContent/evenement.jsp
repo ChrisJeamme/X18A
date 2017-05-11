@@ -35,6 +35,11 @@
 
 <section>
 	<div id="refresh">
+	<h2><span class="glyphicon glyphicon-euro"></span> Total des dépenses</h2>
+	<ul class="list-group">
+	    <li class="list-group-item list-group-item-success">${ evenement.budget }€</li>
+	</ul>
+	
 	<h2><span class="glyphicon glyphicon-user"></span> Participants</h2>
 	<ul class="list-group">
 	<c:forEach var="util" items="${  utilisateurs  }">

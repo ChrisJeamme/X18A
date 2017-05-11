@@ -36,7 +36,9 @@
 	<section>
 	
 	<div>
+		<c:if test="${ not empty message }">
 		<h4>${ message } ${ utilisateur.prenom } !</h4>
+		</c:if>
 	</div>
 	
 	<h2> Mes dernières opérations</h2>	

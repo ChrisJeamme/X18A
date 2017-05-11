@@ -789,6 +789,9 @@ public class InteractionBDD
 	public static void ajoutDepense(BDD bdd, int idUtilisateur, int idEvenement, String date, int montant, String description)
 	{
 		bdd.reqSQL("INSERT INTO depense (`idUtilisateur`, `idEvenement`, `date`, `montant`, `description`) VALUES('"+idUtilisateur+"','"+idEvenement+"','"+date+"','"+montant+"','"+description+"');",TypesRequete.MODIFICATION);
+		Evenement e = recupEvenementsAvecID(bdd, idEvenement);
+		int nouveauBudget = e.getBudget() + montant;
+		bdd.reqSQL("UPDATE evenements SET budget = "+nouveauBudget+" WHERE idEvenement = "+idEvenement+";", BDD.TypesRequete.MODIFICATION);
 	}
 	
 	/**

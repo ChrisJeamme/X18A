@@ -88,6 +88,7 @@ public class EvenementController extends HttpServlet
 		{
 			depenses.put(listeDepenses.get(i), InteractionBDD.recupUtilisateurAvecID(db, listeDepenses.get(i).getIdUtilisateur()));
 		}
+		request.setAttribute("evenement", event);
 		request.setAttribute("utilisateurs", listeUtilisateurs);
 		request.setAttribute("depenses", depenses);
 		db.disconnect();

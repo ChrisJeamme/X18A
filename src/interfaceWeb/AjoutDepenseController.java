@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -76,17 +77,8 @@ public class AjoutDepenseController extends HttpServlet
 		{
 			request.setAttribute("erreurMontant", "Veuillez rentrer un montant valide");
 		}
-		ArrayList<Utilisateur> listeUtilisateurs = InteractionBDD.recupUtilisateursDeEvenement(db, event.getId()); 
-		ArrayList<Depense> listeDepenses = InteractionBDD.recupDepensesDeEvenement(db, event.getId());
-		Map<Depense, Utilisateur> depenses = new HashMap<>();
-		for (int i=0; i<listeDepenses.size(); i++)
-		{
-			depenses.put(listeDepenses.get(i), InteractionBDD.recupUtilisateurAvecID(db, listeDepenses.get(i).getIdUtilisateur()));
-		}
-		request.setAttribute("utilisateurs", listeUtilisateurs);
-		request.setAttribute("depenses", depenses);
-		db.disconnect();
-		getServletContext().getRequestDispatcher("/evenement.jsp").forward(request, response);
+
+		getServletContext().getRequestDispatcher("/evenement?ev="+event.getId()).forward(request, response);
 	}
 
 }
