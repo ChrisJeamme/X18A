@@ -1,4 +1,4 @@
-package clientExterne;
+package gestionReseauClientLourd;
 
 /**
  * Contient l'objet statique currentInteractionServeur

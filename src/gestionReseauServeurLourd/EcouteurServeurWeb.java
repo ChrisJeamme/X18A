@@ -1,25 +1,23 @@
-package serveur;
+package gestionReseauServeurLourd;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 /**
- * Application Lifecycle Listener implementation class EcouteurServeurWeb
- *
+ * Ecouteur de cycle de vie des servelet
+ * Sert à lancer/fermer le serveur des clients lourds en même temps que celui pour le web
  */
 @WebListener
 public class EcouteurServeurWeb implements ServletContextListener
 {
+	/**
+	 *  Thread GestionServeur qu'on va lancer ou arrêter
+	 */
 	GestionServeur gestionServeur;
 
-    /**
-     * Default constructor. 
-     */
     public EcouteurServeurWeb()
-    {
-        // TODO Auto-generated constructor stub
-    }
+    {}
 
 	/**
      * @see ServletContextListener#contextDestroyed(ServletContextEvent)

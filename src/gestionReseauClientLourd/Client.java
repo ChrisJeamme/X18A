@@ -1,4 +1,4 @@
-package clientExterne;
+package gestionReseauClientLourd;
 
 import java.io.*;
 import java.net.*;

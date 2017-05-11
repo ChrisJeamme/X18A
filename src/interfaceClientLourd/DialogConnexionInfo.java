@@ -1,7 +1,7 @@
-package interfaceExterne;
+package interfaceClientLourd;
 
-import clientExterne.InteractionServeurStatic;
 import donnees.Utilisateur;
+import gestionReseauClientLourd.InteractionServeurStatic;
 
 /**
  * Cree un DialogConnexionInfo

@@ -1,4 +1,4 @@
-package serveur;
+package gestionReseauServeurLourd;
 
 import bdd.BDD;
 import bdd.InteractionBDD;
@@ -82,7 +82,6 @@ public class TraitementRequete extends Thread
 					String pseudo = ParserXML.analyserConnexionPseudo(requete);
 					String mdp = ParserXML.analyserConnexionMdp(requete);
 					Utilisateur u2 = InteractionBDD.verificationConnexion(bdd, pseudo, mdp);
-					//System.out.println("Reception de l'user de la BDD pour connexion: "+u2);
 					if(u2==null) //Si la connexion a échoué
 						u2 = new Utilisateur("", "", "", "", ""); //id sera à -1 
 					InteractionAvecClient.envoyerUtilisateur(serveur, u2);

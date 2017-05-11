@@ -1,4 +1,4 @@
-package serveur;
+package gestionReseauServeurLourd;
 
 import bdd.BDD;
 import bdd.InteractionBDD;

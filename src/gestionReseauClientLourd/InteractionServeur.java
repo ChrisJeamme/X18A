@@ -1,4 +1,4 @@
-package clientExterne;
+package gestionReseauClientLourd;
 
 import donnees.Depense;
 import donnees.Evenement;

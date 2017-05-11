@@ -1,4 +1,4 @@
-package clientExterne;
+package gestionReseauClientLourd;
 
 import donnees.Evenement;
 import donnees.Utilisateur;
@@ -31,7 +31,7 @@ public class TestClient
 		//Connexion
 		Utilisateur u2;
 		System.out.println("Connexion");
-		u2 = iserv.connexion("cjeamme","zpass");
+		u2 = iserv.connexion("cjeamme","pass");
 		System.out.println("Id de l'user: "+u2.getId());
 	}
 

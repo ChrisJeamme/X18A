@@ -1,4 +1,4 @@
-package interfaceExterne;
+package interfaceClientLourd;
 
 import java.util.ArrayList;
 

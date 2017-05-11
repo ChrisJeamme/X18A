@@ -1,4 +1,4 @@
-package serveur;
+package gestionReseauServeurLourd;
 
 import java.io.*;
 import java.net.ServerSocket;

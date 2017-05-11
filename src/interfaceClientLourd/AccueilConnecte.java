@@ -1,4 +1,4 @@
-package interfaceExterne;
+package interfaceClientLourd;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,9 +19,9 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import clientExterne.InteractionServeurStatic;
 import donnees.Depense;
 import donnees.Evenement;
+import gestionReseauClientLourd.InteractionServeurStatic;
 
 
 /**

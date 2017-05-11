@@ -1,6 +1,6 @@
-package interfaceExterne;
+package interfaceClientLourd;
 
-import clientExterne.InteractionServeurStatic;
+import gestionReseauClientLourd.InteractionServeurStatic;
 
 /**
  * Cree un DialogInscriptionInfo
