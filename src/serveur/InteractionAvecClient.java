@@ -45,9 +45,9 @@ public class InteractionAvecClient
 		String xml =   	"<?xml version=\"1.0\" encoding=\"UTF-8_\"?>"
 					+	"<!DOCTYPE chat SYSTEM \"xml\\depense.dtd\">"
 					+	"<depense idUtilisateur=\""+d.getIdUtilisateur()+"\" idEvenement=\""+d.getIdEvenement()+"\">"
-					+	"	<date>'"+d.getDate()+"'</date>"
-					+	"	<montant>'"+d.getMontant()+"'</montant>"
-					+	"	<description>'"+d.getDescription()+"'</description>"
+					+	"	<date>"+d.getDate()+"</date>"
+					+	"	<montant>"+d.getMontant()+"</montant>"
+					+	"	<description>"+d.getDescription()+"</description>"
 					+	"</depense>";
 		
 		xml = xml.concat("\nover");
@@ -65,9 +65,9 @@ public class InteractionAvecClient
 		String xml =   	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 					+	"<!DOCTYPE evenement SYSTEM \"xml\\evenement.dtd\">"
 					+	"<evenement>"
-					+		"<id>'"+e.getId()+"'</id>"
-					+	    "<nom>'"+e.getNomEvenement()+"'</nom>"
-					+		"<budget>'"+e.getBudget()+"'</budget>"
+					+		"<id>"+e.getId()+"</id>"
+					+	    "<nom>"+e.getNomEvenement()+"</nom>"
+					+		"<budget>"+e.getBudget()+"</budget>"
 					+	"</evenement>";
 		
 		xml = xml.concat("\nover");
