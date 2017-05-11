@@ -103,7 +103,6 @@ public class GestionServeur
 				System.out.println("(Server) Recu: Utilisateur à ajouter");
 				Utilisateur utilisateur = ParserXML.lireUtilisateur(reception);
 				InteractionBDD.ajoutUtilisateur(bdd, utilisateur);
-				System.out.println("OUais ouais?");
 				InteractionAvecClient.envoyerUtilisateur(serveur, utilisateur);
 				System.out.println("envoyé");
 				break;
