@@ -19,7 +19,7 @@ public class InteractionAvecClient
 	 * @param serveur Serveur
 	 * @param u Utilisateur
 	 */
-	public static void envoyerUtilisateur(Serveur serveur, Utilisateur u)
+	public static void envoyerUtilisateur(ServeurTCP serveur, Utilisateur u)
 	{
 		String xml =   	"<?xml version='1.0' encoding='UTF-8'?>"
 					+   "<!DOCTYPE utilisateur SYSTEM 'xml\\utilisateur.dtd'>"
@@ -40,7 +40,7 @@ public class InteractionAvecClient
 	 * @param serveur Serveur
 	 * @param d Depense
 	 */
-	public static void envoyerDepense(Serveur serveur, Depense d)
+	public static void envoyerDepense(ServeurTCP serveur, Depense d)
 	{
 		String xml =   	"<?xml version=\"1.0\" encoding=\"UTF-8_\"?>"
 					+	"<!DOCTYPE chat SYSTEM \"xml\\depense.dtd\">"
@@ -60,7 +60,7 @@ public class InteractionAvecClient
 	 * @param serveur Serveur
 	 * @param e Evenement
 	 */
-	public static void envoyerEvenement(Serveur serveur, Evenement e)
+	public static void envoyerEvenement(ServeurTCP serveur, Evenement e)
 	{
 		String xml =   	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 					+	"<!DOCTYPE evenement SYSTEM \"xml\\evenement.dtd\">"
@@ -80,7 +80,7 @@ public class InteractionAvecClient
 	 * @param serveur Serveur
 	 * @param c Chat
 	 */
-	public static void envoyerChat(Serveur serveur, Chat c)
+	public static void envoyerChat(ServeurTCP serveur, Chat c)
 	{
 		String xml = 	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 					+	"<!DOCTYPE chat SYSTEM \"xml\\chat.dtd\">"
