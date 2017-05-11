@@ -10,6 +10,8 @@ public class TestServeur
 {
 	public static void main(String[] args) throws IOException
     {
-		GestionServeur g = new GestionServeur();
+		int port = 18458;
+		GestionServeur g = new GestionServeur(port);
+		g.start();
     }
 }

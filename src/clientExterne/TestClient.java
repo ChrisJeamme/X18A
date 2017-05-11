@@ -29,10 +29,10 @@ public class TestClient
 //		System.out.println("Id de l'évenement après: "+e.getId());
 		
 		//Connexion
-//		Utilisateur u2;
-//		System.out.println("Connexion");
-//		u2 = iserv.connexion("cjeamme","zpass");
-//		System.out.println("Id de l'user: "+u2.getId());
+		Utilisateur u2;
+		System.out.println("Connexion");
+		u2 = iserv.connexion("cjeamme","zpass");
+		System.out.println("Id de l'user: "+u2.getId());
 	}
 
 }
