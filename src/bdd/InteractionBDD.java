@@ -904,7 +904,6 @@ public class InteractionBDD
 		Date d = new Date();
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = format.format(d);
-		System.out.println(date);
 		return date;
 	}
 
