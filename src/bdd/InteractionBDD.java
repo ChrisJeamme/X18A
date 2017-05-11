@@ -130,7 +130,7 @@ public class InteractionBDD
 	/**
 	 * Récupère dans une liste toutes les dépenses de la bdd (aucun filtre)
 	 * @param bdd BDD
-	 * @return ArrayList<Depense> : Toutes les depenses dans la base de données
+	 * @return ArrayList(Depense) : Toutes les depenses dans la base de données
 	 */
 	public static ArrayList<Depense> recupDepenses(BDD bdd)
 	{
@@ -183,7 +183,7 @@ public class InteractionBDD
 	/**
 	 * Récupère dans une liste tous les évenements de la bdd (aucun filtre)
 	 * @param bdd BDD
-	 * @return ArrayList<Evenement> : Tous les evenements dans la base de données
+	 * @return ArrayList(Evenement) : Tous les evenements dans la base de données
 	 */
 	public static ArrayList<Evenement> recupEvenements(BDD bdd)
 	{
@@ -232,7 +232,7 @@ public class InteractionBDD
 	/**
 	 * Récupère dans une liste tous les utilisateurs contenu dans la bdd (aucun filtre)
 	 * @param bdd BDD
-	 * @return ArrayList<Utilisateur> : Tous les utilisateurs dans la base de données 
+	 * @return ArrayList(Utilisateur) : Tous les utilisateurs dans la base de données 
 	 */
 	public static ArrayList<Utilisateur> recupUtilisateurs(BDD bdd)
 	{
@@ -341,7 +341,7 @@ public class InteractionBDD
 	 * Récupère toutes les dépenses d'un utilisateur
 	 * @param bdd BDD
 	 * @param idUtilisateur int
-	 * @return ArrayList<Depense> : Une liste de dépense liée à un utilisateur
+	 * @return ArrayList(Depense) : Une liste de dépense liée à un utilisateur
 	 */
 	public static ArrayList<Depense> recupDepensesDeUtilisateur(BDD bdd, int idUtilisateur)
 	{
@@ -395,7 +395,7 @@ public class InteractionBDD
 	 * Récupère toutes les dépenses d'un événement
 	 * @param bdd BDD
 	 * @param idEvenement int
-	 * @return  ArrayList<Depense> : Une liste de dépenses liée à un evenement
+	 * @return  ArrayList(Depense) : Une liste de dépenses liée à un evenement
 	 */
 	public static ArrayList<Depense> recupDepensesDeEvenement(BDD bdd, int idEvenement)
 	{
@@ -450,7 +450,7 @@ public class InteractionBDD
 	 * Récupère tous les évenements d'un utilisateur
 	 * @param bdd BDD
 	 * @param idUtilisateur int
-	 * @return ArrayList<Evenement> : Une liste d'évenements liée à un utilisateur
+	 * @return ArrayList(Evenement) : Une liste d'évenements liée à un utilisateur
 	 */
 	public static ArrayList<Evenement> recupEvenementsDeUtilisateur(BDD bdd, int idUtilisateur)
 	{
@@ -503,7 +503,7 @@ public class InteractionBDD
 	 * Récupère toutes les utilisateurs d'un évenement
 	 * @param bdd BDD
 	 * @param idEvenement int
-	 * @return ArrayList<Utilisateur> : Une liste d'utilisateurs liée à un evenement
+	 * @return ArrayList(Utilisateur) : Une liste d'utilisateurs liée à un evenement
 	 */
 	public static ArrayList<Utilisateur> recupUtilisateursDeEvenement(BDD bdd, int idEvenement)
 	{
@@ -864,7 +864,7 @@ public class InteractionBDD
 	}
 	
 	/**  
-	 * Ajoute l'objet Utilisateur en argument dans la base de donnée bdd si l'id n'est pas fixé dans l'objet et le place après l'ajout (-1 si non place => existe déjà)
+	 * Ajoute l'objet Utilisateur en argument dans la base de donnée bdd si l'id n'est pas fixé dans l'objet et le place après l'ajout (-1 si il existe déjà)
 	 * @param bdd  BDD
 	 * @param utilisateur Utilisateur 
 	 */
@@ -880,7 +880,6 @@ public class InteractionBDD
 	/**
 	 * Ajoute les données d'Utilisateur en argument dans la base de donnée bdd
 	 * @param bdd BDD
-	 * @param id String
 	 * @param nom String
 	 * @param prenom String
 	 * @param email String

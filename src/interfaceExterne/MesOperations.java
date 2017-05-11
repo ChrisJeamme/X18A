@@ -20,7 +20,7 @@ public class MesOperations {
 
 	/**
 	 * Recupère et renvoie la liste des opérations
-	 * @return ArrayList<Depense> : La liste des opérations
+	 * @return ArrayList(Depense) : La liste des opérations
 	 */
 	public ArrayList<Depense> chargerOperations(){
 		//Sortir les infos de la base

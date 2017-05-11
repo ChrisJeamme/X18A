@@ -21,7 +21,7 @@ public class MesEvenements {
 
 		/**
 		 * Récupère et renvoie la liste des evenements
-		 * @return ArrayList<Evenement> : La liste des evenements
+		 * @return ArrayList(Evenement) : La liste des evenements
 		 */
 		public ArrayList<Evenement> chargerEvenements(){
 			//Sortir les infos de la base
