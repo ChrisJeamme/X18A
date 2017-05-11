@@ -24,6 +24,10 @@ import donnees.Depense;
 import donnees.Evenement;
 
 
+/**
+ * Contient la page d'accueil en étant connecté
+ *
+ */
 public class AccueilConnecte {		
 		static JButton deconnexion;
 		static JButton event;

@@ -5,12 +5,24 @@ import java.util.ArrayList;
 import clientExterne.InteractionServeurStatic;
 import donnees.Evenement;
 
+/**
+ * Affiche tous les evenements de l'utilisateur en session
+ *
+ */
 public class MesEvenements {
 		ArrayList<Evenement> listeEvent;
+		
+		/**
+		 * Constructeur sans paramètres
+		 */
 		public MesEvenements(){
 			listeEvent = new ArrayList<>();
 		}
 
+		/**
+		 * Récupère et renvoie la liste des evenements
+		 * @return ArrayList<Evenement> : La liste des evenements
+		 */
 		public ArrayList<Evenement> chargerEvenements(){
 			//Sortir les infos de la base
 			Evenement e1 = new Evenement();
