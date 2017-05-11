@@ -3,7 +3,7 @@
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <enumeration id="1" language="java" name="bdd.BDD.TypesRequete" project="X18A" file="/X18A/src/bdd/BDD.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="493" y="167"/>    
+    <position height="-1" width="-1" x="782" y="-118"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </enumeration>  
   <class id="2" language="java" name="bdd.BDD" project="X18A" file="/X18A/src/bdd/BDD.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="738" y="-34"/>    
+    <position height="-1" width="-1" x="531" y="-86"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="donnees.ParticipeMultipleUtilisateur" project="X18A" 
     file="/X18A/src/donnees/ParticipeMultipleUtilisateur.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="817" y="1582"/>    
+    <position height="-1" width="-1" x="791" y="1713"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="xml.MySAXHandlerAnalyseDate" project="X18A" 
     file="/X18A/src/xml/MySAXHandlerAnalyseDate.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="929" y="2313"/>    
+    <position height="-1" width="-1" x="942" y="2274"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="xml.MySAXHandlerAnalyseID1" project="X18A" 
     file="/X18A/src/xml/MySAXHandlerAnalyseID1.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="771" y="2094"/>    
+    <position height="-1" width="-1" x="632" y="2128"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -138,7 +138,7 @@
   </class>  
   <class id="16" language="java" name="xml.MySAXHandlerAnalyseID2" project="X18A" 
     file="/X18A/src/xml/MySAXHandlerAnalyseID2.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1291" y="2608"/>    
+    <position height="-1" width="-1" x="539" y="177"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -165,7 +165,7 @@
   </class>  
   <class id="19" language="java" name="xml.MySAXHandlerParticipeMultipleUtilisateur" project="X18A" 
     file="/X18A/src/xml/MySAXHandlerParticipeMultipleUtilisateur.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="839" y="1859"/>    
+    <position height="-1" width="-1" x="959" y="2007"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -174,7 +174,7 @@
   </class>  
   <class id="20" language="java" name="xml.MySAXHandlerRecupMdp" project="X18A" 
     file="/X18A/src/xml/MySAXHandlerRecupMdp.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1015" y="2603"/>    
+    <position height="-1" width="-1" x="1002" y="2621"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -183,7 +183,7 @@
   </class>  
   <class id="21" language="java" name="xml.MySAXHandlerRecupPseudo" project="X18A" 
     file="/X18A/src/xml/MySAXHandlerRecupPseudo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="748" y="2544"/>    
+    <position height="-1" width="-1" x="740" y="2496"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -192,7 +192,7 @@
   </class>  
   <class id="22" language="java" name="xml.MySAXHandlerUtilisateur" project="X18A" 
     file="/X18A/src/xml/MySAXHandlerUtilisateur.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1090" y="1334"/>    
+    <position height="-1" width="-1" x="765" y="1457"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -219,7 +219,7 @@
   </enumeration>  
   <class id="25" language="java" name="xml.ParserSAX" project="X18A" file="/X18A/src/xml/ParserSAX.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="614" y="2299"/>    
+    <position height="-1" width="-1" x="633" y="2311"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -228,7 +228,7 @@
   </class>  
   <class id="26" language="java" name="xml.ParserXML" project="X18A" file="/X18A/src/xml/ParserXML.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1217" y="2303"/>    
+    <position height="-1" width="-1" x="854" y="116"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -237,7 +237,7 @@
   </class>  
   <enumeration id="27" language="java" name="xml.TypeRequete" project="X18A" file="/X18A/src/xml/TypeRequete.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1184" y="1983"/>    
+    <position height="-1" width="-1" x="804" y="492"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -255,7 +255,7 @@
   </class>  
   <class id="29" language="java" name="xml.MySAXHandlerDepense" project="X18A" 
     file="/X18A/src/xml/MySAXHandlerDepense.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="235" y="917"/>    
+    <position height="-1" width="-1" x="412" y="1044"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
