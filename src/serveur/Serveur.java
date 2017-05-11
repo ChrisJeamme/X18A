@@ -4,6 +4,10 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * Gère le serveur
+ *
+ */
 public class Serveur
 {
 	int port;
@@ -12,11 +16,18 @@ public class Serveur
 	BufferedReader in;
 	PrintWriter out;
 	
+	/**
+	 * Constructeur et initialisation du port
+	 * @param port int
+	 */
 	public Serveur(int port)
 	{
 		this.port = port;
 	}
 	
+	/**
+	 * Initialisation du serveur
+	 */
 	public void initialiser()
 	{
 		try
@@ -31,6 +42,9 @@ public class Serveur
 		}
 	}
 	
+	/**
+	 * Ferme le serveur
+	 */
 	public void fermeture()
 	{
 		System.out.println("(Server) Fermeture du serveur");
@@ -45,6 +59,9 @@ public class Serveur
 		}
 	}
 	
+	/**
+	 * Le serveur passe en attente de connection
+	 */
 	public void attente()
 	{
 		//Attente de connexion
@@ -62,13 +79,20 @@ public class Serveur
 		}
 	}
 	
+	/**
+	 * Envoie un message
+	 * @param message String
+	 */
 	public void envoyer(String message)
 	{
-		out.println("message");
-		out.println("over");
+		out.println(message+"\nover");
 		out.flush();
 	}
 	
+	/**
+	 * Reçoit un message
+	 * @return String : Le message reçu
+	 */
 	public String recevoir()
 	{
 		String ligne = "";
@@ -83,17 +107,6 @@ public class Serveur
 			System.out.println("(Server) Reçu: "+recu);
 						
 			return recu;
-			
-//				if(ligne != null)
-//				{
-//					if(ligne.equals("finConnexion")) //Si la connexion a été fermé
-//					{
-//						System.out.println("(Server) Fermeture de la connexion");
-//						in.close();
-//						out.close();
-//						s.close();
-//					}
-//				}
 		}
 		catch (IOException e)
 		{

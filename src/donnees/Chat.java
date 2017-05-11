@@ -40,7 +40,7 @@ public class Chat
 
 	/**
 	 * Retourne la liste de messages du chat
-	 * @return ArrayList<Message> : La liste de messages
+	 * @return ArrayList(Message) : La liste de messages
 	 */
 	public ArrayList<Message> getMessages()
 	{
@@ -49,7 +49,7 @@ public class Chat
 	
 	/**
 	 * Remplace la liste de message par celle en paramètres
-	 * @param messages ArrayList<Message>
+	 * @param messages ArrayList(Message)
 	 */
 	public void setMessages(ArrayList<Message> messages)
 	{

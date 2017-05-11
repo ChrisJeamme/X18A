@@ -124,7 +124,7 @@ public class DepenseUtilisateur
 	
 	/**
 	 * Retourne le nombre d'éléments Depense
-	 * @return
+	 * @return int : Le nombreDepense
 	 */
 	public int getNombreDepense()
 	{

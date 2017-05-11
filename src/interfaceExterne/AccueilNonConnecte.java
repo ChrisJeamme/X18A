@@ -18,6 +18,10 @@ import javax.swing.SwingConstants;
 import donnees.Utilisateur;
 
 
+/**
+ * Contient la page d'accueil en étant non connecté
+ *
+ */
 public class AccueilNonConnecte {
 		static JButton connexion;		
 		static JButton inscription;

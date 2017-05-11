@@ -6,16 +6,28 @@ import donnees.Participe;
 import donnees.Utilisateur;
 import xml.ParserXML;
 
+/**
+ * Contient toutes les interactions entre le client externe et le serveur
+ *
+ */
 public class InteractionServeur
 {
 	Client client;
 		
+	/**
+	 * Constructeur qui initialise la connexion
+	 */
 	public InteractionServeur()
 	{
 		client = new Client();
 		client.etablirConnexion();
 	}
 	
+	/**
+	 * Envoie un texte au serveur
+	 * @param texte String
+	 * @return String : La réponse
+	 */
 	public String envoiServeur(String texte)
 	{
     	String recu = client.envoyerMessage(texte);
@@ -25,8 +37,8 @@ public class InteractionServeur
 	
 	/**
 	 *  Génère un XML d'ajout d'utilisateur et l'envoi au serveur
-	 * @param u
-	 * @return
+	 * @param u Utilisateur
+	 * @return boolean : Ajout avec succès ou non
 	 */
 	public boolean ajoutUtilisateur(Utilisateur u)
 	{
@@ -44,11 +56,11 @@ public class InteractionServeur
 		
 		String reponse = envoiServeur(xml);
 		
-		//On enlève over à la fin de la réponse
-		//reponse = clean(reponse);
+		//On lit l'utilisateur reçu
+		Utilisateur recu = ParserXML.lireUtilisateur(reponse);
 		
 		//On récupère l'id de la réponse
-		int id = Integer.parseInt(reponse);
+		int id = recu.getId();
 		
 		if(id != -1 && u.getId() == -1) //Si il a bien été ajouté et l'utilisateur n'a pas déjà un id
 		{
@@ -59,6 +71,11 @@ public class InteractionServeur
 			return false;
 	}
 	
+	/**
+	 * Envoie un XML de demande d'utilisateur
+	 * @param idUtilisateur int
+	 * @return Utilisateur : L'utilisateur demandé
+	 */
 	public Utilisateur recevoirUtilisateur(int idUtilisateur)
 	{
 		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
@@ -77,6 +94,12 @@ public class InteractionServeur
 		return utilisateur;
 	}
 	
+	/**
+	 * Envoie un XML de connexion
+	 * @param pseudo String
+	 * @param mdp String
+	 * @return Utilisateur : L'utilisateur correspondant
+	 */
 	public Utilisateur connexion(String pseudo, String mdp)
 	{
 		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
@@ -96,10 +119,10 @@ public class InteractionServeur
 	
 	/**
 	 *  Demande un objet Depense avec ses ids primaires
-	 * @param idEvenement
-	 * @param idUtilisateur
-	 * @param date
-	 * @return
+	 * @param idEvenement int
+	 * @param idUtilisateur int
+	 * @param date String
+	 * @return Depense : La depense demandée
 	 */
 	public Depense recevoirDepense(int idUtilisateur, int idEvenement, String date)
 	{
@@ -124,6 +147,11 @@ public class InteractionServeur
 		return depense;
 	}
 	
+	/**
+	 * Envoie un XML de demande d'evenement
+	 * @param idEvenement int
+	 * @return Evenement : L'evenement demandé
+	 */
 	public Evenement recevoirEvenement(int idEvenement)
 	{
 		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
@@ -140,6 +168,12 @@ public class InteractionServeur
 		return evenement;
 	}
 	
+	/**
+	 * Envoie un XML de demande de participe
+	 * @param idUtilisateur int
+	 * @param idEvenement int
+	 * @return Participe : Le participe demandé
+	 */
 	public Participe recevoirParticipe(int idUtilisateur, int idEvenement)
 	{
 		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
@@ -159,6 +193,11 @@ public class InteractionServeur
 		return participe;
 	}
 
+	/**
+	 * Envoie un XML d'ajout de depense
+	 * @param d Depense
+	 * @return boolean : Ajout avec succès ou non
+	 */
 	public boolean ajoutDepense(Depense d)
 	{
 		//non testé mais montre la gueule des fonctions de ce type
@@ -185,6 +224,11 @@ public class InteractionServeur
 			return false;
 	}
 	
+	/**
+	 * Envoie un XML d'ajout d'evenement
+	 * @param e Evenement
+	 * @return boolean : Ajout avec succès ou non
+	 */
 	public boolean ajoutEvenement(Evenement e)
 	{
 		//non testé mais montre la gueule des fonctions de ce type
@@ -198,10 +242,8 @@ public class InteractionServeur
 		
 		String reponse = envoiServeur(xml);
 		
-		//On enlève over à la fin de la réponse
-		reponse = clean(reponse);
-		//On récupère l'id de la réponse
-		int id = Integer.parseInt(reponse);
+		//On récupère l'évenement avec l'ID remplit
+		int id = ParserXML.lireEvenement(reponse).getId();
 		
 		if(id != -1 && e.getId() == -1) //Si il a bien été ajouté
 		{
@@ -212,6 +254,11 @@ public class InteractionServeur
 			return false;
 	}
 	
+	/**
+	 * Envoie un XML d'ajout de participe
+	 * @param p Participe
+	 * @return boolean : Ajout avec succès ou non
+	 */
 	public boolean ajoutParticipe(Participe p)
 	{
 		//non testé mais montre la gueule des fonctions de ce type
@@ -236,9 +283,13 @@ public class InteractionServeur
 	}
 	
 	
+	/**
+	 * Supprime le "over" à la fin du message
+	 * @param reception String
+	 * @return String : Le message nettoyé
+	 */
 	public static String clean(String reception)
 	{
-		//On supprime "over" à la fin
 		if(reception.length()>4)
 			return reception.substring(0, reception.length()-4);
 		else

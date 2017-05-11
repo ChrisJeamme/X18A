@@ -8,18 +8,21 @@ import donnees.Evenement;
 import donnees.Message;
 import donnees.Utilisateur;
 
+/**
+ * Gère les interactions entre le client et le serveur
+ *
+ */
 public class InteractionAvecClient
 {
 	/**
-	 *  Envoi l'utilisateur u au client (Crée le XML)
-	 * @param serveur
-	 * @param u
+	 * Envoie l'utilisateur u au client (Crée le XML)
+	 * @param serveur Serveur
+	 * @param u Utilisateur
 	 */
 	public static void envoyerUtilisateur(Serveur serveur, Utilisateur u)
 	{
-		//non testé mais montre la gueule des fonctions de ce type
 		String xml =   	"<?xml version='1.0' encoding='UTF-8'?>"
-					+   "<!DOCTYPE utilisateur SYSTEM 'utilisateur.dtd'>"
+					+   "<!DOCTYPE utilisateur SYSTEM 'xml\\utilisateur.dtd'>"
 					+	"<utilisateur>"
 					+		"<id>"+u.getId()+"</id>"
 					+		"<nom>"+u.getNom()+"</nom>"
@@ -27,24 +30,24 @@ public class InteractionAvecClient
 					+		"<email>"+u.getEmail()+"</email>"
 					+		"<pseudo>"+u.getPseudo()+"</pseudo>"
 					+		"<motDePasse>"+u.getMotDePasse()+"</motDePasse>"
-					+	"</utilisateur>;";
+					+	"</utilisateur>";
 		
 		serveur.envoyer(xml);
 	}
 
 	/**
-	 *  Envoi la dépense d au client (Crée le XML)
-	 * @param serveur
-	 * @param d
+	 * Envoie la dépense d au client (Crée le XML)
+	 * @param serveur Serveur
+	 * @param d Depense
 	 */
 	public static void envoyerDepense(Serveur serveur, Depense d)
 	{
 		String xml =   	"<?xml version=\"1.0\" encoding=\"UTF-8_\"?>"
-					+	"<!DOCTYPE chat SYSTEM \"depense.dtd\">"
+					+	"<!DOCTYPE chat SYSTEM \"xml\\depense.dtd\">"
 					+	"<depense idUtilisateur=\""+d.getIdUtilisateur()+"\" idEvenement=\""+d.getIdEvenement()+"\">"
-					+	"	<date>'"+d.getDate()+"'</date>"
-					+	"	<montant>'"+d.getMontant()+"'</montant>"
-					+	"	<description>'"+d.getDescription()+"'</description>"
+					+	"	<date>"+d.getDate()+"</date>"
+					+	"	<montant>"+d.getMontant()+"</montant>"
+					+	"	<description>"+d.getDescription()+"</description>"
 					+	"</depense>";
 		
 		xml = xml.concat("\nover");
@@ -53,18 +56,18 @@ public class InteractionAvecClient
 	}
 
 	/**
-	 *  Envoi l'évenement e au client (Crée le XML)
-	 * @param serveur
-	 * @param e
+	 * Envoie l'évenement e au client (Crée le XML)
+	 * @param serveur Serveur
+	 * @param e Evenement
 	 */
 	public static void envoyerEvenement(Serveur serveur, Evenement e)
 	{
 		String xml =   	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-					+	"<!DOCTYPE evenement SYSTEM \"evenement.dtd\">"
+					+	"<!DOCTYPE evenement SYSTEM \"xml\\evenement.dtd\">"
 					+	"<evenement>"
-					+		"<id>'"+e.getId()+"'</id>"
-					+	    "<nom>'"+e.getNomEvenement()+"'</nom>"
-					+		"<budget>'"+e.getBudget()+"'</budget>"
+					+		"<id>"+e.getId()+"</id>"
+					+	    "<nom>"+e.getNomEvenement()+"</nom>"
+					+		"<budget>"+e.getBudget()+"</budget>"
 					+	"</evenement>";
 		
 		xml = xml.concat("\nover");
@@ -73,14 +76,14 @@ public class InteractionAvecClient
 	}
 
 	/**
-	 *  Envoi le chat c au client (Crée le XML)
-	 * @param serveur
-	 * @param c
+	 * Envoie le chat c au client (Crée le XML)
+	 * @param serveur Serveur
+	 * @param c Chat
 	 */
 	public static void envoyerChat(Serveur serveur, Chat c)
 	{
 		String xml = 	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-					+	"<!DOCTYPE chat SYSTEM \"chat.dtd\">"
+					+	"<!DOCTYPE chat SYSTEM \"xml\\chat.dtd\">"
 					+	"<chat evenementId=\"1\">";
 		
 		ArrayList<Message> messages = c.getMessages();

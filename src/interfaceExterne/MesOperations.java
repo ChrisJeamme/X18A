@@ -4,12 +4,24 @@ import java.util.ArrayList;
 
 import donnees.Depense;
 
+/**
+ * Affiche toutes les opérations de l'utilisateur en session
+ *
+ */
 public class MesOperations {
 	ArrayList<Depense> listeOperations;
+	
+	/**
+	 * Constructeur sans paramètres
+	 */
 	public MesOperations(){
 		listeOperations = new ArrayList<>();
 	}
 
+	/**
+	 * Recupère et renvoie la liste des opérations
+	 * @return ArrayList(Depense) : La liste des opérations
+	 */
 	public ArrayList<Depense> chargerOperations(){
 		//Sortir les infos de la base
 		Depense d1 = new Depense();

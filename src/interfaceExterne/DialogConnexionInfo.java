@@ -3,11 +3,23 @@ package interfaceExterne;
 import clientExterne.InteractionServeurStatic;
 import donnees.Utilisateur;
 
+/**
+ * Cree un DialogConnexionInfo
+ *
+ */
 public class DialogConnexionInfo
 {
+	/**
+	 * Constructeur vide
+	 */
 	public DialogConnexionInfo()
 	{}
 
+	/**
+	 * Constructeur avec les paramètres prédéfinis
+	 * @param pseudo String
+	 * @param mdp String
+	 */
 	public DialogConnexionInfo(String pseudo, String mdp)
 	{
 		Utilisateur userRecu = InteractionServeurStatic.currentInteractionServeur.connexion(pseudo, mdp);

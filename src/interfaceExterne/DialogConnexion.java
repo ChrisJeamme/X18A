@@ -14,16 +14,26 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+/**
+ * Contient le formulaire de connexion
+ *
+ */
 public class DialogConnexion extends JDialog {
 
 	private static final long serialVersionUID = -6024520991619817565L;
 	private DialogConnexionInfo zInfo = new DialogConnexionInfo();
-	  private boolean sendData;
-	  private JLabel pseudoLabel, mdpLabel;
-	  private JTextField pseudo;
-	  private JPasswordField mdp;
+	private boolean sendData;
+	private JLabel pseudoLabel, mdpLabel;
+	private JTextField pseudo;
+	private JPasswordField mdp;
 
-	  public DialogConnexion(JFrame parent, String title, boolean modal){
+	/**
+	 * Crée le popup de connexion
+	 * @param parent JFrame
+	 * @param title String
+	 * @param modal boolean
+	 */
+	public DialogConnexion(JFrame parent, String title, boolean modal){
 	    super(parent, title, modal);
 	    this.setSize(550, 150);
 	    this.setLocationRelativeTo(null);
@@ -32,13 +42,20 @@ public class DialogConnexion extends JDialog {
 	    this.initComponent();
 	  }
 
-	  public DialogConnexionInfo showZDialog(){
+	/**
+	 * Affiche le popup
+	 * @return DialogConnexionInfo : L'objet DialogConnexionInfo
+	 */
+	public DialogConnexionInfo showZDialog(){
 	    this.sendData = false;
 	    this.setVisible(true);      
 	    return this.zInfo;      
 	  }
 
-	  private void initComponent(){
+	/**
+	 * Initialise tout l'affichage
+	 */
+	private void initComponent(){
 	    //Le pseudo
 	    JPanel panPseudo = new JPanel();
 	    panPseudo.setBackground(Color.white);

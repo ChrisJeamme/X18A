@@ -3,16 +3,26 @@ package clientExterne;
 import java.io.*;
 import java.net.*;
 
+/**
+ * Gère la connexion du client externe
+ *
+ */
 public class Client
 {
 	private int port;
 	private Socket socket = null;
 
+	/**
+	 * Constructeur qui initialise le numéro de port
+	 */
 	public Client()
 	{
 		this.port = 18458;
 	}
     
+    /**
+     * Crée la connection
+     */
     public void etablirConnexion()
     {
         try
@@ -34,6 +44,9 @@ public class Client
 		}
     }
     
+    /**
+     * Ferme la connection
+     */
     public void fermetureConnexion()
     {
     	try
@@ -50,6 +63,11 @@ public class Client
 		}
     }
     
+    /**
+     * Envoi un message à l'utilisateur
+     * @param message String
+     * @return String : La réponse
+     */
     public String envoyerMessage(String message)
     {
     	String recu = "";
@@ -65,13 +83,13 @@ public class Client
     	            PrintWriter writer = new PrintWriter(out);
     				
     				System.out.println("(Client) Envoi : " + message);
-                    writer.print(message+"\nover\n");
+                    writer.println(message+"\nover");
                     writer.flush();
                     String reponse;
                     
                     while(!(reponse = reader.readLine()).equals("over") && reponse != null)
                     {
-                    	recu.concat(reponse);
+                    	recu = recu.concat(reponse);
                     }
                     
                		//System.out.println("(Client) Recu : " + recu);
@@ -91,10 +109,14 @@ public class Client
     			
     		}
        	}
-    	envoyerMessageSansAffichage("over");
+    	//envoyerMessageSansAffichage("over");
     	return recu;
     }
 
+    /**
+     * Envoi un message sans affichage
+     * @param message String
+     */
     public void envoyerMessageSansAffichage(String message)
     {
     	if(socket != null)
@@ -131,6 +153,9 @@ public class Client
        	}
     }
     
+    /**
+     * Ferme le serveur
+     */
     public void fermetureServeur()
     {
     	System.out.println("(Client) Envoi demande fin serveur");

@@ -1,5 +1,9 @@
 package xml;
 
+/**
+ * Enumération des TypesRequete possibles
+ *
+ */
 public enum TypeRequete
 {
 	ENVOI_EVENEMENT,

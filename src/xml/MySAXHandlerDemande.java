@@ -3,23 +3,39 @@ package xml;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * Handler SAX de l'objet Demande
+ *
+ */
 public class MySAXHandlerDemande extends DefaultHandler
 {	
 	String dernierARemplir;
 	String type;
 	Demande demande;
 	
+	/**
+	 * Constructeur vide
+	 */
 	public MySAXHandlerDemande()
 	{}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#startDocument()
+	 */
 	public void startDocument()
 	{
 		demande = new Demande();
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#endDocument()
+	 */
 	public void endDocument()
 	{}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
+	 */
 	public void startElement(String uri, String localName, String qName, Attributes attributes)
 	{
 		if(qName=="type")
@@ -34,9 +50,15 @@ public class MySAXHandlerDemande extends DefaultHandler
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String, java.lang.String, java.lang.String)
+	 */
 	public void endElement(String uri, String localName, String qName)
 	{}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#characters(char[], int, int)
+	 */
 	public void characters(char[] ch, int start, int length)
 	{
 		String contenu = "";
