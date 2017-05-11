@@ -44,7 +44,6 @@ public class EcouteurServeurWeb implements ServletContextListener
     		int port = 18458;
     		gestionServeur = new GestionServeur(port);
     		gestionServeur.start();
-    		System.out.println("Serveur client lourd lancé");
     	}
     }
 	
