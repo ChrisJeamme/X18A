@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="http://anthony.jeamme.fr/css/resume_impress.css" media="print">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="verifFormulaire.js" charset="UTF-8"></script>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -36,7 +37,7 @@
 	
 	<ul class="list-group">
 	
-		<form method="post" action="inscription">
+		<form method="post" action="inscription" name="formulaire" onsubmit="return valider ();">
 		<li class="list-group-item">
 			<label for="nom">Nom :</label>
 			<input type="text" name="nom" id="nom" />

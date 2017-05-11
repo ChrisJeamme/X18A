@@ -18,10 +18,20 @@ import donnees.Message;
 import donnees.Utilisateur;
 
 
+/**
+ * Contient toutes les interactions avec la base de données
+ *
+ */
 public class InteractionBDD
 {
 	//Vérifications utilisateur
 	
+	/**
+	 * Vérfie que le pseudo en paramètres existe dans la base de données
+	 * @param bdd BDD
+	 * @param pseudo String
+	 * @return boolean : Le pseudo existe dans la base de données ou pas
+	 */
 	public static boolean pseudoExiste(BDD bdd, String pseudo)
 	{
 		ArrayList<Utilisateur> users = recupUtilisateurs(bdd);
@@ -36,6 +46,12 @@ public class InteractionBDD
 		return false;
 	}
 	
+	/**
+	 * Vérifie que l'adresse mail existe dans la base de données
+	 * @param bdd BDD
+	 * @param email String
+	 * @return boolean : L'adresse mail existe dans la base de données ou pas
+	 */
 	public static boolean emailExiste(BDD bdd, String email)
 	{
 		ArrayList<Utilisateur> users = recupUtilisateurs(bdd);
@@ -50,6 +66,13 @@ public class InteractionBDD
 		return false;
 	}
 	
+	/**
+	 * Vérifie si l'utilisateur participe à l'evenement
+	 * @param bdd BDD
+	 * @param idUtilisateur int
+	 * @param idEvenement int
+	 * @return boolean : L'utilisateur participe à l'evenement ou pas
+	 */
 	public static boolean utilisateurParticpeAEvenement(BDD bdd, int idUtilisateur, int idEvenement)
 	{
 		//Lancement de la requete
@@ -75,11 +98,11 @@ public class InteractionBDD
 	}
 	
 	/**
-	 *  Pour effectuer une connexion
-	 * @param bdd
-	 * @param pseudo
-	 * @param mdp
-	 * @return l'objet Utilisateur si ok, null sinon
+	 * Pour effectuer une connexion
+	 * @param bdd BDD
+	 * @param pseudo String
+	 * @param mdp String
+	 * @return Utilisateur : l'objet Utilisateur si ok, null sinon
 	 */
 	public static Utilisateur verificationConnexion(BDD bdd, String pseudo, String mdp)
 	{
@@ -105,9 +128,9 @@ public class InteractionBDD
 	//Récupération de tous les objets
 	
 	/**
-	 *  Récupère dans une liste toutes les dépenses de la bdd (aucun filtre)
-	 * @param bdd
-	 * @return
+	 * Récupère dans une liste toutes les dépenses de la bdd (aucun filtre)
+	 * @param bdd BDD
+	 * @return ArrayList<Depense> : Toutes les depenses dans la base de données
 	 */
 	public static ArrayList<Depense> recupDepenses(BDD bdd)
 	{
@@ -158,9 +181,9 @@ public class InteractionBDD
 }
 	
 	/**
-	 *  Récupère dans une liste tous les évenements de la bdd (aucun filtre)
-	 * @param bdd
-	 * @return
+	 * Récupère dans une liste tous les évenements de la bdd (aucun filtre)
+	 * @param bdd BDD
+	 * @return ArrayList<Evenement> : Tous les evenements dans la base de données
 	 */
 	public static ArrayList<Evenement> recupEvenements(BDD bdd)
 	{
@@ -207,9 +230,9 @@ public class InteractionBDD
 	}
 	
 	/**
-	 *  Récupère dans une liste tous les utilisateurs contenu dans la bdd (aucun filtre)
-	 * @param bdd
-	 * @return
+	 * Récupère dans une liste tous les utilisateurs contenu dans la bdd (aucun filtre)
+	 * @param bdd BDD
+	 * @return ArrayList<Utilisateur> : Tous les utilisateurs dans la base de données 
 	 */
 	public static ArrayList<Utilisateur> recupUtilisateurs(BDD bdd)
 	{
@@ -262,9 +285,9 @@ public class InteractionBDD
 	}
 	
 	/**
-	 *  Récupère dans un objet Chat tous les messages de la bdd (aucun filtre)
-	 * @param bdd
-	 * @return
+	 * Récupère dans un objet Chat tous les messages de la bdd (aucun filtre)
+	 * @param bdd BDD
+	 * @return Chat : Tous les messages dans la base de données
 	 */
 	public static Chat recupMessages(BDD bdd)
 	{
@@ -315,10 +338,10 @@ public class InteractionBDD
 	//Récupération d'objets liés
 	
 	/**
-	 *  Récupère toutes les dépenses d'un utilisateur
-	 * @param bdd
-	 * @param idUtilisateur
-	 * @return Une liste de dépense
+	 * Récupère toutes les dépenses d'un utilisateur
+	 * @param bdd BDD
+	 * @param idUtilisateur int
+	 * @return ArrayList<Depense> : Une liste de dépense liée à un utilisateur
 	 */
 	public static ArrayList<Depense> recupDepensesDeUtilisateur(BDD bdd, int idUtilisateur)
 	{
@@ -369,10 +392,10 @@ public class InteractionBDD
 	}
 	
 	/**
-	 *  Récupère toutes les dépenses d'un événement
-	 * @param bdd
-	 * @param idEvenement
-	 * @return Une liste de dépenses
+	 * Récupère toutes les dépenses d'un événement
+	 * @param bdd BDD
+	 * @param idEvenement int
+	 * @return  ArrayList<Depense> : Une liste de dépenses liée à un evenement
 	 */
 	public static ArrayList<Depense> recupDepensesDeEvenement(BDD bdd, int idEvenement)
 	{
@@ -424,10 +447,10 @@ public class InteractionBDD
 
 	
 	/**
-	 *  Récupère tous les évenements d'un utilisateur
-	 * @param bdd
-	 * @param idUtilisateur
-	 * @return Une liste d'évenements
+	 * Récupère tous les évenements d'un utilisateur
+	 * @param bdd BDD
+	 * @param idUtilisateur int
+	 * @return ArrayList<Evenement> : Une liste d'évenements liée à un utilisateur
 	 */
 	public static ArrayList<Evenement> recupEvenementsDeUtilisateur(BDD bdd, int idUtilisateur)
 	{
@@ -477,10 +500,10 @@ public class InteractionBDD
 	}
 	
 	/**
-	 *  Récupère toutes les utilisateurs d'un évenement
-	 * @param bdd
-	 * @param idEvenement
-	 * @return Une liste d'utilisateurs
+	 * Récupère toutes les utilisateurs d'un évenement
+	 * @param bdd BDD
+	 * @param idEvenement int
+	 * @return ArrayList<Utilisateur> : Une liste d'utilisateurs liée à un evenement
 	 */
 	public static ArrayList<Utilisateur> recupUtilisateursDeEvenement(BDD bdd, int idEvenement)
 	{
@@ -536,10 +559,10 @@ public class InteractionBDD
 	}
 
 	/**
-	 *  Récupère tous les messages d'un evenement
-	 * @param bdd
-	 * @param idEvenement
-	 * @return Objet Chat contenant tous les messages de cet evenement
+	 * Récupère tous les messages d'un evenement
+	 * @param bdd BDD
+	 * @param idEvenement int
+	 * @return Chat : Chat contenant tous les messages liés à un evenement
 	 */
 	public static Chat recupMessagesDeEvenement(BDD bdd, int idEvenement)
 	{
@@ -591,6 +614,12 @@ public class InteractionBDD
 
 	//Récupération d'un objet avec son ID
 	
+	/**
+	 * Récupère un utilisateur avec son id
+	 * @param bdd BDD
+	 * @param idUtilisateur int
+	 * @return Utilisateur : L'utilisateur si ça a réussi, null sinon
+	 */
 	public static Utilisateur recupUtilisateurAvecID(BDD bdd, int idUtilisateur)
 	{
 		//Lancement de la requete
@@ -682,6 +711,12 @@ public class InteractionBDD
 //	}
 	
 	
+	/**
+	 * Récupère un utilisateur avec son pseudo
+	 * @param bdd BDD
+	 * @param pseudo String
+	 * @return Utilisateur : L'utilisateur si ça a réussi, null sinon
+	 */
 	public static Utilisateur recupUtilisateurAvecPseudo(BDD bdd, String pseudo)
 	{
 		//Lancement de la requete
@@ -728,6 +763,12 @@ public class InteractionBDD
 		return null;
 	}
 
+	/**
+	 * Récupère un evenement avec son id
+	 * @param bdd BDD
+	 * @param idEvenement int
+	 * @return Evenement : L'evenement si ça a réussi, null sinon
+	 */
 	public static Evenement recupEvenementsAvecID(BDD bdd, int idEvenement)
 	{
 		//Lancement de la requete
@@ -769,9 +810,9 @@ public class InteractionBDD
 	//Envoi d'objet
 	
 	/**
-	 *  Ajout l'objet Depense en argument dans la base de donnée bdd
-	 * @param bdd Base de donnée chargée
-	 * @param depense
+	 * Ajoute l'objet Depense en argument dans la base de donnée bdd
+	 * @param bdd BDD
+	 * @param depense Depense
 	 */
 	public static void ajoutDepense(BDD bdd, Depense depense)
 	{
@@ -779,12 +820,13 @@ public class InteractionBDD
 	}
 	
 	/**
-	 *  Ajout l'objet Depense en argument dans la base de donnée bdd
-	 * @param bdd Base de donnée chargée
-	 * @param idUtilisateur
-	 * @param idEvenement
-	 * @param date
-	 * @param montant
+	 * Ajoute les données de la Depense en argument dans la base de donnée bdd
+	 * @param bdd BDD
+	 * @param idUtilisateur int
+	 * @param idEvenement int
+	 * @param date String
+	 * @param montant int
+	 * @param description String
 	 */
 	public static void ajoutDepense(BDD bdd, int idUtilisateur, int idEvenement, String date, int montant, String description)
 	{
@@ -795,9 +837,9 @@ public class InteractionBDD
 	}
 	
 	/**
-	 *  Ajout l'objet Evenement en argument dans la base de donnée bdd si il n'a pas déjà un id, et fixe l'id après l'ajout
-	 * @param bdd Base de donnée chargée
-	 * @param evenement L'objet Evenement à ajouter
+	 * Ajoute l'objet Evenement en argument dans la base de donnée bdd si il n'a pas déjà un id, et fixe l'id après l'ajout
+	 * @param bdd BDD
+	 * @param evenement Evenement
 	 */
 	public static void ajoutEvenement(BDD bdd, Evenement evenement)
 	{
@@ -810,10 +852,11 @@ public class InteractionBDD
 	}
 	
 	/**
-	 *  Ajout l'objet Evenement en argument dans la base de donnée bdd et renvoi l'id
-	 * @param bdd
-	 * @param nom
-	 * @param budget
+	 * Ajoute les données d'Evenement en argument dans la base de donnée bdd et renvoie l'id
+	 * @param bdd BDD
+	 * @param nom String
+	 * @param budget int
+	 * @return int : L'id de l'evenement
 	 */
 	public static int ajoutEvenement(BDD bdd, String nom, int budget)
 	{
@@ -821,10 +864,9 @@ public class InteractionBDD
 	}
 	
 	/**  
-	 *  Ajout l'objet Utilisateur en argument dans la base de donnée bdd si l'id n'est pas fixé dans l'objet et le place après l'ajout (-1 si non place => existe déjà)
-	 * @param bdd  Base de donnée chargée
-	 * @param utilisateur
-	 * 
+	 * Ajoute l'objet Utilisateur en argument dans la base de donnée bdd si l'id n'est pas fixé dans l'objet et le place après l'ajout (-1 si non place => existe déjà)
+	 * @param bdd  BDD
+	 * @param utilisateur Utilisateur 
 	 */
 	public static void ajoutUtilisateur(BDD bdd, Utilisateur utilisateur)
 	{
@@ -836,15 +878,15 @@ public class InteractionBDD
 	}
 	
 	/**
-	 *  Ajout l'objet Utilisateur en argument dans la base de donnée bdd
-	 * @param bdd Base de donnée chargée
-	 * @param id
-	 * @param nom
-	 * @param prenom
-	 * @param email
-	 * @param pseudo
-	 * @param motDePasse
-	 * @return -1 si le pseudo est déjà pris
+	 * Ajoute les données d'Utilisateur en argument dans la base de donnée bdd
+	 * @param bdd BDD
+	 * @param id String
+	 * @param nom String
+	 * @param prenom String
+	 * @param email String
+	 * @param pseudo String
+	 * @param motDePasse String
+	 * @return int : L'id de la requête ou -1 si le pseudo est déjà pris
 	 */
 	public static int ajoutUtilisateur(BDD bdd, String nom, String prenom, String email, String pseudo, String motDePasse)
 	{
@@ -852,9 +894,9 @@ public class InteractionBDD
 	}
 
 	/**
-	 *  Ajout l'objet Message en argument dans la base de donnée bdd
-	 * @param bdd  Base de donnée chargée
-	 * @param message
+	 * Ajoute l'objet Message en argument dans la base de donnée bdd
+	 * @param bdd  BDD
+	 * @param message Message
 	 */
 	public static void ajoutMessage(BDD bdd, Message message)
 	{
@@ -862,12 +904,12 @@ public class InteractionBDD
 	}
 	
 	/**
-	 *  Ajout l'objet Message en argument dans la base de donnée bdd
-	 * @param bdd  Base de donnée chargée
-	 * @param idUtilisateur
-	 * @param idEvenement
-	 * @param date
-	 * @param message
+	 * Ajoute les données de Message en argument dans la base de donnée bdd
+	 * @param bdd  BDD
+	 * @param idUtilisateur int
+	 * @param idEvenement int
+	 * @param date String
+	 * @param message String
 	 */
 	public static void ajoutMessage(BDD bdd, int idUtilisateur, int idEvenement, String date, String message)
 	{
@@ -875,10 +917,10 @@ public class InteractionBDD
 	}
 	
 	/**
-	 *  Ajoute un lien dans la bdd de participation de utilisateur à evenement
-	 * @param bdd
-	 * @param utilisateur
-	 * @param evenement
+	 * Ajoute un lien dans la bdd de participation de utilisateur à evenement
+	 * @param bdd BDD
+	 * @param utilisateur Utilisateur
+	 * @param evenement Evenement
 	 */
 	public static void ajoutParticipe(BDD bdd, Utilisateur utilisateur, Evenement evenement)
 	{
@@ -886,25 +928,26 @@ public class InteractionBDD
 	}
 
 	/**
-	 *  Ajoute la participation de l'utilisateur idUtilisateur à l'évenement idEvenement
-	 * @param bdd
-	 * @param idUtilisateur
-	 * @param idEvenement
+	 * Ajoute la participation de l'utilisateur idUtilisateur à l'évenement idEvenement
+	 * @param bdd BDD
+	 * @param idUtilisateur int
+	 * @param idEvenement int
 	 */
 	public static void ajoutParticipe(BDD bdd, int idUtilisateur, int idEvenement)
 	{
 		bdd.reqSQL("INSERT INTO `participe` (`idUtilisateur`, `idEvenement`) VALUES ('"+idUtilisateur+"','"+idEvenement+"');",BDD.TypesRequete.MODIFICATION);
 	}
 	
+
 	/**
-	 *  Renvoie une date formaté de type String pour la BDD
+	 * Renvoie une date formaté de type String pour la BDD
+	 * @return String : La date formatée
 	 */
 	public static String date()
 	{
 		Date d = new Date();
 		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = format.format(d);
-		System.out.println(date);
 		return date;
 	}
 
