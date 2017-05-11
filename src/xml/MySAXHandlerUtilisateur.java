@@ -23,7 +23,9 @@ public class MySAXHandlerUtilisateur extends DefaultHandler {
 	public void startElement(String uri, String localName, String qName, Attributes attributes)
 	{
 		if(qName=="id")
-		{}
+		{
+			dernierARemplir = "id";
+		}
 		if(qName=="nom")
 		{
 			dernierARemplir = "nom";
