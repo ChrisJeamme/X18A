@@ -85,8 +85,7 @@ public class Serveur
 	 */
 	public void envoyer(String message)
 	{
-		out.println(message);
-		out.println("over");
+		out.println(message+"\nover");
 		out.flush();
 	}
 	
