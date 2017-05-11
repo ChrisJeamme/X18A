@@ -33,6 +33,7 @@ public class DeconnexionController extends HttpServlet
 	{
 		HttpSession session = request.getSession();
 		session.removeAttribute("utilisateur");
+		session.removeAttribute("evenement");
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		return;
 	}
