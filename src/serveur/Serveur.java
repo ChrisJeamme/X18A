@@ -64,7 +64,7 @@ public class Serveur
 	
 	public void envoyer(String message)
 	{
-		out.println("message");
+		out.println(message);
 		out.println("over");
 		out.flush();
 	}
