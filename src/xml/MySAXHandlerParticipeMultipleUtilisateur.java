@@ -28,17 +28,17 @@ public class MySAXHandlerParticipeMultipleUtilisateur extends DefaultHandler
 	
 	public void startElement(String uri, String localName, String qName, Attributes attributes)
 	{
+		if(qName=="nombre")
+		{
+			System.out.println("Nombre d'evenements");
+			dernierARemplir = "nombre";
+		}
 		if(qName=="participe")
 		{
 			System.out.println("Nouvel evenement");
 			participeMultipleUtilisateur.nouvelEvenement();
 			participeMultipleUtilisateur.getDernierElementObj().setId(Integer.parseInt(attributes.getValue(0)));
 			dernierARemplir = "participe";
-		}
-		if(qName=="end")
-		{
-			System.out.println("Fin des evenements");
-			dernierARemplir = "end";
 		}
 	}
 

@@ -7,6 +7,7 @@ public class ParticipeMultipleUtilisateur
 	ArrayList<Evenement> evenements;
 	int DernierElement;
 	int idUtilisateur;
+	int nombreEvenements;
 
 	public ParticipeMultipleUtilisateur()
 	{
@@ -49,6 +50,16 @@ public class ParticipeMultipleUtilisateur
 	{
 		DernierElement++;
 		setDernierElementObj(new Evenement());
+	}
+	
+	public void setNombreEvenements(int nb)
+	{
+		nombreEvenements=nb;
+	}
+	
+	public int getNombreEvenements()
+	{
+		return nombreEvenements;
 	}
 
 	@Override
