@@ -26,7 +26,11 @@ public class EcouteurServeurWeb implements ServletContextListener
      */
     public void contextDestroyed(ServletContextEvent sce)
     { 
-    	System.out.println("CONTEXTE="+sce.getServletContext().getServletContextName());
+    	if(sce.getServletContext().getServletContextName().compareTo("X18A")==0)
+    	{
+    		System.out.println("Arrêt du serveur client lourd");
+    		gestionServeur.arret();
+    	}
     }
 
 	/**
@@ -34,11 +38,14 @@ public class EcouteurServeurWeb implements ServletContextListener
      */
     public void contextInitialized(ServletContextEvent sce)
     { 
-    	System.out.println("CONTEXTE="+sce.getServletContext().getServletContextName());
-    	
-//		int port = 18458;
-//		gestionServeur = new GestionServeur(port);
-//		gestionServeur.start();
+    	if(sce.getServletContext().getServletContextName().compareTo("X18A")==0)
+    	{
+    		System.out.println("Lancement du serveur client lourd");
+    		int port = 18458;
+    		gestionServeur = new GestionServeur(port);
+    		gestionServeur.start();
+    		System.out.println("Serveur client lourd lancé");
+    	}
     }
 	
 }
