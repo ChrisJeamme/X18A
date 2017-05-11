@@ -42,14 +42,12 @@ public class MySAXHandlerRecupPseudo extends DefaultHandler
 			{
 				contenu = contenu.concat(ch[i]+"");
 			}
-			System.out.println("Pseudo= "+pseudo);
 			pseudo = contenu;
 		}
 	}
 	
 	public String getPseudo()
 	{
-		System.out.println("On a get le pseudo = "+pseudo);
 		return new String(pseudo);
 	}
 
