@@ -1,12 +1,26 @@
 package interfaceExterne;
 
 import clientExterne.InteractionServeurStatic;
+import donnees.Utilisateur;
 
-public class DialogConnexionInfo {
+public class DialogConnexionInfo
+{
 
-	  public DialogConnexionInfo()
-	  {}
-	  public DialogConnexionInfo(String pseudo, String mdp){
-	    AccueilNonConnecte.user = InteractionServeurStatic.currentInteractionServeur.connexion(pseudo, mdp);
-	  }
+	public DialogConnexionInfo()
+	{}
+
+	public DialogConnexionInfo(String pseudo, String mdp)
+	{
+		Utilisateur userRecu = InteractionServeurStatic.currentInteractionServeur.connexion(pseudo, mdp);
+		//On vérifie que la connexion a réussi
+		if(userRecu.getId() != -1)
+		{
+			System.out.println("Connexion réussi");
+			AccueilNonConnecte.user = userRecu;
+		}
+		else
+		{
+			System.out.println("Connexion échoué");
+		}
 	}
+}
