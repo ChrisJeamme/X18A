@@ -203,19 +203,17 @@ public class ParserXML
 
 	public static String analyserConnexionPseudo(String reception)
 	{
-		String pseudo = "";
 		ParserSAX p = new ParserSAX();
-		MySAXHandlerRecupPseudo handler = new MySAXHandlerRecupPseudo(pseudo);
+		MySAXHandlerRecupPseudo handler = new MySAXHandlerRecupPseudo();
 		p.monParsing(handler, reception);
-		return pseudo;
+		return handler.getPseudo();
 	}
 
 	public static String analyserConnexionMdp(String reception)
 	{
-		String mdp = "";
 		ParserSAX p = new ParserSAX();
-		MySAXHandlerRecupMdp handler = new MySAXHandlerRecupMdp(mdp);
+		MySAXHandlerRecupMdp handler = new MySAXHandlerRecupMdp();
 		p.monParsing(handler, reception);
-		return mdp;
+		return handler.getPass();
 	}
 }
