@@ -23,7 +23,7 @@ public class InteractionAvecClient
 	{
 		//non testé mais montre la gueule des fonctions de ce type
 		String xml =   	"<?xml version='1.0' encoding='UTF-8'?>"
-					+   "<!DOCTYPE utilisateur SYSTEM 'utilisateur.dtd'>"
+					+   "<!DOCTYPE utilisateur SYSTEM 'xml\\utilisateur.dtd'>"
 					+	"<utilisateur>"
 					+		"<id>"+u.getId()+"</id>"
 					+		"<nom>"+u.getNom()+"</nom>"
@@ -44,7 +44,7 @@ public class InteractionAvecClient
 	public static void envoyerDepense(Serveur serveur, Depense d)
 	{
 		String xml =   	"<?xml version=\"1.0\" encoding=\"UTF-8_\"?>"
-					+	"<!DOCTYPE chat SYSTEM \"depense.dtd\">"
+					+	"<!DOCTYPE chat SYSTEM \"xml\\depense.dtd\">"
 					+	"<depense idUtilisateur=\""+d.getIdUtilisateur()+"\" idEvenement=\""+d.getIdEvenement()+"\">"
 					+	"	<date>'"+d.getDate()+"'</date>"
 					+	"	<montant>'"+d.getMontant()+"'</montant>"
@@ -64,7 +64,7 @@ public class InteractionAvecClient
 	public static void envoyerEvenement(Serveur serveur, Evenement e)
 	{
 		String xml =   	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-					+	"<!DOCTYPE evenement SYSTEM \"evenement.dtd\">"
+					+	"<!DOCTYPE evenement SYSTEM \"xml\\evenement.dtd\">"
 					+	"<evenement>"
 					+		"<id>'"+e.getId()+"'</id>"
 					+	    "<nom>'"+e.getNomEvenement()+"'</nom>"
@@ -84,7 +84,7 @@ public class InteractionAvecClient
 	public static void envoyerChat(Serveur serveur, Chat c)
 	{
 		String xml = 	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-					+	"<!DOCTYPE chat SYSTEM \"chat.dtd\">"
+					+	"<!DOCTYPE chat SYSTEM \"xml\\chat.dtd\">"
 					+	"<chat evenementId=\"1\">";
 		
 		ArrayList<Message> messages = c.getMessages();
