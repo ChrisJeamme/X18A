@@ -9,6 +9,10 @@ import com.mysql.jdbc.ResultSetMetaData;
 import donnees.Depense;
 
 
+/**
+ * Sert aux tests d'interaction avec la base de données
+ *
+ */
 public class TestDB
 {
 	public static void main(String args[])

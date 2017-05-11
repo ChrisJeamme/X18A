@@ -11,8 +11,16 @@ import com.mysql.jdbc.exceptions.MySQLIntegrityConstraintViolationException;
 
 import donnees.Utilisateur;
 
+/**
+ * Gère la connexion à la base de données
+ *
+ */
 public class BDD
 {
+	/**
+	 * Liste des interactions possible avec la base de données
+	 *
+	 */
 	public enum TypesRequete
 	{
 		MODIFICATION, LECTURE, RETOURID
@@ -21,6 +29,9 @@ public class BDD
 	Connection c;
 	Statement st;
 	
+	/**
+	 * Constructeur et connexion à la base de données
+	 */
 	public BDD()
 	{
 		String serveur = "127.0.0.1";
@@ -50,6 +61,9 @@ public class BDD
 		}
 	}
 	
+	/**
+	 * Déconnexion de la base de données
+	 */
 	public void disconnect()
 	{
 		try
@@ -65,6 +79,10 @@ public class BDD
 		System.out.println("Connexion fermé");
 	}
 	
+	/**
+	 * Affiche le résultat de la requête à la base de données
+	 * @param r ResultSet
+	 */
 	public void afficherRes(ResultSet r)
 	{
 		int i;
@@ -113,6 +131,11 @@ public class BDD
 		}
 	}
 	
+	/**
+	 * Effectue une mise à jour dans la base de données
+	 * @param query String
+	 * @return int : L'id du résultat
+	 */
 	public int reqSQLid(String query)
 	{
 		try
@@ -133,6 +156,12 @@ public class BDD
 		return -1;
 	}
 	
+	/**
+	 * Effectue une requête dans la base de données
+	 * @param query String
+	 * @param type TypesRequete
+	 * @return ResultSet : Le résultat de la requête
+	 */
 	public ResultSet reqSQL(String query, TypesRequete type)
 	{
 		switch(type)
@@ -167,6 +196,12 @@ public class BDD
 				return null;
 		}
 	}
+	
+	/**
+	 * Vérifie si un utilisateur est connecté à la base de données
+	 * @return Utilisateur : L'utilisateur connecté ou null
+	 * @throws SQLException
+	 */
 	public Utilisateur verificationConnexion() throws SQLException
 	{
 		if (c.isClosed())
