@@ -83,13 +83,13 @@ public class Client
     	            PrintWriter writer = new PrintWriter(out);
     				
     				System.out.println("(Client) Envoi : " + message);
-                    writer.print(message+"\nover\n");
+                    writer.println(message+"\nover");
                     writer.flush();
                     String reponse;
                     
                     while(!(reponse = reader.readLine()).equals("over") && reponse != null)
                     {
-                    	recu.concat(reponse);
+                    	recu = recu.concat(reponse);
                     }
                     
                		//System.out.println("(Client) Recu : " + recu);
@@ -109,7 +109,7 @@ public class Client
     			
     		}
        	}
-    	envoyerMessageSansAffichage("over");
+    	//envoyerMessageSansAffichage("over");
     	return recu;
     }
 
