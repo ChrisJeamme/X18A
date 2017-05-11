@@ -8,9 +8,9 @@ public class MySAXHandlerRecupMdp extends DefaultHandler
 	boolean copier = false;
 	String mdp;
 	
-	public MySAXHandlerRecupMdp(String aCompleter)
+	public MySAXHandlerRecupMdp()
 	{
-		mdp = aCompleter;
+		mdp = "";
 	}
 	
 	public void startDocument()
@@ -21,7 +21,7 @@ public class MySAXHandlerRecupMdp extends DefaultHandler
 	
 	public void startElement(String uri, String localName, String qName, Attributes attributes)
 	{
-		if(qName=="pass")
+		if(qName.compareTo("pass") == 0)
 		{
 			copier = true;
 		}
@@ -34,6 +34,8 @@ public class MySAXHandlerRecupMdp extends DefaultHandler
 	{
 		if(copier)
 		{
+			copier = false;
+			
 			String contenu = "";
 			
 			for(int i=start; i<start+length; i++)
@@ -43,6 +45,11 @@ public class MySAXHandlerRecupMdp extends DefaultHandler
 			
 			mdp = contenu;
 		}
+	}
+
+	public String getPass()
+	{
+		return new String(mdp);
 	}
 
 }

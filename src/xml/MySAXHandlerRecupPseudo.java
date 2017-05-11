@@ -8,9 +8,9 @@ public class MySAXHandlerRecupPseudo extends DefaultHandler
 	boolean copier = false;
 	String pseudo;
 	
-	public MySAXHandlerRecupPseudo(String aCompleter)
+	public MySAXHandlerRecupPseudo()
 	{
-		pseudo = aCompleter;
+		pseudo = "";
 	}
 	
 	public void startDocument()
@@ -21,7 +21,7 @@ public class MySAXHandlerRecupPseudo extends DefaultHandler
 	
 	public void startElement(String uri, String localName, String qName, Attributes attributes)
 	{
-		if(qName=="pseudo")
+		if(qName.compareTo("pseudo") == 0)
 		{
 			copier = true;
 		}
@@ -34,15 +34,23 @@ public class MySAXHandlerRecupPseudo extends DefaultHandler
 	{
 		if(copier)
 		{
+			copier = false;
+			
 			String contenu = "";
 			
 			for(int i=start; i<start+length; i++)
 			{
 				contenu = contenu.concat(ch[i]+"");
 			}
-			
+			System.out.println("Pseudo= "+pseudo);
 			pseudo = contenu;
 		}
+	}
+	
+	public String getPseudo()
+	{
+		System.out.println("On a get le pseudo = "+pseudo);
+		return new String(pseudo);
 	}
 
 }

@@ -16,11 +16,17 @@ public class TestClient
 //		System.out.println(iserv.ajoutUtilisateur(u));
 //		System.out.println("Id de l'user après: "+u.getId());
 //		
-		Evenement e = new Evenement("eventFromClientLourd",1000);
-		System.out.println("Id de l'évenement avant: "+e.getId());
-		System.out.println("Ajout");
-		System.out.println(iserv.ajoutEvenement(e));
-		System.out.println("Id de l'évenement après: "+e.getId());
+//		Evenement e = new Evenement("eventFromClientLourd",1000);
+//		System.out.println("Id de l'évenement avant: "+e.getId());
+//		System.out.println("Ajout");
+//		System.out.println(iserv.ajoutEvenement(e));
+//		System.out.println("Id de l'évenement après: "+e.getId());
+		
+		Utilisateur u2;
+		System.out.println("Connexion");
+		u2 = iserv.connexion("cjeamme","pass");
+		System.out.println("Id de l'user: "+u2.getId());
+		
 	}
 
 }
