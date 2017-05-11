@@ -5,27 +5,44 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import donnees.DepenseUtilisateur;
 
+/**
+ * Handler SAX de l'objet Utilisateur
+ *
+ */
 public class MySAXHandlerDepenseUtilisateur extends DefaultHandler
 {
 	DepenseUtilisateur depenseUtilisateur;
 	String dernierARemplir;
 
+	/**
+	 * Constructeur et initialisation de depenseUtilisateur
+	 * @param depenseUtilisateur DepenseUtilisateur
+	 */
 	public MySAXHandlerDepenseUtilisateur(DepenseUtilisateur depenseUtilisateur)
 	{
 		this.depenseUtilisateur = depenseUtilisateur;
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#startDocument()
+	 */
 	public void startDocument()
 	{
 		System.out.println("Début fichier:\n\n");
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#endDocument()
+	 */
 	public void endDocument()
 	{
 		System.out.println("Fichier terminé");
 		System.out.println();
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
+	 */
 	public void startElement(String uri, String localName, String qName, Attributes attributes)
 	{
 		if(qName=="nombre")
@@ -58,11 +75,17 @@ public class MySAXHandlerDepenseUtilisateur extends DefaultHandler
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String, java.lang.String, java.lang.String)
+	 */
 	public void endElement(String uri, String localName, String qName)
 	{
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#characters(char[], int, int)
+	 */
 	public void characters(char[] ch, int start, int length)
 	{
 		String contenu = "";

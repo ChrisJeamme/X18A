@@ -5,27 +5,44 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import donnees.Depense;
 
+/**
+ * Handler SAX de l'objet Depense
+ *
+ */
 public class MySAXHandlerDepense extends DefaultHandler
 {
 	Depense depense;
 	String dernierARemplir;
 
+	/**
+	 * Constructeur et initialisation de la depense
+	 * @param depense Depense
+	 */
 	public MySAXHandlerDepense(Depense depense)
 	{
 		this.depense = depense;
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#startDocument()
+	 */
 	public void startDocument()
 	{
 		System.out.println("Début fichier:\n\n");
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#endDocument()
+	 */
 	public void endDocument()
 	{
 		System.out.println("Fichier terminé");
 		System.out.println();
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
+	 */
 	public void startElement(String uri, String localName, String qName, Attributes attributes)
 	{
 		if(qName=="depense")
@@ -53,11 +70,17 @@ public class MySAXHandlerDepense extends DefaultHandler
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String, java.lang.String, java.lang.String)
+	 */
 	public void endElement(String uri, String localName, String qName)
 	{
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#characters(char[], int, int)
+	 */
 	public void characters(char[] ch, int start, int length)
 	{
 		String contenu = "";

@@ -10,13 +10,25 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * Gestion du parser SAX
+ *
+ */
 public class ParserSAX
 {
+	/**
+	 * Constructeur vide
+	 */
 	public ParserSAX()
 	{
 
 	}
 	
+	/**
+	 * Crée le parser
+	 * @param handler DefaultHandler
+	 * @param xml String
+	 */
 	public void monParsing(DefaultHandler handler, String xml)
 	{
 		SAXParserFactory factory= SAXParserFactory.newInstance();
@@ -42,6 +54,10 @@ public class ParserSAX
 		}
 	}
 
+	/**
+	 * @param handler MySAXHandlerDepense
+	 * @param reception String
+	 */
 	public void monParsing(MySAXHandlerDepense handler, String reception)
 	{
 		// TODO Auto-generated method stub

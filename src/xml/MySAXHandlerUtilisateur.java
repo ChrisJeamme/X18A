@@ -5,21 +5,38 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import donnees.Utilisateur;
 
+/**
+ * Handler SAX de l'objet Utilisateur
+ *
+ */
 public class MySAXHandlerUtilisateur extends DefaultHandler {
 	Utilisateur utilisateur;
 	String dernierARemplir;
 	
+	/**
+	 * Constructeur et initialisation de utilisateur
+	 * @param utilisateur Utilisateur
+	 */
 	public MySAXHandlerUtilisateur(Utilisateur utilisateur)
 	{
 		this.utilisateur = utilisateur;
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#startDocument()
+	 */
 	public void startDocument()
 	{}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#endDocument()
+	 */
 	public void endDocument()
 	{}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
+	 */
 	public void startElement(String uri, String localName, String qName, Attributes attributes)
 	{
 		if(qName=="id")
@@ -48,9 +65,15 @@ public class MySAXHandlerUtilisateur extends DefaultHandler {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String, java.lang.String, java.lang.String)
+	 */
 	public void endElement(String uri, String localName, String qName)
 	{}
 	
+	/* (non-Javadoc)
+	 * @see org.xml.sax.helpers.DefaultHandler#characters(char[], int, int)
+	 */
 	public void characters(char[] ch, int start, int length)
 	{
 		String contenu = "";
