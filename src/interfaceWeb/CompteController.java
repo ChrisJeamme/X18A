@@ -32,13 +32,19 @@ public class CompteController extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		//On récupère la session en cours
 		HttpSession session = request.getSession();
+		//On vérifie que l'utilisateur est bien connecté
 		if (session.getAttribute("utilisateur") == null)
 		{
+			//il n'y a pas d'utilisateur connecté, on renvoit vers la page d'accueuil du site
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
-			return;
+			return; //on n'execute pas la suite du code
 		}
+		//On récupère l'utilisateur
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
+		
+		//On envoit les données à la vue compte
 		request.setAttribute("utilisateur", u);
 		getServletContext().getRequestDispatcher("/compte.jsp").forward(request, response);
 	}

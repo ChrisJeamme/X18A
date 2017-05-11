@@ -31,8 +31,11 @@ public class DeconnexionController extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		//On supprime les attributs de la session
 		HttpSession session = request.getSession();
 		session.removeAttribute("utilisateur");
+		session.removeAttribute("evenement");
+		//On renvoie sur l'index du site
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		return;
 	}

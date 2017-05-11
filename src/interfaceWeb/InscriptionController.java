@@ -36,10 +36,11 @@ public class InscriptionController extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		//Si on cherche à acceder à la page via l'URL on renvoie vers inscription.jsp
 		HttpSession session = request.getSession();
 		if (session.getAttribute("utilisateur") == null)
 		{
-			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/inscription.jsp").forward(request, response);
 			return;
 		}
 	}
@@ -50,37 +51,40 @@ public class InscriptionController extends HttpServlet
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		//On récupère les données du formulaire. Elles sont non vides car vérifiées par javascript
 		String pseudo = (String) request.getParameter("pseudo");
 		String motDePasse = (String) request.getParameter("pass");
 		String email = (String) request.getParameter("email");
 		String nom = (String) request.getParameter("nom");
 		String prenom = (String) request.getParameter("prenom");
 		
-		BDD db = new BDD();
+		BDD db = new BDD(); //Connexion à la bdd
 
 		String message;
 		String redirection;
 		
+		//Si le mail est déjà dans la bdd, on retourne à l'insciption avec un message d'erreur
 		if (InteractionBDD.emailExiste(db, email))
 		{
 			message = "Cet email est déjà utilisé.";
 			redirection = "/inscription.jsp";
-		}
+		} //Pareil si le pseudo est déja utilisé
 		else if (InteractionBDD.pseudoExiste(db, pseudo))
 		{
 			message = "Ce pseudo est déja utilisé, veuillez en choisir un autre.";
 			redirection = "/inscription.jsp";
 		}
-		else
+		else //Création d'un nouvel utilisateur
 		{
 			Utilisateur u = new Utilisateur(nom, prenom, email, pseudo, motDePasse);
 			InteractionBDD.ajoutUtilisateur(db, nom, prenom, email, pseudo, motDePasse);
-			HttpSession session = request.getSession();
-			session.setAttribute("utilisateur", u);
-			message = "Bienvenue";
-			redirection = "/AccueilConnecte";
+			HttpSession session = request.getSession(); 
+			session.setAttribute("utilisateur", u); //On met l'utilisateur dans la session
+			message = "Bienvenue"; //Message de bienvenue
+			redirection = "/AccueilConnecte"; //On envoie sur l'accueil connecté
 		}
-		db.disconnect();	
+		db.disconnect();
+		//On transmet les données où on veut aller
 		request.setAttribute("message", message);
 		getServletContext().getRequestDispatcher(redirection).forward(request, response);
 	}
