@@ -21,7 +21,6 @@ public class InteractionAvecClient
 	 */
 	public static void envoyerUtilisateur(Serveur serveur, Utilisateur u)
 	{
-		//non testé mais montre la gueule des fonctions de ce type
 		String xml =   	"<?xml version='1.0' encoding='UTF-8'?>"
 					+   "<!DOCTYPE utilisateur SYSTEM 'xml\\utilisateur.dtd'>"
 					+	"<utilisateur>"
@@ -31,7 +30,7 @@ public class InteractionAvecClient
 					+		"<email>"+u.getEmail()+"</email>"
 					+		"<pseudo>"+u.getPseudo()+"</pseudo>"
 					+		"<motDePasse>"+u.getMotDePasse()+"</motDePasse>"
-					+	"</utilisateur>;";
+					+	"</utilisateur>";
 		
 		serveur.envoyer(xml);
 	}
@@ -44,7 +43,7 @@ public class InteractionAvecClient
 	public static void envoyerDepense(Serveur serveur, Depense d)
 	{
 		String xml =   	"<?xml version=\"1.0\" encoding=\"UTF-8_\"?>"
-					+	"<!DOCTYPE chat SYSTEM \"xml\\depense.dtd\">"
+					+	"<!DOCTYPE chat SYSTEM \"depense.dtd\">"
 					+	"<depense idUtilisateur=\""+d.getIdUtilisateur()+"\" idEvenement=\""+d.getIdEvenement()+"\">"
 					+	"	<date>'"+d.getDate()+"'</date>"
 					+	"	<montant>'"+d.getMontant()+"'</montant>"
@@ -64,7 +63,7 @@ public class InteractionAvecClient
 	public static void envoyerEvenement(Serveur serveur, Evenement e)
 	{
 		String xml =   	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-					+	"<!DOCTYPE evenement SYSTEM \"xml\\evenement.dtd\">"
+					+	"<!DOCTYPE evenement SYSTEM \"evenement.dtd\">"
 					+	"<evenement>"
 					+		"<id>'"+e.getId()+"'</id>"
 					+	    "<nom>'"+e.getNomEvenement()+"'</nom>"
@@ -84,7 +83,7 @@ public class InteractionAvecClient
 	public static void envoyerChat(Serveur serveur, Chat c)
 	{
 		String xml = 	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
-					+	"<!DOCTYPE chat SYSTEM \"xml\\chat.dtd\">"
+					+	"<!DOCTYPE chat SYSTEM \"chat.dtd\">"
 					+	"<chat evenementId=\"1\">";
 		
 		ArrayList<Message> messages = c.getMessages();
