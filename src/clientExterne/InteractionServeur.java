@@ -56,11 +56,11 @@ public class InteractionServeur
 		
 		String reponse = envoiServeur(xml);
 		
-		//On enlève over à la fin de la réponse
-		//reponse = clean(reponse);
+		//On lit l'utilisateur reçu
+		Utilisateur recu = ParserXML.lireUtilisateur(reponse);
 		
 		//On récupère l'id de la réponse
-		int id = Integer.parseInt(reponse);
+		int id = recu.getId();
 		
 		if(id != -1 && u.getId() == -1) //Si il a bien été ajouté et l'utilisateur n'a pas déjà un id
 		{
@@ -241,9 +241,6 @@ public class InteractionServeur
 					+	"</evenement>";
 		
 		String reponse = envoiServeur(xml);
-		
-		//On enlève over à la fin de la réponse
-		reponse = clean(reponse);
 		
 		//On récupère l'évenement avec l'ID remplit
 		int id = ParserXML.lireEvenement(reponse).getId();
