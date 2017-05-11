@@ -55,10 +55,11 @@ public class MySAXHandlerParticipeMultipleUtilisateur extends DefaultHandler
 			contenu = contenu.concat(ch[i]+"");
 		}
 		
-		if(dernierARemplir == "end")
+		if(dernierARemplir == "nombre")
 		{
 			dernierARemplir = "";
-			System.out.println("Fin de la lecture");
+			System.out.println("Enregistrement du nombre d'evenements");
+			participeMultipleUtilisateur.setNombreEvenements(Integer.parseInt(contenu));
 		}
 	}
 }
