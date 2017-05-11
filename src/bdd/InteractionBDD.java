@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import com.mysql.jdbc.ResultSetMetaData;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 import bdd.BDD.TypesRequete;
 import donnees.Chat;
