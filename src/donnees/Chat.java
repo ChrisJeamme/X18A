@@ -12,7 +12,7 @@ public class Chat
 	int id;
 
 	/**
-	 * Constructeur vide
+	 * Constructeur sans paramètres
 	 */
 	public Chat()
 	{

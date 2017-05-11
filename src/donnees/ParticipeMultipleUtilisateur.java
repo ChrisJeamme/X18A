@@ -14,7 +14,7 @@ public class ParticipeMultipleUtilisateur
 	int nombreEvenements;
 
 	/**
-	 * Constructeur vide
+	 * Constructeur sans paramètres
 	 */
 	public ParticipeMultipleUtilisateur()
 	{

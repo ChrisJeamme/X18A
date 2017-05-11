@@ -14,7 +14,7 @@ public class DepenseUtilisateur
 	int nombreDepense;
 
 	/**
-	 * Constructeur vide
+	 * Constructeur sans paramètres
 	 */
 	public DepenseUtilisateur()
 	{
