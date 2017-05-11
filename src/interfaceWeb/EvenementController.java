@@ -48,15 +48,29 @@ public class EvenementController extends HttpServlet
 			getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 			return;
 		}
-		String idEvent = request.getParameter("ev");
-		int id = Integer.parseInt(idEvent);
-		
+		int id=0;
+		try 
+		{
+			String idEvent = request.getParameter("ev");
+			id = Integer.parseInt(idEvent);
+		}
+		catch (Exception e)
+		{
+			getServletContext().getRequestDispatcher("/AccueilConnecte").forward(request, response);
+			return;
+		}
 		BDD db = new BDD();
 		Evenement event = InteractionBDD.recupEvenementsAvecID(db, id);
 		session.setAttribute("evenement", event);
 		
 		Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
-
+		
+		if(! InteractionBDD.utilisateurParticpeAEvenement(db, u.getId(), event.getId()))
+		{
+			getServletContext().getRequestDispatcher("/AccueilConnecte").forward(request, response);
+			return;
+		}
+		
 		ArrayList<Utilisateur> listeUtilisateursEv = InteractionBDD.recupUtilisateursDeEvenement(db, event.getId()); 
 		ArrayList<Utilisateur> listeUtilisateurs = new ArrayList<>();
 		for (int i=0; i<listeUtilisateursEv.size(); i++)
