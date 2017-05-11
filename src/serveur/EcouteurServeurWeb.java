@@ -26,7 +26,7 @@ public class EcouteurServeurWeb implements ServletContextListener
      */
     public void contextDestroyed(ServletContextEvent sce)
     { 
-    	System.out.println(sce.getServletContext());
+    	System.out.println("CONTEXTE="+sce.getServletContext().getServletContextName());
     }
 
 	/**
@@ -34,7 +34,7 @@ public class EcouteurServeurWeb implements ServletContextListener
      */
     public void contextInitialized(ServletContextEvent sce)
     { 
-    	System.out.println(sce.getServletContext());
+    	System.out.println("CONTEXTE="+sce.getServletContext().getServletContextName());
     	
 //		int port = 18458;
 //		gestionServeur = new GestionServeur(port);
