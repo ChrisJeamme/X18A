@@ -8,7 +8,7 @@ import java.net.Socket;
  * Gère le serveur
  *
  */
-public class Serveur
+public class ServeurTCP
 {
 	int port;
 	ServerSocket server;
@@ -20,7 +20,7 @@ public class Serveur
 	 * Constructeur et initialisation du port
 	 * @param port int
 	 */
-	public Serveur(int port)
+	public ServeurTCP(int port)
 	{
 		this.port = port;
 	}
