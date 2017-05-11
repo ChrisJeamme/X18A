@@ -77,14 +77,14 @@ public class InteractionServeur
 		return utilisateur;
 	}
 	
-	public Utilisateur connexion(String pseudo, String mdp )
+	public Utilisateur connexion(String pseudo, String mdp)
 	{
 		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 					+	"<!DOCTYPE connexion SYSTEM \"xml\\connexion.dtd\">"
-					+	"<demande>"
-					+	"	<type>utilisateur</type>"
-					+	"	<id>idUtilisateur</id>"
-					+	"</demande>";
+					+	"<connexion>"
+					+	"	<pseudo>"+pseudo+"</pseudo>"
+					+	"	<pass>"+mdp+"</pass>"
+					+	"</connexion>";
 		
 		String reponse = envoiServeur(xml);
 		
