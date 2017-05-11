@@ -107,17 +107,6 @@ public class Serveur
 			System.out.println("(Server) Reçu: "+recu);
 						
 			return recu;
-			
-//				if(ligne != null)
-//				{
-//					if(ligne.equals("finConnexion")) //Si la connexion a été fermé
-//					{
-//						System.out.println("(Server) Fermeture de la connexion");
-//						in.close();
-//						out.close();
-//						s.close();
-//					}
-//				}
 		}
 		catch (IOException e)
 		{
