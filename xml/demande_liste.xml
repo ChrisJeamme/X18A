@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE demande_liste SYSTEM "demande_liste.dtd">
+<demande_liste>
+	<id>1</id>
+	<type_id>utilisateur</type_id>
+	<objet_demande>participeMutlipleUtilisateur</objet_demande>
+</demande_liste>

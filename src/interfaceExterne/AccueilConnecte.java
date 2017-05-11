@@ -19,6 +19,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import clientExterne.InteractionServeurStatic;
 import donnees.Depense;
 import donnees.Evenement;
 
@@ -153,7 +154,8 @@ public class AccueilConnecte {
 	      public void actionPerformed(ActionEvent arg0) {
 	        String nomE = nomEv.getText();
 	        String budgetE = budgetEv.getText();
-	        //A rentrer en base
+	        Evenement ev = new Evenement(nomE, Integer.parseInt(budgetE));
+	        InteractionServeurStatic.currentInteractionServeur.ajoutEvenement(ev);
 	      }
      
 	    });

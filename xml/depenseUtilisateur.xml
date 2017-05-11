@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE depenseUtilisateur SYSTEM "depenseUtilisateur.dtd">
+<depenseUtilisateur idUtilisateur="1">
+	<nombre>1</nombre>
+	<depense idUtilisateur="1" idEvenement="1">
+		<date>2017-08-08</date>
+		<montant>10</montant>
+		<description>test</description>
+	</depense>
+</depenseUtilisateur>

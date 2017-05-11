@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE participeMultipleUtilisateur SYSTEM "participeMultipleUtilisateur.dtd">
 <participeMultipleUtilisateur idUtilisateur="1">
+	<nombre>1</nombre>
 	<participe idEvenement="1" idUtilisateur="1"></participe>
-	<end></end>
 </participeMultipleUtilisateur>

@@ -77,14 +77,14 @@ public class InteractionServeur
 		return utilisateur;
 	}
 	
-	public Utilisateur connexion(String pseudo, String mdp )
+	public Utilisateur connexion(String pseudo, String mdp)
 	{
 		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 					+	"<!DOCTYPE connexion SYSTEM \"xml\\connexion.dtd\">"
-					+	"<demande>"
-					+	"	<type>utilisateur</type>"
-					+	"	<id>idUtilisateur</id>"
-					+	"</demande>";
+					+	"<connexion>"
+					+	"	<pseudo>"+pseudo+"</pseudo>"
+					+	"	<pass>"+mdp+"</pass>"
+					+	"</connexion>";
 		
 		String reponse = envoiServeur(xml);
 		
@@ -140,7 +140,6 @@ public class InteractionServeur
 		return evenement;
 	}
 	
-	
 	public Participe recevoirParticipe(int idUtilisateur, int idEvenement)
 	{
 		String xml =	"<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
@@ -186,17 +185,16 @@ public class InteractionServeur
 			return false;
 	}
 	
-	
 	public boolean ajoutEvenement(Evenement e)
 	{
 		//non testé mais montre la gueule des fonctions de ce type
 		String xml =   	"<?xml version='1.0' encoding='UTF-8'?>"
 					+   "<!DOCTYPE evenement SYSTEM 'xml\\evenement.dtd'>"
 					+	"<evenement>"
-					+		"<id></id>"
-					+		"<nomEvenement>"+e.getNomEvenement()+"</nomEvenement>"
-					+		"<prenom>"+e.getBudget()+"</prenom>"
-					+	"</evenement>;";
+					+		"<id>-1</id>"
+					+		"<nom>"+e.getNomEvenement()+"</nom>"
+					+		"<budget>"+e.getBudget()+"</budget>"
+					+	"</evenement>";
 		
 		String reponse = envoiServeur(xml);
 		

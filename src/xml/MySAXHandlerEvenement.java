@@ -23,10 +23,6 @@ public class MySAXHandlerEvenement extends DefaultHandler
 	
 	public void startElement(String uri, String localName, String qName, Attributes attributes)
 	{
-		if(qName=="evenement")
-		{
-			dernierARemplir = "evenement";
-		}
 		if(qName=="id")
 		{
 			dernierARemplir = "id";
@@ -55,7 +51,8 @@ public class MySAXHandlerEvenement extends DefaultHandler
 		if(dernierARemplir == "id")
 		{
 			dernierARemplir = "";
-			evenement.setId(Integer.valueOf(contenu));
+			if(contenu.compareTo("-1")!=0)
+				evenement.setId(Integer.valueOf(contenu));
 		}
 		if(dernierARemplir == "nom")
 		{

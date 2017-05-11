@@ -28,17 +28,17 @@ public class MySAXHandlerParticipeMultipleUtilisateur extends DefaultHandler
 	
 	public void startElement(String uri, String localName, String qName, Attributes attributes)
 	{
+		if(qName=="nombre")
+		{
+			System.out.println("Nombre d'evenements");
+			dernierARemplir = "nombre";
+		}
 		if(qName=="participe")
 		{
 			System.out.println("Nouvel evenement");
 			participeMultipleUtilisateur.nouvelEvenement();
 			participeMultipleUtilisateur.getDernierElementObj().setId(Integer.parseInt(attributes.getValue(0)));
 			dernierARemplir = "participe";
-		}
-		if(qName=="end")
-		{
-			System.out.println("Fin des evenements");
-			dernierARemplir = "end";
 		}
 	}
 
@@ -55,10 +55,11 @@ public class MySAXHandlerParticipeMultipleUtilisateur extends DefaultHandler
 			contenu = contenu.concat(ch[i]+"");
 		}
 		
-		if(dernierARemplir == "end")
+		if(dernierARemplir == "nombre")
 		{
 			dernierARemplir = "";
-			System.out.println("Fin de la lecture");
+			System.out.println("Enregistrement du nombre d'evenements");
+			participeMultipleUtilisateur.setNombreEvenements(Integer.parseInt(contenu));
 		}
 	}
 }
