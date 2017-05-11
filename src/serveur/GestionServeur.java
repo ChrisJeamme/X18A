@@ -66,7 +66,9 @@ public class GestionServeur
 				String pseudo = ParserXML.analyserConnexionPseudo(reception);
 				String mdp = ParserXML.analyserConnexionMdp(reception);
 				Utilisateur u2 = InteractionBDD.verificationConnexion(bdd, pseudo, mdp);
-				if(u2==null) u2 = new Utilisateur("", "", "", "", ""); //id sera à -1 (Si la connexion a échoué)
+				//System.out.println("Reception de l'user de la BDD pour connexion: "+u2);
+				if(u2==null) //Si la connexion a échoué
+					u2 = new Utilisateur("", "", "", "", ""); //id sera à -1 
 				InteractionAvecClient.envoyerUtilisateur(serveur, u2);
 				break;
 				
