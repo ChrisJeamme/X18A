@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT demande_liste (id,type_id,objet_demande)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT type_id (#PCDATA)>
+<!ELEMENT objet_demande (#PCDATA)>

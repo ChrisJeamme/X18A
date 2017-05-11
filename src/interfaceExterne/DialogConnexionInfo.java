@@ -23,7 +23,7 @@ public class DialogConnexionInfo
 		else
 		{
 			System.out.println("Connexion échoué");
-			// Erreur mettre un messsage et retourner sur la page non connectee
+			// Erreur Retourner sur la page non connectee
 		}
 	}
 }

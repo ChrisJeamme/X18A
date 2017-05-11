@@ -10,13 +10,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8" HTTP-EQUIV="Refresh" CONTENT="20; URL=evenement?ev=${ evenement.id }"> 
+	<meta charset="UTF-8" HTTP-EQUIV="Refresh" CONTENT="15; URL=evenement?ev=${ evenement.id }"> 
 	<title>Deal With It !</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="http://anthony.jeamme.fr/css/resume_impress.css" media="print">
+	<link rel="stylesheet" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -34,7 +34,12 @@
 	</nav>
 
 <section>
-	<div id="contentDiv">
+	<div id="refresh">
+	<h2><span class="glyphicon glyphicon-euro"></span> Total des dépenses</h2>
+	<ul class="list-group">
+	    <li class="list-group-item list-group-item-success">${ evenement.budget }€</li>
+	</ul>
+	
 	<h2><span class="glyphicon glyphicon-user"></span> Participants</h2>
 	<ul class="list-group">
 	<c:forEach var="util" items="${  utilisateurs  }">
@@ -77,7 +82,7 @@
 				<input class="btn btn-default" value="Ajouter la dépense" type="submit">	
 			</form>
 		</div>
-		<div id="Gauche">
+		<div id="Droite">
 			<c:if test="${ not empty erreur }">
 			 <span class="alert alert-danger">${ erreur }</span>
 			</c:if>
