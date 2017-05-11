@@ -37,7 +37,7 @@ public class AccueilNonConnecte {
 		panel1.setPreferredSize(new Dimension(880,200));
 		frame.add(panel1);
 			
-		/****creation des éléments****/
+		/****creation des elements****/
 		JLabel lblMenu = new JLabel();
 		lblMenu.setOpaque(true);
 		lblMenu.setBackground(new Color(0,128,255));		
@@ -73,7 +73,7 @@ public class AccueilNonConnecte {
 		panel2.setPreferredSize(new Dimension(880,514));
 		frame.add(panel2);
 
-		/****creation des éléments****/
+		/****creation des elements****/
 		
 		JLabel labelMain = new JLabel();
 		labelMain.setOpaque(true);
