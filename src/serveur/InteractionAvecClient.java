@@ -8,12 +8,16 @@ import donnees.Evenement;
 import donnees.Message;
 import donnees.Utilisateur;
 
+/**
+ * Gère les interactions entre le client et le serveur
+ *
+ */
 public class InteractionAvecClient
 {
 	/**
-	 *  Envoi l'utilisateur u au client (Crée le XML)
-	 * @param serveur
-	 * @param u
+	 * Envoie l'utilisateur u au client (Crée le XML)
+	 * @param serveur Serveur
+	 * @param u Utilisateur
 	 */
 	public static void envoyerUtilisateur(Serveur serveur, Utilisateur u)
 	{
@@ -33,9 +37,9 @@ public class InteractionAvecClient
 	}
 
 	/**
-	 *  Envoi la dépense d au client (Crée le XML)
-	 * @param serveur
-	 * @param d
+	 * Envoie la dépense d au client (Crée le XML)
+	 * @param serveur Serveur
+	 * @param d Depense
 	 */
 	public static void envoyerDepense(Serveur serveur, Depense d)
 	{
@@ -53,9 +57,9 @@ public class InteractionAvecClient
 	}
 
 	/**
-	 *  Envoi l'évenement e au client (Crée le XML)
-	 * @param serveur
-	 * @param e
+	 * Envoie l'évenement e au client (Crée le XML)
+	 * @param serveur Serveur
+	 * @param e Evenement
 	 */
 	public static void envoyerEvenement(Serveur serveur, Evenement e)
 	{
@@ -73,9 +77,9 @@ public class InteractionAvecClient
 	}
 
 	/**
-	 *  Envoi le chat c au client (Crée le XML)
-	 * @param serveur
-	 * @param c
+	 * Envoie le chat c au client (Crée le XML)
+	 * @param serveur Serveur
+	 * @param c Chat
 	 */
 	public static void envoyerChat(Serveur serveur, Chat c)
 	{

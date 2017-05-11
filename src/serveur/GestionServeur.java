@@ -11,11 +11,18 @@ import donnees.Utilisateur;
 import xml.ParserXML;
 import xml.TypeRequete;
 
+/**
+ * Gère les actions serveur
+ *
+ */
 public class GestionServeur
 {
 	Serveur serveur;
 	BDD bdd;
 	
+	/**
+	 * Constructeur et liste des actions possibles
+	 */
 	public GestionServeur()
 	{
 		bdd = new BDD();
